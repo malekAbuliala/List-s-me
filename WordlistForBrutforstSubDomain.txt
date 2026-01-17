@@ -1,3 +1,4 @@
+## This list for Brute Force For SubDomain
 www
 mail
 ftp
