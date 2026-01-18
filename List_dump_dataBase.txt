@@ -1,0 +1,16 @@
+# This list for guess The Big Dump Hunter قائمة "أحجام ملفات قواعد البيانات" we well using it with DataExtractionPullDataBaseTecknekS3.xlsx 
+# أنماط النسخ الاحتياطي التلقائي
+_backup_full
+_dump_latest
+_db_production
+_prod_snapshot
+_migrate_data
+_export_final
+_raw_database
+_schema_dump
+_sqldump_2024
+_sqldump_2025
+_temp_db
+_old_records
+_master_db
+_client_export
