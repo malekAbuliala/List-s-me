@@ -1,4 +1,4 @@
-# This list we will using with SQL Injection the Classic / In-Band SQL Injection  ( The section follows the SQL Injection)
+# This list we will using with SQL Injection the Classic / In-Band ِAnd Union-Based SQL Injection type ( The section follows the SQL Injection)
 select version();	
 select current_database();
 select current_user;
