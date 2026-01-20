@@ -1,4 +1,3 @@
-# This list for bruote force for username and passowred For states 401 ( Pass And Username )
 anonymous:anonymous
 root:rootpasswd
 root:12hrs37
@@ -110,3 +109,4 @@ oracle:oracle
 mysql:mysql
 postgres:postgres
 admin:admin123
+# This list for bruote force for username and passowred For states 401 ( Pass And Username )
