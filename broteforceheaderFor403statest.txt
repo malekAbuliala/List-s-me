@@ -1,4 +1,3 @@
-# This list for broute force for header 403 states( for header
 X-Originating-IP: 127.0.0.1
 X-Forwarded-For: 127.0.0.1
 X-Forwarded: 127.0.0.1
@@ -63,3 +62,4 @@ X-Forwarded-Host:127.0.0.1
 X-Forwarded-Proto:127.0.0.1
 X-Forwarded-By:127.0.0.1
 Content-Length:0
+# This list for broute force for header 403 states( for header
