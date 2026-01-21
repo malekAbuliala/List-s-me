@@ -18,6 +18,3 @@ http.createServer((req, res) => {
 
 
 
-
-// This codeing we will using with File Upload RCE Bug type and This file expresses the exploited File Upload RCE if server using .js lang ( The section follows the RCE Bug )
-// Simple Web Shell for Node.js
