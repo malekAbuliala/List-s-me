@@ -20196,4 +20196,3 @@ fap
 baikal
 driss
 juridico
-# This list for Brute Force For SubDomain
