@@ -6,4 +6,3 @@ $a($b);
 ?>
 
 
-// This codeing we will using with File Upload RCE Bug type and This file expresses the exploited File Upload RCE if server using php lang with bypass WAF ( The section follows the RCE Bug )
