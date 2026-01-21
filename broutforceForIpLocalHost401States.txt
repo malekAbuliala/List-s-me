@@ -535,4 +535,3 @@ localhost:80%00
 localhost:80%09
 localhost:80%0a
 localhost:80/
-# this list for brite force in ip localhost (401 Statet with ip local host )
