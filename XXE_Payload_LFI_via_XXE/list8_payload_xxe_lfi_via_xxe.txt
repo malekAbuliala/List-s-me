@@ -1,0 +1,6 @@
+<!DOCTYPE r [
+  <!ENTITY a0 "payload_here">
+  <!ENTITY a1 "&a0;&a0;&a0;&a0;&a0;">
+  <!ENTITY a2 "&a1;&a1;&a1;&a1;&a1;">
+  ]>
+<root>&a2;</root>
