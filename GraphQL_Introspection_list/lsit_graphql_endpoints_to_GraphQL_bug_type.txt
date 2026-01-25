@@ -1,0 +1,776 @@
+/graphql
+/graphiql
+/v1/graphql
+/v1/graphiql
+/api/graphql
+/api/v1/graphql
+/console
+/playground
+/v2/graphql
+/api/v2/graphql
+/api/v1/graphiql
+/graph.php
+/graphql.php
+/graphql/v1
+/graphql/v2
+/query
+/subscriptions
+/v1/api/graphql
+/v1/query
+/v1/subscriptions
+/v2/api/graphql
+/v2/query
+/v2/subscriptions
+/api/v1/query
+/api/v1/subscriptions
+___graphql
+altair
+explorer
+graphiql
+graphiql.css
+graphiql/finland
+graphiql.js
+graphiql.min.css
+graphiql.min.js
+graphiql.php
+graphql
+graphql/console
+graphql-explorer
+graphql.php
+graphql/schema.json
+graphql/schema.xml
+graphql/schema.yaml
+playground
+subscriptions
+api/graphql
+je/graphql
+graph
+v1/altair
+v1/explorer
+v1/graphiql
+v1/graphiql.css
+v1/graphiql/finland
+v1/graphiql.js
+v1/graphiql.min.css
+v1/graphiql.min.js
+v1/graphiql.php
+v1/graphql
+v1/graphql/console
+v1/graphql-explorer
+v1/graphql.php
+v1/graphql/schema.json
+v1/graphql/schema.xml
+v1/graphql/schema.yaml
+v1/playground
+v1/subscriptions
+v1/api/graphql
+v1/graph
+v2/altair
+v2/explorer
+v2/graphiql
+v2/graphiql.css
+v2/graphiql/finland
+v2/graphiql.js
+v2/graphiql.min.css
+v2/graphiql.min.js
+v2/graphiql.php
+v2/graphql
+v2/graphql/console
+v2/graphql-explorer
+v2/graphql.php
+v2/graphql/schema.json
+v2/graphql/schema.xml
+v2/graphql/schema.yaml
+v2/playground
+v2/subscriptions
+v2/api/graphql
+v2/graph
+v3/altair
+v3/explorer
+v3/graphiql
+v3/graphiql.css
+v3/graphiql/finland
+v3/graphiql.js
+v3/graphiql.min.css
+v3/graphiql.min.js
+v3/graphiql.php
+v3/graphql
+v3/graphql/console
+v3/graphql-explorer
+v3/graphql.php
+v3/graphql/schema.json
+v3/graphql/schema.xml
+v3/graphql/schema.yaml
+v3/playground
+v3/subscriptions
+v3/api/graphql
+v3/graph
+v4/altair
+v4/explorer
+v4/graphiql
+v4/graphiql.css
+v4/graphiql/finland
+v4/graphiql.js
+v4/graphiql.min.css
+v4/graphiql.min.js
+v4/graphiql.php
+v4/graphql
+v4/graphql/console
+v4/graphql-explorer
+v4/graphql.php
+v4/graphql/schema.json
+v4/graphql/schema.xml
+v4/graphql/schema.yaml
+v4/playground
+v4/subscriptions
+v4/api/graphql
+v4/graph
+# --- [ Standard & Common Endpoints ] ---
+/graph
+/v1/graph
+/v2/graph
+/api/graph
+/console/graphql
+/admin/graphql
+
+# --- [ Framework Specific (Apollo, Hasura, etc.) ] ---
+/v1alpha1/graphql
+/v1beta1/graphql
+/v1/internal/graphql
+/.well-known/graphql
+/hasura/v1/graphql
+/prisma
+/subgraph
+/explorer
+# --- [ Development & Debugging Tools ] ---
+# (هذه غالباً ما يكون الـ Introspection مفعلاً فيها تلقائياً)
+/graphiql.html
+/graphql-explorer
+/altair
+/voyager
+# --- [ Hidden & Deep Paths ] ---
+/api/v3/graphql
+/internal/graphql
+/cms/graphql
+/store/graphql
+/user/graphql
+/auth/graphql
+# --- [ Rare & Custom Prefixes ] ---
+/app/graphql
+/web/graphql
+/dev/graphql
+/stg/graphql
+/test/graphql
+/beta/graphql
+/mobile/graphql
+/remote/graphql
+# --- [ CMS & Platform Specific ] ---
+/wp-json/wp-graphql/v1/graphql   # WordPress (WPGraphQL)
+/admin/api/2023-04/graphql.json  # Shopify Admin API
+/api/2023-04/graphql.json        # Shopify Storefront API
+/content/graphql                 # Adobe Experience Manager
+/ghost/api/graphql/              # Ghost CMS
+/strapi/graphql                  # Strapi CMS
+/magento/graphql                 # Magento
+/v1/content/graphql              # Contentful
+# --- [ Cloud & Infrastructure Sync ] ---
+/appsync                        # AWS AppSync
+/hosted/graphql                 # Common for hosted services
+/sync/graphql                   # Real-time sync endpoints
+/events/graphql                 # Event-driven GraphQL
+# --- [ Obscure & Internal Naming ] ---
+/api/v2/query
+/graphql/console
+/graphql/admin
+/graphql/v1alpha
+/graphql/v1beta
+/api/gql
+/gql
+/gql/v1
+/gql/v2
+# --- [ Proxy & Gateway Paths ] ---
+/gateway/graphql
+/proxy/graphql
+/router/graphql                 # Apollo Router / Federation
+/federation/graphql
+/supergraph/graphql
+# --- [ Hidden Under Versions ] ---
+/api/2022-01/graphql
+/api/2022-04/graphql
+/api/2022-07/graphql
+/api/2022-10/graphql
+/api/2023-01/graphql
+/graphql.json
+/graphql.api
+/graphql.bin
+/graphql.jsp
+/graphql.aspx
+/graphql.ashx
+/graphql.do
+/graphql.action
+/api/functions/graphql
+/.netlify/functions/graphql
+/api/lambda/graphql
+/functions/graphql
+/workers/graphql
+/_next/data/graphql
+/trpc/graphql
+/management/graphql
+/service/graphql
+/core/graphql
+/data-api/graphql
+/bff/graphql        # (Backend-for-Frontend)
+/orchestrator/graphql
+/aggregator/graphql
+# --- [ Edge & Serverless Functions ] ---
+# --- [ File Extensions & Scripts ] ---
+/query.json
+/api.json
+# --- [ Architecture Specific ] ---
+/bff/graphql
+/gateway/v1/graphql
+/gateway/v2/graphql
+/internal/v1/graphql
+/api/v1/gql
+# --- [ Common Dev Folders ] ---
+/sandbox/graphql
+/demo/graphql
+/mock/graphql
+rpc_endpoint
+node_provider
+chain_id_src
+wallet_connect_uri
+peer_discovery_host
+downlink_source
+uplink_gateway
+telemetry_host
+orbit_calc_uri
+ground_station_id
+upstream_uri
+backend_host
+relay_path
+origin_server_url
+service_mesh_node
+# --- [ 2026 Critical Infrastructure & AI ] ---
+sat_config_path
+internal_api_endpoint
+quantum_gate_url
+neural_sync_host
+model_weights_uri
+inference_api_path
+dataset_stream_src
+local_stub_gateway
+/v3/graphql
+/graphql/v3
+/v1/gql
+/v2/gql
+/graphql-api
+/playground.html
+/api/query
+/appsync
+/apollo
+/federation
+/router/graphql
+/content/graphql
+/magento/graphql
+/ghost/api/graphql
+/wp-json/wp-graphql/v1/graphql
+/admin/api/graphql.json
+/api/2023-04/graphql.json
+/strapi/graphql
+/contentful/graphql
+/local/graphql
+/private/graphql
+/public/graphql
+/api/v1/api/graphql
+/api/v1/graph
+/api/v2/graph
+# --- [ 2026 Modern & Micro-Frontend Paths ] ---
+/api/v1/graphql/internal
+/api/v1/graphql/external
+/api/graphql/v1alpha
+/api/graphql/v2beta
+/graphql/federated
+/graphql/supergraph
+/graphql/subgraph
+/graphql/router
+/graphql/gateway
+# --- [ Platform & Framework Obscurity ] ---
+/hasura/graphql
+/v1alpha1/gql
+/v1beta1/gql
+/api/t-graphql
+/api/g-query
+/api/graph-api
+/api/graph-query
+/api/graphql-server
+/api/graphql-service
+# --- [ Versioned & Regional Endpoints ] ---
+/api/us/graphql
+/api/eu/graphql
+/api/asia/graphql
+/api/stage/graphql
+/api/production/graphql
+/api/internal-only/graphql
+/api/private-v1/graphql
+# --- [ Hidden Under Assets & Static Paths ] ---
+/static/graphql
+/assets/graphql
+/resources/graphql
+/data/graphql
+/lib/graphql
+/scripts/graphql
+/vendor/graphql
+# --- [ Deep Root & Common Typos (Used for Security) ] ---
+/g.php
+/g.json
+/g.api
+/gql.php
+/gql.json
+/gql.api
+/graphql-endpoint
+/graphql-internal
+/graphql-public
+/graphql-mobile
+/graphql-desktop
+/graphql-web
+# --- [ Microservices & Service Mesh ] ---
+/services/graphql
+/v1/services/graphql
+/v2/services/graphql
+/internal-api/graphql
+/external-api/graphql
+/api-gateway/graphql
+/edge-api/graphql
+/graphql-ingress
+/mesh/graphql
+# --- [ Localized & Regional Endpoints ] ---
+/us-east-1/graphql
+/eu-west-1/graphql
+/prod/graphql
+/staging/graphql
+/dev-api/graphql
+/testing/graphql
+/qa/graphql
+/local-api/graphql
+# --- [ Obscure & Typo-based (Legacy) ] ---
+/gql-api
+/graph-ql
+/graphqls
+/graphql_api
+/graphql-v1
+/graphql-v2
+/api-graphql-v1
+/api-graphql-v2
+/query-api
+/data-query
+# --- [ Specific Backend Frameworks ] ---
+/graph-api/v1.0
+/graph-api/v2.0
+/graphql/endpoint
+/graphql/server
+/graphql/service
+/graphql/proxy
+/graphql/handler
+/graphql/execute
+# --- [ Rare Prefixes ] ---
+/main/graphql
+/root/graphql
+/system/graphql
+/secure/graphql
+/private/api/graphql
+/public/api/graphql
+# --- [ Mobile & App Specific ] ---
+/api/mobile/graphql
+/api/app/graphql
+/mobile-api/graphql
+/v1/mobile/graphql
+/v2/app/v1/graphql
+/api/v1/mobile/gql
+# --- [ Container & Kubernetes Ingress ] ---
+/kube/graphql
+/cluster/graphql
+/node/graphql
+/ingress/graphql
+/service-mesh/graphql
+/istio/graphql
+# --- [ Obscure Paths from JS Reverse Engineering ] ---
+/gql/console
+/gql/playground
+/gql/explorer
+/graphql/v1beta1
+/graphql/v1alpha1
+/api/graphql/beta
+/api/graphql/dev
+# --- [ Legacy & Backup Endpoints ] ---
+/graphql_old
+/graphql_new
+/graphql_test
+/graphql_backup
+/graphql_v1_old
+/api/graphql_v2_dev
+# --- [ Random Developer Hacks ] ---
+/my-graphql
+/the-graph
+/graph-api-v1
+/graph-api-v2
+/graphql-gateway-v1
+/graphql-gateway-v2
+/api/v1/content/graphql
+/api/v1/catalog/graphql
+/api/v1/orders/graphql
+/api/v1/search/graphql
+/api/v1/checkout/graphql
+/api/v1/customer/graphql
+/api/v1/marketing/graphql
+/data-layer/graphql
+/query-layer/graphql
+/abstraction/graphql
+/unification/graphql
+/schema-stitcher/graphql
+/nexus/graphql
+/hasura-api/graphql
+/api/alpha/graphql
+/api/stable/graphql
+/api/legacy/graphql
+/api/experimental/graphql
+/api/internal-dev/graphql
+/api/partner/graphql
+/api/guest/graphql
+/ops/graphql
+/monitor/graphql
+/stats/graphql
+/metrics/graphql
+/audit/graphql
+/health/graphql
+/report/graphql
+/v1/query/graphql
+/v2/query/graphql
+/auth/v1/graphql
+/oauth/graphql
+/jwt/graphql
+/proxy/v1/graphql
+/api/proxy/graphql
+/gatekeeper/graphql
+/security/graphql
+/pwa/graphql
+/offline/graphql
+/cache/graphql
+/local-storage/graphql
+/sw/graphql
+/worker/v1/graphql
+/webhooks/graphql
+/callback/graphql
+/external/v1/graphql
+/partners/v1/graphql
+/integration/api/graphql
+/connect/graphql
+/api/g
+/api/q
+/v1/g
+/v1/q
+/gql/s
+/g-ql
+/graphql_svc
+/gql_api_v1
+/api/v1/internal/gql
+/api/v1/admin/gql
+/api/v1/dev/gql
+/api/v1/stg/gql
+/api/v1/prod/gql
+/api/v1/test/gql
+/api/v1/public/gql
+/api/v1/private/gql
+/v1/api/graph
+/v2/api/graph
+/api/v2/graphiql
+/api/v3/graphiql
+/api/v1/playground
+/api/v2/playground
+/api/v3/playground
+/mgmt/graphql
+/control/graphql
+/system/v1/graphql
+/device/graphql
+/iot/graphql
+/config/graphql
+/docs/graphql
+/swagger/graphql
+/redoc/graphql
+/api-docs/graphql
+/spec/graphql
+/v1/s/graphql
+/api/x/graphql
+/api/z/graphql
+/v1/internal/gql
+/api/private/gql
+/graphsql
+/graph_ql
+/graph-ql-api
+/graphql-endpoint-v1
+# --- [ Semantic & Human-Named Endpoints ] ---
+/api/v1/graphql/query
+/api/v1/graphql/mutation
+/api/v1/graphql/subscription
+/api/v1/graphql-admin
+/api/v1/graphql-public
+/api/v1/graphql-readonly
+/api/v1/graphql-internal
+/api/v1/graphql-mobile
+/api/v1/graphql-web
+# --- [ Architecture & Pattern Specific ] ---
+/api/graphql-gateway
+/api/graphql-router
+/api/graphql-proxy
+/api/graphql-orchestrator
+/api/graphql-aggregator
+/api/graphql-mesh
+# --- [ Developer Environments & Shorthands ] ---
+/api/v1/g-api
+/api/v1/q-api
+/api/v1/gql-api
+/api/v1/graph-api
+/api/v1/graph-service
+/api/v1/graph-endpoint
+# --- [ Third-Party & Integration Stubs ] ---
+/api/v1/external/graphql
+/api/v1/partner/graphql
+/api/v1/client/graphql
+/api/v1/integration/graphql
+/api/v1/third-party/graphql
+# --- [ Debugging & Obscure Tools ] ---
+/api/v1/graphql/debug
+/api/v1/graphql/console
+/api/v1/graphql/explorer
+/api/v1/graphql/playground
+/api/v1/graphql/visualizer
+/api/v1/graphql/introspection
+# --- [ Common typos & Variations ] ---
+/api/v1/graph-ql
+/api/v1/graph_ql
+/api/v1/gql_api
+/api/v1/g_ql
+/api/v1/graph-api-v1
+/api/v1/graph-api-v2
+# --- [ Direct File Access Patterns ] ---
+/api/v1/graphql.handler
+/api/v1/graphql.executor
+/api/v1/graphql.resolver
+/api/v1/graphql.controller
+# --- [ Project-Based & Cloud Auto-Gen ] ---
+/api/graphql-v1-stable
+/api/graphql-v1-alpha
+/api/graphql-v1-beta
+/api/graphql-endpoint-internal
+/api/graphql-endpoint-external
+/v1/graphql-custom
+/v1/graphql-secure
+/v1/graphql-authenticated
+# --- [ Naming by Function (BFF/Microservices) ] ---
+/api/bff-graphql
+/api/mobile-gateway/graphql
+/api/web-gateway/graphql
+/api/proxy-gateway/graphql
+/api/server-side-graphql
+/api/client-side-graphql
+/api/universal-graphql
+# --- [ Path Traversal Patterns (Deep Paths) ] ---
+/../../graphql
+/v1/../../graphql
+/static/../graphql
+/assets/../graphql
+/api/v1/schema/graphql
+/api/v1/metadata/graphql
+/api/v1/discovery/graphql
+# --- [ Obscure Framework Defaults ] ---
+/api/v1/nexus-graphql
+/api/v1/type-graphql
+/api/v1/pothos-graphql
+/api/v1/graphene-graphql
+/api/v1/ariadne-graphql
+/api/v1/strawberry-graphql
+# --- [ Random Developer Logic ] ---
+/api/v1/the-graph-api
+/api/v1/my-gql-endpoint
+/api/v1/hidden-gql
+/api/v1/secret-gql
+/api/v1/dev-only-gql
+/api/v1/test-only-gql
+/api/v1/internal-only-gql
+# --- [ Enterprise Service Bus & Middleware ] ---
+/api/v1/esb/graphql
+/api/v1/soap-to-gql
+/api/v1/rest-to-gql
+/api/v1/bridge/graphql
+/api/v1/connector/graphql
+/api/v1/adapter/graphql
+# --- [ Cloud-Native & K8s Sidecars ] ---
+/api/v1/sidecar/graphql
+/api/v1/proxy-sidecar/graphql
+/api/v1/envoy/graphql
+/api/v1/istio-proxy/graphql
+/api/v1/kong/graphql
+/api/v1/tyk/graphql
+# --- [ Multi-Tenant & SaaS Paths ] ---
+/api/v1/tenant/graphql
+/api/v1/organization/graphql
+/api/v1/workspace/graphql
+/api/v1/account/graphql
+/api/v1/sub-api/graphql
+# --- [ Developer Backdoors & Legacy Debugs ] ---
+/api/v1/maintenance/graphql
+/api/v1/emergency/graphql
+/api/v1/quick-test/graphql
+/api/v1/temp-api/graphql
+/api/v1/old-version/graphql
+/api/v1/deprecated/graphql
+# --- [ Random Suffix Variations ] ---
+/api/v1/graphql-endpoint-v1
+/api/v1/graphql-endpoint-v2
+/api/v1/gql-v1
+/api/v1/gql-v2
+/api/v1/graph-ql-v1
+/api/v1/graph-ql-v2
+/api/v1/graphql/internal-proxy
+/api/v1/graphql/admin-bypass
+/api/v1/graphql/read-only-replica
+/api/v1/graphql/write-node
+/api/v1/graphql/cluster-sync
+/api/v1/graphql/discovery-service
+/api/v1/graphql/node-exporter
+/api/v1/graphql/health-check
+/api/v1/graphql/metrics-export
+/api/v1/graphql/config-server
+X-GraphQL-Introspection: true
+X-Allow-Introspection: true
+X-GraphQL-Debug: 1
+X-Introspection-Auth: bypass
+X-Enable-GQL-Playground: true
+X-App-Env: development
+X-Force-Introspection: 1
+X-Internal-Request: true
+/api/v1/user/../graphql
+/static/../../graphql
+/v1/query?path=../../../graphql
+/cgi-bin/graphql.cgi
+/api/v1/.well-known/apollo/server-health
+/%67%72%61%70%68%71%6c                # URL Encoded (graphql)
+/%47%72%61%70%68%51%4c                # URL Encoded (GraphQL)
+/api/v1/graphql/..;/                  # Path Traversal Bypass
+/api/v1/graphql/.json                 # Extension Spoofing
+/graphql/                             # Trailing Slash Bypass
+//graphql//                           # Double Slash Bypass
+/./graphql/./                         # Dot bypass.
+/api/v1/internal/explorer
+/api/v1/stitching/graphql
+/api/v1/federation/query
+/api/v1/schema-registry/graphql
+/api/v1/management/console/graphql
+/api/v1/sandbox/gql
+/api/v1/lab/graphql
+/api/v1/playground/v1
+/api/v1/graphiql/v1
+?gql=1
+?graphql=true
+?debug=true
+?introspection=true
+?schema=true
+?show_schema=1
+?include=metadata
+?playground=1
+?explore=true
+# --- [ The 2026 Bypass Masterlist ] ---
+/api/v1/graphql?introspection=true
+/api/v1/graphql?debug=1
+/api/v1/graphql.json
+/api/v1/graphql.xml
+/api/v1/graphql.php
+/api/v1/graphql.ashx
+/api/v1/internal-api/graphql
+/api/v1/private-api/graphql
+/api/v1/dev-api/graphql
+/api/v1/test-api/graphql
+/api/v1/sandbox-api/graphql
+/api/v1/beta-api/graphql
+/.well-known/apollo/server-health
+/.well-known/graphql-config
+# --- [ Server-Side Rendering & Next.js/Nuxt ] ---
+/__nextjs_launch-editor
+/_nuxt/graphql
+/__nuxt_error
+/api/__graphql
+# --- [ Cloud & Edge Workers (Cloudflare/Netlify) ] ---
+/.netlify/functions/api
+/api/edge/graphql
+/api/worker/graphql
+# --- [ Service Discovery & Mesh (Consul/Etcd/Istio) ] ---
+/v1/catalog/service/graphql
+/v1/kv/graphql
+/v1/agent/self/graphql
+/istio-system/graphql
+/envoy.admin/graphql
+# --- [ Hidden API Versions (Experimental) ] ---
+/api/v0/graphql
+/api/v0.1/graphql
+/api/v1.1/graphql
+/api/v2.1/graphql
+/api/canary/graphql
+/api/unstable/graphql
+# --- [ Third-Party CMS Endpoints (Contentful/Strapi/Ghost) ] ---
+/ghost/api/v3/content/graphql
+/ghost/api/v4/content/graphql
+/admin/plugins/graphql
+/wp-json/wp-graphql/v1/query
+/graphql..;/
+/graphql/./
+/graphql/.
+/graphql/index.php
+/graphql?
+/graphql??
+/graphql/
+/graphql%20
+/graphql%09
+/%20/graphql
+/.;/graphql
+/static/..;/graphql
+/api/v1/../../graphql
+ws://target.com/graphql
+wss://target.com/graphql
+ws://target.com/subscriptions
+wss://target.com/subscriptions
+ws://target.com/v1/graphql
+ws://target.com/api/graphql
+/graphql/schema
+/graphql.schema
+/schema.graphql
+/schema.json
+/api/graphql/schema.json
+/api/v1/schema.json
+/model.json
+/api/v1/proxy/namespaces/default/services/graphql-service:http/
+/api/v1/namespaces/kube-system/services/graphql:8080/proxy/
+/api/v1/nodes/node-name/proxy/graphql
+/api/v1/pods/pod-name/proxy/graphql
+/graphql/..;/..;/config
+/graphql/..%2f..%2fconfig
+/api//v1//graphql
+/graphql?.js
+/graphql#.js
+/graphql/index.json
+/graphql/index.html
+/api/v1/canary-graphql
+/api/v1/blue-graphql
+/api/v1/green-graphql
+/api/v1/experimental-query
+/api/v1/feature-flag/graphql
+/api/v1/dark-launch/graphql
+/api/v1/graphql/debug?introspection=1
+/api/v1/graphql/admin?debug=true
+/api/v1/graphql/sandbox?env=dev
+/api/v1/graphql/test?internal=1
+/api/v1/graphql/internal?auth=none
+/api/v1/graphql/private?bypass=true
+/api/v1/graphql/beta?access=all
+/api/v1/graphql/stg?trace=true
+/api/v1/graphql/local?local=1
+/api/v1/graphql/dev?config=show
